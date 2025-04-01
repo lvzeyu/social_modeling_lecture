@@ -45,13 +45,10 @@ jobs:
             fi
           done
 
-      - name: Create Jekyll configuration
+      - name: Convert README.md to index.html
         run: |
-          echo "title: Homepage" > output/_config.yml
-          echo "markdown: kramdown" >> output/_config.yml
-
-      - name: Copy README.md as index.md
-        run: cp README.md output/index.md
+          sudo apt-get install -y pandoc
+          pandoc README.md -o output/index.html --metadata title="Home"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
