@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: 'lts/*'
 
-      - name: Setup @antfu/ni
+      - name: Install dependencies
         run: npm i -g @antfu/ni
 
       - name: Create output directory
@@ -44,6 +44,14 @@ jobs:
               cd ..
             fi
           done
+
+      - name: Create Jekyll configuration
+        run: |
+          echo "title: Homepage" > output/_config.yml
+          echo "markdown: kramdown" >> output/_config.yml
+
+      - name: Copy README.md as index.md
+        run: cp README.md output/index.md
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

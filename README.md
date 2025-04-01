@@ -9,4 +9,4 @@
 
 ### 1.イントロダクション
 
-- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture1/1](https://lvzeyu.github.io/social_modeling_lecture/lecture1/1)
+- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture1/1](https://lvzeyu.github.io/social_modeling_lecture/lecture1/)
