@@ -30,7 +30,7 @@ mdc: true
 # 社会科学におけるモデル入門
 
 
-イントロダクション
+モデリングの概要
 
 ### 呂沢宇
 
@@ -53,23 +53,42 @@ The last comment block of each slide will be treated as slide notes. It will be 
 transition: fade-out
 ---
 
-# 授業の概要
+# データ分析とモデル
 
-社会科学の観点からモデルとモデリングの基本的な概念および方法論について学ぶ
+人間に認知限界とデータ分析
 
-- 📝 モデルとモデリングの考え方を把握する.
-    - そもそも**モデル**ってなに?
-    - モデリングで何かできるのか
+- 人間は様々の情報を処理して世の中を理解・制御している
+    - 対象となるものの振る舞いが複雑すぎると、直感的な理解や制御が及ばない場合がある
+> 対象から情報(**データ**)を取得して、それを分析することによって、その対象がどのようなメカニズム・ルールで働いているのかを客観的に理解・制御しようとするのが**データ分析**である。
 
-- 例：ニュートンの運動方程式($F=ma$)は物体の運動を説明している 
-    - 現実の複雑な運動を簡単な数学的関係に落とし込む
-    - 条件を与えることで、未来の状態を予測できる
+<div style="text-align: center;">
+```mermaid {theme: 'neutral', scale: 1}
+classDiagram
+direction LR
 
-- 日常生活にも無意識のうちに「モデル」を使っている
-    - 例：日常のルーティンをまとめるとき、すべての細かい行動を記録するのではなく、重要で典型的なものを抽象化して整理する
+class 対象 {
+  生物現象
+  物理現象
+  社会現象
+  人間行動
+}
 
-<br>
-<br>
+class データ {
+  多次元
+  複雑な構造
+  データの不足
+}
+
+対象 --> データ : 観測
+データ --> 対象 : 生成ルールを推測
+
+```
+</div>
+
+<p v-click style="color: #3E1586; font-size: 1.5em; text-align: center;">
+  データを眺める以上の分析が必要ならモデルの出番
+</p>
+
 
 <style>
 h1 {
@@ -87,20 +106,32 @@ h1 {
 transition: fade-out
 ---
 
-# 授業の概要
+# モデルの役割
 
-社会科学の観点からモデルとモデリングの基本的な概念および方法論について学ぶ
+なぜモデルなのか
 
-- 🏙️ 社会科学における**社会シミュレーション**という手法の位置付け
-    - 人間行動と社会シミュレーションとは?　→　Agent-Based Models(ABMs)を中心に紹介
-    - 社会科学における社会シミュレーションの理論基盤 → コールマン：ミクローマクロ　リンク
-    - シミュレーションモデルの表現と記述
-    - シミュレーションの基本要素と構成
-- 🧑‍💻 モデルを用いて社会現象や人間行動の分析に応用する能力を身につける.
-    - ある社会現象を理解・解釈する際には適切なモデルを選出
-    - 分析対象の特徴に応じて既存の(基盤)モデルを適切に改装
-<br>
-<br>
+- モデルでは、対象のデータの生成ルールを模擬したものである。
+    - 実際の分析対象では、自由にデータを生成したり、内部条件を変えて操作したりすることは普通できません
+- 同じような振る舞いをするモデルを作ってしまえば、様々の用途がある
+    - 形式では、数学やコンピュータープログラムなどの形式言語を書けるようなものである
+    - 考えを伝えや理解するため
+    - 予測や可能性を掘り下げる
+
+<div style="text-align: center;">
+```mermaid {theme: 'neutral', scale: 1}
+stateDiagram
+    direction LR
+
+    state 分析対象
+    state データ
+    state モデル
+
+    分析対象 --> データ : 観測
+    モデル --> データ : 生成
+    データ --> モデル : 生成ルールを推測
+    モデル --> 分析対象: 真似する
+```
+</div>
 
 <style>
 h1 {
@@ -119,23 +150,21 @@ Here is another comment.
 
 ---
 transition: fade-out
+level: 1
 ---
 
-# 授業の構成
+# モデルのタイプ
 
-社会科学における典型なモデルを学ぶ
+- **具現化のアプローチ(Embodiment Approcah)**
+    - モデルには重要な構成要素が含まれ、不要な次元や属性を取り除くか一つにまとめることで、実際の現象を忠実に再現することを目的とする
+    > 気象モデル: 天候を予測するための数値シミュレーションでは、大気の流れ、温度、湿度などの重要な変数を考慮し、風速や降水量の予測を行う    
 
-- **社会の自己組織化**
-    - 個々の人々や集団が独立に行動することで、結果的に社会全体の秩序や構造が形成される
-    - （人種による隔離を説明する）シェリングの住み分けモデル ([Schelling, 1971](https://www.suz.uzh.ch/dam/jcr:00000000-68cb-72db-ffff-ffffff8071db/04.02%7b_%7dschelling%7b_%7d71.pdf); [Erez Hatna & Benenson, 2012](https://www.jasss.org/15/1/6.html))
+- アナロジーアプローチ(Analogy Appraoch)
+    - 現実のシステムを抽象化し、別のよく理解されたシステムとの類似性を活用することで、モデリングを行う
+    > 例：情報の拡散は病気のようにモデリングできる；生物の進化論で制度や文化の進化に応用
 
-<div style="display: flex; justify-content: center;">
-  <img src="./image/schelling.gif" width="300" />
-</div>
-
-
-<br>
-<br>
+- 代替現実アプローチ(Alternative Appraoch)
+    - 現実とは異なる仮定のもとでモデルを構築し、実際には観測できない可能性やシナリオを探求することを目的とする
 
 <style>
 h1 {
@@ -148,31 +177,387 @@ h1 {
 }
 </style>
 
+---
+transition: slide-up
+level: 2
+---
+
+# モデルのタイプ
+
+アナロジーアプローチ
+
+- 特定の対象を直接的にモデル化することは難しい場合、すでに理解されている別のシステムと類似点を見出し、それを活用してモデリングを行う
+
+> 問題：牛の革の量を推定するために、牛の体表面積を求めなさい
+
+- 扱いにくい問題：牛は複雑な形状をしており、体の各部位ごとの曲率や凹凸が存在するため、正確な体表面積の計算が難しい
+- 既に理解しているシステム：球体の表面積は公式で簡単に計算できる
+- 牛全体をひとつの球体とみなす
+    - 牛の代表的な寸法（例えば、体長や幅）から「平均的な半径$r$」を定める
+- 球体の表面積公式で牛全体の革面積の近似値とする
+- 切断ロスや余裕部分、部分的な重なりなどを考慮し、後に補正係数を適用する
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: slide-up
+level: 2
+---
+
+# アナロジーアプローチ
+
+簡単的なモデルでも色々な問題に応用できる：囚人のジレンマを例として
+
+- 囚人のジレンマモデル
+    - **ゲーム理論**における有名な非協力ゲーム
+    - 2人の囚人が**協力**するか**裏切る**かを選択する状況
+
+|  | 囚人Bが協力 | 囚人Bが裏切る |
+|---|---|---|
+| **囚人Aが協力** | (−1, −1) | (−3, 0) |
+| **囚人Aが裏切る** | (0, −3) | (−2, −2) |
+
+- **協力**: 2人とも1年間の懲役
+- **裏切り**: 裏切った方は釈放、裏切られた方は3年間の懲役
+- **相互裏切り**: 2人とも2年間の懲役
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# アナロジーアプローチ
+
+簡単的なモデルでも色々な問題に応用できる：囚人のジレンマを例として
+
+|  | 囚人Bが協力 | 囚人Bが裏切る |
+|---|---|---|
+| **囚人Aが協力** | (−1, −1) | (−3, 0) |
+| **囚人Aが裏切る** | (0, −3) | (−2, −2) |
+
+- 各囚人は**個別の最適戦略**として「裏切る」選択をする
+  - もし囚人Bが協力すると考えるなら、囚人Aは「裏切る」ことで0年の懲役となり有利
+  - もし囚人Bが裏切ると考えるなら、囚人Aが「協力」すると3年、裏切ると2年の懲役となるため「裏切る」方が有利
+  - どちらのケースでも「裏切る」方が懲役が短くなるため、囚人Aは合理的に「裏切る」を選択
+  - 囚人Bも同様に考えるため、結果として両者が「裏切る」を選び、(−2, −2) となる
+- もし**協力**していれば (−1, −1) の方が良かったのに(社会的最適)、達成できない
+
+
+<p v-click style="color: #3E1586; font-size: 1.5em; text-align: center;">
+  個々の合理的選択が全体として非効率な結果を招くことを説明できる
+</p>
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# アナロジーアプローチ
+
+簡単的なモデルでも色々な問題に応用できる：囚人のジレンマを例として
+
+色々な社会現象を囚人のジレンマのように表現し、アナロジーアプローチで分析することができる
+
+- 企業間の価格競争
+    - 競合する企業同士が価格を下げることで市場シェアを拡大しようとする場合、双方が値下げを行うと利益が減少
+    - 一方のみが値下げすると、その企業が市場シェアを獲得できる
+    - 両社ともに値下げを選択し、結果として双方の利益が減少する
+
+- 環境問題における国際協力
+- 日用品の買い占め
+
 <!--
-Here is another comment.
+各国が環境保護のために協力することが望ましいものの、各国は自国の経済成長を優先し、環境対策を怠る可能性があります。全ての国が協力すれば環境改善が期待できますが、一部の国が協力を怠ると、全体の環境対策が効果を失うことになります。
+災害時などにおいて、個人が必要以上に物資を買い占めると、他の人々が必要な物資を入手できなくなります。全員が冷静に行動すれば物資は行き渡りますが、他者が買い占めることを恐れて自らも買い占めに走ると、結果として全体の物資不足が深刻化します。
 -->
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: slide-up
+level: 2
+---
+
+# アナロジーアプローチ
+
+アナロジーアプローチの観点からモデリングの勉強の注意点
+
+- 異なる社会現象でも共通のメカニズムで考えられる
+- 典型的なモデルでは多様な社会現象の説明に活用できる
+    - 典型的なモデルの本質的な考え方を把握
+    - モデルの転移可能性に常に意識
+- 対象や文脈に応じて拡張する必要性
+    - 例:繰り返しゲームへの拡張
+        - 国家間の協力や企業間競争の分析には、単発の意思決定だけでなく、繰り返しの対話がある状況（長期的な競争・協力関係）に拡張する
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
 
 ---
 transition: fade-out
+level: 1
 ---
 
-# 授業の構成
+# モデリングの目的
 
-社会科学における典型なモデルを学ぶ
+- **推論**: 条件を明確し、論理的に内包される意味を導び出す
+- **理解**: 経験的な現象に(検証可能な)説明を与える
+    - 「データの生成過程をある程度捉えているだろうから、そのモデルを調べてやれば理解につながるはずである」ということを前提とする
+- **予測**: モデルを作った時に使ったデータとは異なる状況において、なんらかの情報を当てること
+- **探索**: 可能性を探り、仮説を精査する
 
 
-- **社会における意見ダイナミックのモデリング**
-    - Threshold model ([Granovetter, 1978](https://www.journals.uchicago.edu/doi/10.1086/226707); [Watts, 2002](https://www.pnas.org/doi/10.1073/pnas.082090499))
-    - Voter Model
-    - Bounded Confidence Model([Rainer & Krause, 2002](https://www.jasss.org/5/3/2.htmls))
-    - 他に発展的なモデル（特にオンラインにおけるの意見分極化について）
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
 
-<div style="display: flex; justify-content: center;">
-  <img src="./image/opinion_dynamic.jpg" width="500" />
+---
+transition: fade-out
+level: 2
+---
+
+# モデリングの例
+
+自然渋滞の問題
+
+- モデルはデータを説明できるということは、モデルを作るときに仮定したモデル構造が正しかった(可能性が高い)
+
+- 自然渋滞：高速道路では、事故でもないのに自然に渋滞が発生する
+    - なぜ自然渋滞が発生するのか?
+
+
+<div class="grid grid-cols-2 gap-4 mt-8">
+  <img src="./image/traffic1.jpg" class="w-full rounded shadow" />
+  <img src="./image/traffic2.jpg" class="w-full rounded shadow" />
 </div>
 
-<br>
-<br>
+> <p v-click>濃い黒色のクルマは、自分の前にスペースがなかったために、1秒前の時点から動けなかったクルマを表している。</p>
+
+> <p v-click>道路上のクルマの数が増えて密度が高くなると、動けないクルマが出てくる。つまり、渋滞が発生することになる。</p>
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: fade-out
+level: 2
+---
+
+# モデリングの例
+
+自然渋滞のモデリング
+
+> 車間が詰まってくるほど遅い速度に調整
+
+> 車間距離が十分に長ければ一定の最高速度に調整
+
+- それぞれの車の動き（加速度）を方程式で表してみる(モデル化)
+   - 最適速度モデル：ドライバが車間距離に応じてアクセル・ブレーキ(車の加速度)を操作する様子を数式で定義する
+
+$$
+\frac{dv_i}{dt} = a \left( V(h_i) - v_i \right)
+$$
+
+- $v_i$ : 車両 $i$ の速度
+- $h_i = x_{i-1} - x_i$ : 前方車両 $i-1$ との車間距離
+- $x_i$ : 車両 $i$ の位置
+- $V(h)$ : 最適速度関数（ここで、$h_i$に応じて何らかの形で車両が取りたい速度を決めると思って良い）
+- $a$ : 速度調整の応答係数（運転者の反応速度に関係）
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: fade-out
+level: 2
+---
+
+# モデリングの考察
+
+モデルによる推論
+
+- 自然渋滞のモデリングに従って、仮想的な車たちを動かしてみることができる[(demo)](https://kaityo256.github.io/ov_model/)
+    - 結果的には、モデルの中でも自然に渋滞が発生
+  
+- モデルで仮定した数理構造(車の速度の変化させた)から対象としている現象を再現することができる
+    - 「モデルは自明なことを言い直しているだけ」?
+    - モデルの推論が、「条件$A$が満たされれば結果$B$が伴う」というように、**条件付き**の形を取っている
+
+- 論理は主張が正しくなる条件を暴き出す
+    - 同じ問題に対して相反する論述は、どちらでも正しそうに見えるそう場合もある
+        - 「三人寄れば文殊の知恵」ー「船頭多くして船山に上る」  
+    - モデルは前提を設けた上で定理を証明する
+        - 相反する予測結果や説明がバラバラだったり定理は、前提が異なるため
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: fade-out
+level: 2
+---
+
+# モデリングの考察
+
+モデルによる説明
+
+- モデルは経験的現象に明快で論理的説明を与える
+    - モデル構造から説明する方法では、モデルを作るときに仮定して良いと思われる経験事実・観測事実からボトムアップ的に論理を構成する
+
+- モデルは、直感と一致する結果も反直感的な結果もともに説明できる
+
+<div class=" bg-gray-200 p-4 rounded">
+需要と価格の関係モデル：需要が増えると価格が上がる
+
+- 商品需要のが上昇すると、短期的に価格も上昇する
+- 長期的に見れば、需要の増加は価格を低下させることもある: 需要の増加は、大量生産の効果のため価格の低下を引き起こす
+</div>
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+---
+transition: fade-out
+level: 2
+---
+
+# モデリングの考察
+
+モデルによる予測と探索
+
+- モデルは、個別の事象も全体的傾向も予測できる
+- モデルの予測と説明には密接な関係がある
+    - 説明が予測を補強する
+    - 予測が説明を検証する
+    - 説明なしで予測できる場合もある
+        - Deep Learning Model
+
+- モデルは直感や可能性を探るために使われる
+    - モデルのパラメータに仮想的に現実の状況とはあえて異なる値を入れるものの振る舞いをシミュレートする
+
+<!--
+仮想的に現実とは異なるパラメータ（例えば、道路の容量を意図的に小さく設定する、特定の時間帯の交通量を極端に増加させる）を与えることで、渋滞がどのように発生し、どのように拡大するかを観察できます。これにより、モデルの挙動や実際の交通状況に対する理解が深まります。
+-->
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: fade-out
+level: 2
+---
+
+# 推定したパラメータの値から説明する方法
+
+睡眠時間と仕事パフォーマンスの関係に関するモデリング
+
+- 自然渋滞のモデリングに従って、仮想的な車たちを動かしてみることができる[(demo)](https://kaityo256.github.io/ov_model/)
+    - 結果的には、モデルの中でも自然に渋滞が発生
+    - モデルで仮定した数理構造(車の速度の変化させた)から対象としている現象を再現することができる
+    - このモデルをさらに分析すると、「渋滞が発生する時には、車の速度の変動が後ろの車に伝わっていくにつれて拡大する」という論理的な説明や、渋滞が発生する混雑条件などが明らかになる
+
+- 現象が説明されたとして、そのモデルを構成するすべでの要素が正しいとは言えません
+    - モデルの定義に不適切な要素が含まれると、結果の解釈のしやすさやモデルの妥当性に悪い影響を与える
+    - モデル構造から説明する方法では、モデルを作るときに仮定して良いと思われる経験事実・観測事実からボトムアップ的に論理を構成する
+        - どのような仮定を置くのかに注意する必要がある
 
 <style>
 h1 {
