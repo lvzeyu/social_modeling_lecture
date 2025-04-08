@@ -15,4 +15,4 @@
 
 モデリングとは何か、それらの分析によって何か可能になるのかについてを概観する。
 
-- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture2/](https://lvzeyu.github.io/social_modeling_lecture/lecture2/20)
+- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture2/](https://lvzeyu.github.io/social_modeling_lecture/lecture2/)
