@@ -9,4 +9,10 @@
 
 ### 1.イントロダクション
 
-- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture1/1](https://lvzeyu.github.io/social_modeling_lecture/lecture1/)
+- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture1/](https://lvzeyu.github.io/social_modeling_lecture/lecture1/)
+
+### 2. モデリングの概要
+
+モデリングとは何か、それらの分析によって何か可能になるのかについてを概観する。
+
+- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture2/](https://lvzeyu.github.io/social_modeling_lecture/lecture2/20)
