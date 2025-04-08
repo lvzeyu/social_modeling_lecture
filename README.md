@@ -13,6 +13,6 @@
 
 ### 2. モデリングの概要
 
-モデリングとは何か、それらの分析によって何か可能になるのかについてを概観する。
+モデリングとは何か、そしてその分析によって何が可能になるのかを概観することで、モデリングのイメージを掴んでいただきたい。
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture2/](https://lvzeyu.github.io/social_modeling_lecture/lecture2/)
