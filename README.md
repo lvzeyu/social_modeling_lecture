@@ -1,6 +1,7 @@
 # 行動科学概論：社会科学におけるモデル入門
 
 本授業では、社会科学の観点からモデルとモデリングの基本的な概念および方法論について学ぶ。
+
 - モデルとモデリングの考え方を把握する.
 - 基本の社会科学モデルを理解できるようになる.
 - モデルを用いて社会現象や人間行動の分析に応用する能力を身につける。
@@ -16,3 +17,7 @@
 モデリングとは何か、そしてその分析によって何が可能になるのかを概観することで、モデリングのイメージを掴んでいただきたい。
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture2/](https://lvzeyu.github.io/social_modeling_lecture/lecture2/)
+
+### 3. 社会と人間行動のモデリング
+
+- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture3/](https://lvzeyu.github.io/social_modeling_lecture/lecture3/)
