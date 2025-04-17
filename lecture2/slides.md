@@ -740,10 +740,10 @@ h1 {
 
 ---
 transition: fade-out
-level: 2
+level: 1
 ---
 
-# モデリングの考察
+# まとめ
 
 モデルの軸
 
@@ -779,7 +779,7 @@ transition: fade-out
 level: 2
 ---
 
-# モデリングの考察
+# まとめ
 
 注意: 説明力があるモデル $\neq$ 真のモデル 
 
@@ -790,6 +790,58 @@ level: 2
         - どのような仮定を置くのかに注意する必要がある
         - 単純化しすぎていないか
         - 他の解釈可能性を排除していないか
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: fade-out
+level: 2
+---
+
+# まとめ
+
+モデルの思考に慣れるように
+
+- 抽象化：本質的な要素を抜き出す
+- 前提を明示する: 「何を仮定するか」によって、モデルの構造も結果も変わることを意識する
+- 因果を構造でとらえる: 結果から逆に構造を推測したり、「なぜそうなるのか」を関係で捉える
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: fade-out
+level: 2
+---
+
+# 練習問題
+
+- 練習問題1
+    - 雨の日に電車が遅れるのはなぜか?
+
+
+- 練習問題2
+    - ある保育園では、迎え時間に遅れてくる保護者が増えてきたことから、遅刻に対して罰金を課すルールを導入しました。それによって遅刻の問題を解決できると思いますか？
 
 <style>
 h1 {
