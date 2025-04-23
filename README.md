@@ -20,4 +20,6 @@
 
 ### 3. 社会と人間行動のモデリング
 
+社会学における「社会シミュレーション」という手法の位置づけを明確にするために、その実現手段として提唱されているエージェント・ベース・モデル（Agent-Based Model：ABM）の基本概念を説明する
+
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture3/](https://lvzeyu.github.io/social_modeling_lecture/lecture3/)
