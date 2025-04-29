@@ -23,3 +23,9 @@
 社会学における「社会シミュレーション」という手法の位置づけを明確にするために、その実現手段として提唱されているエージェント・ベース・モデル（Agent-Based Model：ABM）の基本概念を説明する
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture3/](https://lvzeyu.github.io/social_modeling_lecture/lecture3/)
+
+### 4. Agent Based Model (ABM)の紹介
+
+Agent Based Model (ABM)の概念、要素、構成と検証について詳細に説明する
+
+- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture4/](https://lvzeyu.github.io/social_modeling_lecture/lecture4/)
