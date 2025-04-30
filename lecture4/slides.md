@@ -586,3 +586,37 @@ h1 {
   -moz-text-fill-color: transparent;
 }
 </style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# まとめ
+
+- ABMの実装は、エージェントの属性や行動、環境、相互作用、スケジュールの定義といった中心的な構成要素から成り立っている
+
+- ABMを体系的に記述・報告するには、ODDプロトコルに基づくことが求められる
+    - あるモデルを理解する際にも、ODDプロトコルにおいて提示される各項目を確認することが推奨される
+
+-  ABMの解析は、多様なシナリオと繰り返し実行による統計的手法を用いて、モデルの妥当性と頑丈性を検証することが一般である
+
+<v-clicks depth="2">
+
+- **課題**: ODDプロトコルでエル・ファロルモデル(複数戦略リストを持つ場合)を記述・説明しなさい
+
+</v-clicks>
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
