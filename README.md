@@ -29,3 +29,9 @@
 Agent Based Model (ABM)の概念、要素、構成と検証について詳細に説明する
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture4/](https://lvzeyu.github.io/social_modeling_lecture/lecture4/)
+
+### 5. シェリングの分居モデル
+
+シェリングの分居モデルについて紹介する
+
+- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture4/](https://lvzeyu.github.io/social_modeling_lecture/lecture4/)
