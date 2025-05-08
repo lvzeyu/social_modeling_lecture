@@ -20,21 +20,25 @@ drawings:
 transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
+
 ---
 
-# Welcome to Slidev
+## 行動科学概論
+ 
+# 社会科学におけるモデル入門
 
-Presentation slides for developers
+
+Opinion Dynamics: Granovetter's threshold model
+
+### 呂沢宇
 
 <div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
   Press Space for next page <carbon:arrow-right />
 </div>
 
 <div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
+
+  <a href="https://github.com/lvzeyu/social_modeling_lecture" target="_blank" class="slidev-icon-btn">
     <carbon:logo-github />
   </a>
 </div>
@@ -44,34 +48,433 @@ The last comment block of each slide will be treated as slide notes. It will be 
 -->
 
 ---
-transition: fade-out
+transition: slide-up
+level: 2
 ---
 
-# What is Slidev?
+# 背景
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+More Is Different (量が多いことは質の違いを生む)
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
+<v-clicks depth="2">
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
+- 「More Is Different」は１９７２年にAndersonがScience誌に発表した[エッセイ](https://solid-mater.com/entry/more)のタイトルである。
+
+> P. W. Anderson．１９７７年のノーベル物理学賞受賞者にして、最も創造性の高い物理学者と呼ばれるなど、二十世紀を象徴する理論物理学者である
+
+- 還元主義(Reductionist)という考え方
+    - この世界の全てはある基本法則に基づいて決められている
+        - 物理学の基本的な粒子(素粒子)を理解すれば、物理、化学や生物学全ての現象が自動的に理解可能になる
+
+- 還元主義に対する批判
+    - スケールの違いによる本質的な違い: 「量的な差異（More）」は単なる量の増加ではなく、「質的な差異（Different）」をもたらす
+    - 創発（Emergence）の重要性: 個々の要素の単純な相互作用が、より高次のレベルで「質的に新しい現象」を生み出すことがあり、それらは要素の性質から直接的に予測・説明できない
+</v-clicks>
+
 
 <style>
 h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# 背景
+
+Complexity Science (複雑系科学)
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks depth="2">
+
+- 自然や社会の様々な現象や構造には，多数の分散した構成要素の相互作用によって継続的に発展する「複雑系」としての性質がある
+    - 多数の小さな要素とそれを含む大きな要素の関係に現れる「**創発**」
+    - 系の時間的発展の中に現れる「**自己組織化**」
+    - 現象の数理モデル・計算モデルを創り計算機内で動かして理解する「**構成的手法**」を用いて，複雑系を理解する
+        - 要素間の相互作用がシステムの挙動を決めるため、個々の要素だけを見ても全体の挙動を完全には予測できない
+</v-clicks>
+
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/nature2.png" width="600" />
+</div>
+
+</div>
+
+</div>
+
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# 背景
+
+複雑系としての人間社会
+
+
+<v-clicks depth="2">
+
+- 社会科学が対象とする複雑現象には非線形な相互作用が存在し，系全体として創発的な振舞いを示す
+- Interaction-induced collective behavior: 相互作用の強さやパターンによって、個々の行動の単純な総和とは異なる「集団レベルの現象」が創発する
+    - 自然渋滞モデル；個々の車の小さなブレーキや速度調整が積み重なることで、渋滞パターンが発生する
+    - Schelling's model: 個々のエージェントのわずかな非寛容さが相互作用を繰り返すうちに、都市やコミュニティ全体の大規模なセグリゲーションを生む。
+- Diversity-induced collective behavior: 個々人の属性や性質の「ばらつき（多様性）」が存在することで、全体としてのマクロな挙動が創発される
+    - **Granovetter's threshold model**: 個々人の属性（意見や閾値）の差による、社会運動や流行が発生しやすくなる現象を説明
+</v-clicks>
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+単純な意思決定から見る集団的行動
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks depth="3">
+
+デモや抗議運動などに参加することを例で考えなさい
+- 個人が単純な二値的（binary）的な意思決定を行う：「デモに参加する」／「デモに参加しない」
+    - 社会的影響（Social Influence）：個人の態度や行動が、他者からの影響によって変化する（説得、同調、服従など）
+- 各個人の持つ「閾値（threshold）」という概念が導入される
+    - 「自分以外に何人以上の人がデモに参加していれば、自分も参加する」という基準
+
+</v-clicks>
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/demo.png" width="600" />
+</div>
+
+</div>
+
+</div>
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+Diversity-induced collective behavior
+
+
+
+<v-clicks depth="3">
+
+- 研究関心：人々の選好（＝閾値）の分布が集団行動にどのように影響する
+    -  個々人の選好を知っていても、直接的には集団全体の振る舞いを予測できないはず
+        - 一人ひとりの選好を単純に合計するではなく、他者の行動との相互作用を通じて非線形的に影響している
+    - 「代表的な平均的個人（mean member）」の特性だけではなく、集団内の異質性（heterogeneity）や多様性（diversity）がどのように全体の行動に影響を与えるかを把握する
+
+</v-clicks>
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+モデルの仮定
+
+
+<v-clicks depth="3">
+
+集団行動への参加決定は、コストと利得という二つの要素によって決められる
+
+- 参加に伴うコスト
+    - デモへの参加による逮捕・拘束のリスク
+    - 時間や経済的なコスト
+
+- 参加に伴う利得
+    - デモ成功による制度的変化
+
+</v-clicks>
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+モデルの仮定
+
+<div grid="~ cols-2 gap-4">
+  <!-- 左側のテキスト部分 -->
+  <div>
+    <v-clicks>
+      <ul>
+        <li><strong>Net benefit = 利得（Benefit）− コスト（Cost）</strong></li>
+        <li>個人が集団行動に参加するかどうかは、Net benefit によって決まる。
+          <ul>
+            <li><code>Net benefit &gt; 0</code> の場合、個人は行動に参加する。</li>
+            <li><code>Net benefit ≤ 0</code> の場合、個人は行動に参加しない。</li>
+          </ul>
+        </li>
+      </ul>
+    </v-clicks>
+  </div>
+
+  <!-- 右側の画像部分 -->
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <img src="./image/Benefit.png" width="600" />
+  </div>
+</div>
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+モデルの動き
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks depth="3">
+
+- エージェント数：100人  
+- 閾値（threshold）は 0〜99 の一様分布（整数）  
+- 最初のエージェントが行動を開始し、それをトリガーに次々と参加  
+- 各ステップで1人ずつ行動に参加し、最終的に全員が参加する  
+
+</v-clicks>
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/Riot1.svg" width="600" />
+</div>
+
+</div>
+
+</div>
+
+カスケード(cascade): 階段状に水が流れ落ちていく滝のように、ある個人または少数の個体の行動や選択の影響が連鎖的に他者へと広がっていく現象
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+モデルの動き
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks depth="3">
+
+- 基本設定はバージョン1と同じ  
+- ただし、閾値が $1$ と $3$ のエージェントが $2$ に変更された  
+- 最初のエージェントは行動を開始するが、他の誰も続かず終了  
+    - 一部のエージェントの閾値が少し高くといった小さい変更だけで、連鎖がが途中で止まってしまった
+</v-clicks>
+
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/Riot2.svg" width="600" />
+</div>
+
+</div>
+
+</div>
+
+<v-clicks depth="3">
+
+- カスケードを生み出すには、十分な数の低閾値エージェントが必要
+    - 行動が広がるか否かは、平均的な傾向ではなく、「どこに低閾値の人がいるか（分布の構造）」に強く依存する　→　マイクロな条件の重要性
+</v-clicks>
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+閾値の分布
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks depth="3">
+
+- $r(t)$ は時点 $t$ におけるアクティブなエージェント数
+    - 例えば、デモに参加している人の数
+     - $r(0)$：初期の「先導者（instigator）」の数
+
+- $F(x)$ は閾値の累積分布関数を表す
+  $$
+  F(x) = P(\Theta_i < x)
+  $$
+    - 潜在的参加者を表す
+
+
+- シミュレーションの均衡状態：
+  $$
+  r_e = F(r_e)
+  $$  
+
+</v-clicks>
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/CDF.png" width="600" />
+</div>
+
+</div>
+
+</div>
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
   background-size: 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -81,556 +484,505 @@ h1 {
 </style>
 
 <!--
-Here is another comment.
+- 横軸: 行動に参加している人の割合（例: デモに参加している人の割合）
+- 縦軸（y軸）: 閾値がx以下の人の割合、つまり「今の参加率で参加する人の割合」→ その割合を見て「自分も行動に参加しよう」と判断する人の割合（つまり潜在的参加者）
+- 曲線：累積分布関数F(x)は、各値x 以下の閾値を持つ人の割合を表します。
+    - 
+- F(x)が急激に上昇する箇所では、「ちょっと参加者が増えるだけで参加したがる人が一気に増える」
+    - 初期の参加者（インスティゲーター）の役割が非常に重要
+- 参加率と実際に参加する人の割合が一致する点が均衡点になります
+    - この点では、参加する人の割合と、行動しようとする人の割合が一致しています。したがって、これ以上参加者は変化しません。これが**システムの安定状態（equilibrium）**です。
 -->
+
 
 ---
 transition: slide-up
 level: 2
 ---
 
-# Navigation
+# Threshold model
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
-
-## Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
-
----
-layout: image-right
-image: https://cover.sli.dev
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover!
-
-```ts {all|5|7|7-8|10|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="334" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
-
----
-
-# Components
+閾値の分布
 
 <div grid="~ cols-2 gap-4">
 <div>
 
-You can use Vue components directly inside your slides.
+<v-clicks depth="3">
 
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
+- 仮定：閾値は平均 $\mu$、標準偏差 $\sigma$ の正規分布に従う 
+    - エージェント数は常に100人、$\mu = 25$ で設定される
+- $r_e$：平衡時のアクティブなエージェント数  
 
-```html
-<Counter :count="10" />
-```
 
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
 
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
+</v-clicks>
 
 </div>
+
 <div>
 
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
+<div style="display: flex; justify-content: center;">
+  <img src="./image/STD.png" width="600" />
 </div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
 
 </div>
 
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
 </div>
 
-<br>
 
-<v-click>
 
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
-
----
-
-# Motions
-
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
-
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
-</script>
+</style>
 
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
 
-[Learn more](https://sli.dev/guide/animations.html#motion)
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+閾値の分布
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks depth="3">
+
+
+- 臨界値より小さいの際には、ほとんどの人が「25人くらいが行動しないと、自分は動かない」と思って、閾値が非常に低い人がほとんど存在しなくなるるため、誰も続かない
+    - 標準偏差が小さいため、「5人でも行動する」「10人でも行動する」という極端に閾値の低い人がほぼ存在しない
+    - 集団があまりに均質すぎると、誰も最初にリスクをとらず、変化が起きない
+
+
+
+</v-clicks>
 
 </div>
 
----
+<div>
 
-# LaTeX
+<div style="display: flex; justify-content: center;">
+  <img src="./image/s1.svg" width="300" />
+</div>
 
-LaTeX is supported out-of-box. Powered by [KaTeX](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
+<div style="display: flex; justify-content: center;">
+  <img src="./image/s10.svg" width="300" />
+</div>
 
 </div>
 
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
+</div>
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
 
 ---
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
+transition: slide-up
+level: 2
 ---
 
-# Draggable Elements
+# Threshold model
 
-Double-click on the draggable elements to edit their positions.
+閾値の分布
 
-<br>
+<div grid="~ cols-2 gap-4">
+<div>
 
-###### Directive Usage
+<v-clicks depth="3">
 
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
 
-<br>
+- 臨界値に近いの場合、閾値分布がちょうどよい多様性を持つため、少数のインスティゲーターの行動が、低い閾値を持つエージェントを引き込み、次々と参加者が増えていくことで、カスケードが発生する
 
-###### Component Usage
+- 臨界値に等しいの場合は、社会全体に行動が拡大し、100人全員が最終的に行動に参加
 
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
 
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
 
-<img v-drag="'square'" src="https://sli.dev/logo.png">
+</v-clicks>
 
-###### Draggable Arrow
+</div>
 
-```md
-<v-drag-arrow two-way />
-```
+<div>
 
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
+<div style="display: flex; justify-content: center;">
+  <img src="./image/s12.svg" width="300" />
+</div>
 
----
-src: ./pages/imported-slides.md
-hide: false
----
+<div style="display: flex; justify-content: center;">
+  <img src="./image/s13.svg" width="300" />
+</div>
 
----
+</div>
 
-# Monaco Editor
+</div>
 
-Slidev provides built-in Monaco Editor support.
 
-Add `{monaco}` to the code block to turn it into an editor:
 
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
 
-const arr = ref(emptyArray(10))
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
 
 ---
-layout: center
-class: text-center
+transition: slide-up
+level: 2
 ---
 
-# Learn More
+# Threshold model
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+閾値の分布
 
-<PoweredBySlidev mt-10 />
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks depth="3">
+
+
+- 臨界値より大きいの場合、閾値のばらつきが大きくなりすぎる。
+    - 非常に低い閾値の人（たとえば「2人でも行動する」）と非常に高い閾値の人（たとえば「90人以上が行動しないと自分は動かない」）が混在
+
+- 初期の参加者は一部の人を動かすが、それが途中で途切れやすい
+
+</v-clicks>
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/s60.svg" width="600" />
+</div>
+
+</div>
+
+</div>
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+閾値の分布
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks depth="3">
+
+
+- 多様性の重要性:適度な多様性があることで、集合的行動が広がる
+    - 平均閾値が同じでも、分布が違えば集団行動は全く異なる
+
+- 転換点の特定
+    - 特定な臨界値を境に、劇的な変化が起こりうる
+
+- [Demo](https://rf.mokslasplius.lt/granovetters-threshold-model/)
+</v-clicks>
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/STD.png" width="600" />
+</div>
+
+</div>
+
+</div>
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+閾値モデルの拡張
+
+- Granovetter（1978）の閾値モデルでは、「各個人は、他の全員の行動を見て、それに応じて自分の行動を決める」という完全情報・完全接続の社会を想定している
+
+- 局所ネットワークにおける閾値モデルの適用
+    - 各個人は、社会全体の行動率ではなく、自分の「局所的な近隣（近くの人々）」の中での行動率に応じて行動する([Centola & Macy 2007](https://www.journals.uchicago.edu/doi/10.1086/521848);[Siegel 2009](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1540-5907.2008.00361.x);[Watts 2002](https://www.pnas.org/doi/10.1073/pnas.082090499))
+    
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+閾値モデルの拡張
+
+- エージェントの観察範囲は、ネットワーク構造によって決まる ([Siegel 2009](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1540-5907.2008.00361.x))
+
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/network_threshold.png" width="500" />
+</div>
+
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+閾値モデルの拡張
+
+- 局所ネットワークの（同質性）特徴は、集合的行動の結果を大きく左右する([Mustafa Yavaş & Gönenç Yücel 2014](https://journals.sagepub.com/doi/10.1177/0894439313512464))
+
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/network_example.png" width="300" />
+</div>
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/network_result.png" width="600" />
+</div>
+
+</div>
+
+</div>
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+閾値モデルの応用
+
+- 閾値モデルは、様々のコンテイション(contagion)に関する社会現象の説明に用いられている
+    - 社会運動・抗議行動
+    - 技術革新・製品普及　([Valente 1996](https://www.sciencedirect.com/science/article/pii/0378873395002561))
+    - 政策受容([GILARDI & WASSERFALLEN, 2019](https://ejpr.onlinelibrary.wiley.com/doi/full/10.1111/1475-6765.12326))
+    - 誤情報の伝播([Törnberg, 2018](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0203958))
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+閾値モデルの応用
+
+- **閾値モデルは転換点（tipping point）の重要性を示した**；一定の割合以上の少数派が存在すれば、一見安定しているように見える社会的規範でもコンテイションを通じて覆される可能性がある
+    - 性別役割に対する社会的期待
+    - ゴミ分類という規範の受容
+    - 禁煙活動
+    - 流行語の普及
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+閾値モデルの応用
+
+[Centola et al., (2018)](https://www.science.org/doi/full/10.1126/science.aas8827): 転換点（tipping point）という示唆に基づく実証研究
+- 問題関心：社会的規範の転換がどの時点で起こるかを実験で再現・検証しよう
+
+- 実験設計
+    - 参加者グループに写真を提示
+        - ある人物の写真を見せて、その人物の「名前」を決めてもらう
+        - 複数ラウンドを通して話し合いを行い、グループ内で共通の名前（=社会的合意）を形成させる
+    - 異なる意見を持つ「confederates」を投入
+        - 合意が形成されたあと、一貫して「違う名前」を主張するconfederatesをグループに加える
+    - インセンティブは「協調すること」のみ
+        - お金や正解の有無はなく、できるだけ他人と同じ名前を答えることが望ましいというルールだけが与えられる(社会的影響の要因)
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold model
+
+閾値モデルの応用
+
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+- 協力者の割合が10～20%程度では、影響は限定的で、多数派の意見は維持される傾向
+- 協力者（少数派）の割合が約25%に達すると、それまで形成されていた多数派の合意が崩れ始める
+    - 最終的には少数派が提示した新しい名前が、グループ全体の新たな合意になる
+
+- 「粘り強い少数派からの変化」は閾値モデルによる提示する理論的な示唆だけでなく実験でも実証可能であると示した
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/Centola1.jpeg" width="250" />
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>

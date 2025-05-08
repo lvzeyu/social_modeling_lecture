@@ -35,3 +35,10 @@ Agent Based Model (ABM)の概念、要素、構成と検証について詳細に
 シェリングの分居モデルについて紹介する
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture5/](https://lvzeyu.github.io/social_modeling_lecture/lecture5/)
+
+
+### 5. 閾値モデル
+
+Contagionに関する社会現象を説明するための閾値モデルについて紹介する
+
+- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture6/](https://lvzeyu.github.io/social_modeling_lecture/lecture6/)
