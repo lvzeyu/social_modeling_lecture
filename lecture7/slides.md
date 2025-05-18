@@ -514,6 +514,8 @@ level: 2
 - ネットワーク科学で扱うネットワークは数万規模に及ぶことが多い
     - 一つひとつのノードとリンクを確認することは難しい
     - ネットワークの特徴を説明できる指標で理解する
+
+- [ネットワークの基本統計量の説明](https://colab.research.google.com/github/USERNAME/REPO_NAME/blob/BRANCH/PATH/TO/NOTEBOOK.ipynb)
 </v-clicks>
 
 
