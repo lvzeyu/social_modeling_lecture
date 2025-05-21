@@ -515,7 +515,7 @@ level: 2
     - 一つひとつのノードとリンクを確認することは難しい
     - ネットワークの特徴を説明できる指標で理解する
 
-- [ネットワークの基本統計量の説明](https://colab.research.google.com/github/USERNAME/REPO_NAME/blob/BRANCH/PATH/TO/NOTEBOOK.ipynb)
+- [ネットワークの基本統計量の説明](https://colab.research.google.com/github/lvzeyu/social_modeling_lecture/blob/main/lecture7/Graph_measurements.ipynb)
 </v-clicks>
 
 
@@ -530,3 +530,5 @@ h1 {
   -moz-text-fill-color: transparent;
 }
 </style>
+
+
