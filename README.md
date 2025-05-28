@@ -49,3 +49,8 @@ Contagionに関する社会現象を説明するための閾値モデルにつ�
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture7/](https://lvzeyu.github.io/social_modeling_lecture/lecture7/)
 
+### 7. スモールワールドモデル
+
+ネットワークモデルの概念、ランダムネットワークモデルとスモールワールドモデルについて紹介する
+
+- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture8/](https://lvzeyu.github.io/social_modeling_lecture/lecture8/)
