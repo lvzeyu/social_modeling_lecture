@@ -498,3 +498,457 @@ h1 {
   -moz-text-fill-color: transparent;
 }
 </style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# ネットワークの応用：ネットワーク上の伝播モデル
+
+
+<div grid="~ cols-2 gap-4 items-start">
+
+<div>
+
+<v-clicks depth="2">
+
+- 影響の伝播と拡散をモデル化することは、ネットワーク科学の重要な応用である。
+　　　　-　活性化された隣接ノードの存在や他の条件によって、まだ活性化されていない各ノードの一定割合が順に活性化される影響拡散過程
+- 拡散はごく少数のノードの起こることもあるし、ネットワークの大部分を含む大域的拡散が発生することもある
+</v-clicks>
+
+
+</div>
+
+<div class="flex justify-center">
+  <img src="./image/diffusion.png" alt="ネットワーク図" width="800" />
+</div>
+
+</div>
+
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# SIRモデルとネットワーク
+
+感染症のシミュレーション
+
+<div grid="~ cols-2 gap-4 items-start">
+
+<div>
+
+<v-clicks depth="2">
+
+- ネットワークとSIRモデルを組み合わせることで、現実世界の感染状況を反映と予測することが可能である
+   - SIRモデルは、感染症の動態を記述する古典的な数理モデル
+   - ネットワークは、人々の間の具体的な接触関係や地理的な近接性、移動パターンといった感染経路と伝播のメカニズムを反映する
+- ネットワーク構造と感染症の伝播ダイナミクスの関連性分析
+- 現実のつながりを取り入れた感染状況の予測
+</v-clicks>
+
+</div>
+<div class="flex justify-center">
+  <img src="./image/simulation.png" alt="ネットワーク図" width="800" />
+</div>
+</div>
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+<!--
+ネットワーク構造と感染症の伝播ダイナミクスの関連性分析： ネットワーク上にSIRモデルを適用することで、ネットワークの構造（例：中心的なハブの存在、クラスターの密度、ノード間の距離など）が感染症の広がり方にどのように影響するかを詳細に分析できます。例えば、ハブの存在が感染拡大を加速させる一方で、ネットワークの分断（ソーシャルディスタンシングなど）が拡大を抑制する効果を定量的に評価できます。
+
+現実のつながりを取り入れた感染状況の予測： 均一混合仮定のモデルでは捉えきれなかった、現実の複雑な人々のつながりや交流パターンをモデルに取り入れることで、より精度の高い感染状況の予測が可能になります。これにより、特定の地域や集団における感染リスクをより正確に評価し、効果的な介入策（例：特定の場所での行動制限、接触者追跡の強化、特定の層へのワクチン優先接種など）の有効性をシミュレーションによって検証できます。
+-->
+
+---
+transition: slide-up
+level: 2
+---
+
+# SIRモデルとネットワーク
+
+SIRモデルの概要
+
+<div grid="~ cols-2 gap-4 items-start">
+
+<div>
+
+<v-clicks depth="2">
+
+- S (Susceptible)：まだ感染しておらず、感染する可能性がある人々。
+- I (Infectious )：現在感染しており、他者に感染させる可能性のある人々。
+- R (Recovered)：感染から回復し、免疫を獲得した人々、あるいは死亡や隔離によって感染源から除去された人々
+</v-clicks>
+
+</div>
+<div class="flex justify-center">
+  <img src="./image/SIR.png" alt="ネットワーク図" width="800" />
+</div>
+</div>
+
+<v-clicks>
+
+- SIRモデルの基本的な考え方は、未感染者（S）が感染者（I）と接触することで感染し、感染者（I）はやがて回復者（R）へと移行する過程を記述する
+    - 感染率: SがIと接触したときに感染する確率
+    - 回復率: Iが単位時間あたりRに移行する確率
+</v-clicks>
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: slide-up
+level: 2
+---
+
+# SIRモデルとネットワーク
+
+SIRモデルの概要
+
+<v-clicks depth="2">
+
+S(未感染者)の変化:未感染者が感染者と接触し、感染することでその数が減少する
+    - 減少する割合は、感染率$\beta$と、相対的な接触機会に比例する
+- $$\frac{dS}{dt} = -\beta \frac{S \cdot I}{N}$$
+- $\frac{dS}{dt}$: 単位時間あたりの未感染者の変化量
+- $\beta$: 感染率
+- $\frac{S \cdot I}{N}$: 総人口$N$に対する未感染者と感染者のペアの割合
+</v-clicks>
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: slide-up
+level: 2
+---
+
+# SIRモデルとネットワーク
+
+SIRモデルの概要
+
+<v-clicks depth="2">
+
+感染者 (I) の変化:感染者は、未感染者からの新規感染によって増加し、回復（または隔離・死亡）によって減少
+- $$\frac{dI}{dt} = \beta \frac{S \cdot I}{N} - \gamma I$$
+
+- $\beta \frac{S \cdot I}{N}$: 新規感染によって増加する感染者の数
+- $\gamma$: 回復率
+- $\gamma I$: 回復または除去によって減少する感染者の数
+
+</v-clicks>
+
+
+<v-clicks depth="2">
+
+回復者 (R) の変化:回復者は、感染者からの回復によってその数が増加
+- $$\frac{dR}{dt} = \gamma I$$
+
+- $\frac{dR}{dt}$: 単位時間あたりの回復者の変化量
+
+</v-clicks>
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# SIRモデルとネットワーク
+
+SIRモデルの概要
+
+<v-clicks depth="2">
+
+基本再生産数$R_0$：1人の感染者が、全員が未感染である集団において、平均して何人に感染を広げるかを示す指標
+
+- $$R_0 = \frac{\beta}{\gamma}$$
+- $\beta$: 感染率（1人の感染者が1単位時間で何人に感染させるか）
+- $\gamma$:回復率（1人の感染者が単位時間で回復する確率）
+
+
+- $R_0 > 1$: 感染症は流行し、拡大します。
+- $R_0 = 1$: 感染者数は横ばいになり、定常状態になるか、ゆっくりと減少します。
+- $R_0 < 1$: 感染症は収束し、流行は終息に向かいます。
+</v-clicks>
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# SIRモデルとネットワーク
+
+SIRモデルの概要
+
+<div grid="~ cols-2 gap-4 items-start">
+
+<div>
+
+<v-clicks depth="2">
+
+- 初期にはごく少数が感染し、流行の拡大は緩やかである
+    - $I$の値が小さいため、新規感染の項（$\beta \frac{S \cdot I}{N}$）も小さく、感染者数の増加率が低い状態が続く
+- 指数関数的成長する拡大し、多くの人々に影響を与える
+    - 感染者数$I$が増えるにつれて、$\beta \frac{S \cdot I}{N}$ の項が大きくなり、$\frac{dI}{dt}$ が急激に増加する
+    - ピーク以降は、未感染者（S）が減少し、感染者（I）の回復が進むことで、新規感染よりも回復による減少が上回り、感染者数は減少し始める
+- 最終的には、$I$ がゼロに近づき、$\frac{dI}{dt}$ はゼロに収束する
+</v-clicks>
+
+</div>
+<div class="flex justify-center">
+  <img src="./image/SIR_dynamic.jpg" alt="ネットワーク図" width="800" />
+</div>
+</div>
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# SIRモデルとネットワーク
+
+SIRモデルにおけるネットワークの構造
+
+<v-clicks depth="2">
+
+- 均一混合仮定のSIRモデル：すべての個体が、集団内の誰とでも同じ確率で接触する
+    - 感染の確率は$S$と$I$の積に比例:すべての感染者は、すべての未感染者と同じように接触する可能性がある
+    - ネットワーク構造を無視している
+- しかし、現実世界の接触ネットワークは均質ではない
+    - 家族、友人、職場の同僚、特定の地域の人々など、限られた人々と密接に接触
+    - 多くの人と接触する「ハブ」となる人物や場所が存在する(医師や飲食店店員)
+    - 特定の集団（学校のクラスター、会社の部署など）内では感染が急速に広がる一方で、集団間のつながりは比較的疎である
+</v-clicks>
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# SIRモデルとネットワーク
+
+SIRモデルにおけるネットワークの構造
+
+- ネットワークにおける隣接するノード（接触している人）に一定の確率で感染を広げる
+- ネットワークの構造と感染の関係を解析することで、感染のメカニズムに対する理解を深める
+
+| モデル              | 感染拡大の特徴                  | 感染メカニズムへの洞察                |
+| ------------------ | ------------------------ | -------------------------- |
+| Erdős–Rényiモデル     | 感染は比較的均一に拡大              | ノード間の接触が均一な仮定が有効な場合を理解できる  |
+| Watts–Strogatzモデル  | 局所的なクラスターで爆発的に拡大し、全体にも波及 | クラスター発生・局所集中感染のメカニズムを説明できる |
+| Barabási–Albertモデル | ハブを通じて急速かつ広範に拡大          | ハブノードによる感染の“超拡散者”効果を理解できる  |
+
+
+
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# SIRモデルとネットワーク
+
+SIRモデルと現実のネットワーク
+
+- SIRモデルに現実の接触ネットワークを取り入れることで、感染状況を高い精度で予測することは可能である[(Chang et al., 2020)](https://www.nature.com/articles/s41586-020-2923-3)
+
+
+<div grid="~ cols-2 gap-4 items-start">
+
+<div>
+
+<v-clicks depth="2">
+
+- 移動ネットワーク：ある居住地域から特定な移動先への訪問者数によって構築したネットワーク
+    - 米国の10大都市圏における約9,800万人のモバイルデバイスの位置情報データを使用
+- SEIRモデルの適用: ある居住地域から特定な移動先への移動を通じて、感染者が他の住民と接触し、感染が広がる
+    - 実際の感染者数データとモデルの出力を比較し、パラメータを調整
+</v-clicks>
+
+</div>
+<div class="flex justify-center">
+  <img src="./image/mobility_covid.png" alt="ネットワーク図" width="400" />
+</div>
+
+</div>
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# SIRモデルとネットワーク
+
+SIRモデルと現実のネットワーク
+
+<div class="flex justify-center">
+  <img src="./image/mobility_covid_res.png" alt="ネットワーク図" width="700" />
+</div>
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+<!--
+移動制限の効果の比較：全体的な移動量の削減よりも、各施設の最大収容人数を制限する方が感染拡大の抑制に効果的であることが示されました。
+
+社会的格差の影響：低所得層やマイノリティの居住地域では、移動の削減が困難であり、訪問先の施設も混雑している傾向があるため、これらの地域での感染リスクが高まっていることが明らかになりました。
+-->
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# ネットワークモデル
+
+まとめ
+
+<v-clicks depth="2">
+
+- ネットワークモデルは、複雑な現実世界を単純化されたルールで再現し、その本質的な特徴がなぜ生まれるのかを理解することに役を立つ
+    - WSモデル:高いクラスタリング係数と短い平均経路長を両立するネットワークの構造を説明する
+    - BAモデル: 新しいノードはすでに多くのリンクを持つ「ハブ」に優先的に接続される（優先的選択）というルールで成長し、一部のハブが非常に多くの接続を持つ「スケールフリー性」が生まれる
+- ネットワーク応用：SIRモデルとの組み合わせを例として
+    - より現実に近いネットワークを適用することで、感染拡大のメカニゼムを説明し、最適な介入が設計する
+
+</v-clicks>
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
