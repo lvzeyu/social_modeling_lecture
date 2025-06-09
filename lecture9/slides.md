@@ -922,6 +922,118 @@ h1 {
 社会的格差の影響：低所得層やマイノリティの居住地域では、移動の削減が困難であり、訪問先の施設も混雑している傾向があるため、これらの地域での感染リスクが高まっていることが明らかになりました。
 -->
 
+---
+transition: slide-up
+level: 2
+---
+
+# 社会的感染とSIRモデル
+
+噂の拡散
+
+
+- SIRモデルはもともと感染症の拡大を記述するために開発されたが、社会的感染にも広く応用されている
+    - 関係性を持った人々の間に感染が生じると考える
+
+| SIRモデルの要素 | 噂の拡散における意味                     |
+|----------------|------------------------------------------|
+| S（Susceptible）| 噂をまだ聞いていない人                     |
+| I（Infectious） | 拡散者：噂を信じ、他人に広めている人               |
+| R（Recovered）  | 抑制者：噂を知っているが、それを広めない人       |
+| 感染率 $\beta$        | 噂を信じて広めるようになる確率             |
+| 回復率 $\alpha$       | 噂の拡散をやめる確率                       |
+| 接触ネットワーク| 噂が伝わる人間関係やSNSのつながり構造       |
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+transition: slide-up
+level: 2
+---
+# 社会的感染とSIRモデル
+
+噂の拡散
+
+
+
+<div grid="~ cols-2 gap-4 items-start">
+
+<div>
+
+<v-clicks depth="2">
+
+- $i$が噂を知らない人である場合、その隣接ノードの状態を調べる。
+- 拡散者である各隣接ノードについて、$i$は確率$\beta$で拡散者になる
+- $i$が拡散者であれば、すべての隣接ノードの状態を調べ
+   - 抑制者である各隣接ノードについて、$i$が確率$\alpha$で抑制者になる
+   - 拡散者である各隣接ノードについて、$i$とその隣接ノードが確率$\alpha$で抑制者になる
+</v-clicks>
+
+</div>
+<div class="flex flex-col items-center">
+  <img src="./image/sir_social.png" alt="ネットワーク図" width="400" />
+  <p class="mt-2 text-sm text-gray-600 text-center leading-snug">
+      (a) 拡散者が未感染者に出会うと、その人は確率βで拡散者になる。<br/>
+      (b) 拡散者が抑制者に出会うと、拡散者は確率αで抑制者になる。<br/>
+      (c) 拡散者同士が出会うと、2人とも確率αで抑制者になる。
+    </p>
+</div>
+
+</div>
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+# 社会的感染とSIRモデル
+
+噂の拡散
+
+<v-clicks depth="2">
+
+- 均質まネットワークであっても閾値効果を持たず、伝達確率が低くても噂は多くの人に届きわたる
+- 非均質なネットワーク(例：スケールフリー型)においても閾値はなく、最終的に噂を知る人の数は、同じノード数とリンク数を持つ均質なネットワークより少なくなる。
+    - 噂が早い段階でハブに到達し、多くの人と接触によってすぐに抑制者になるためである
+    - 噂がハブから先に十分拡散される前に拡散の連鎖が断ち切られる
+</v-clicks>
+
+<p v-click style="color: #3E1586; font-size: 1em; text-align: center;">
+  SIR モデルは、普遍的な現象を簡素な仕組みでとらえることが可能であり、工夫を加えることで、 さまざまなパターンの流行現象にあてはめる可能性を持っている
+</p>
+
+<style>
+h1 {
+  background-color: #3E1586;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+
 
 ---
 transition: slide-up
