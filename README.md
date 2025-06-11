@@ -55,8 +55,15 @@ Contagionに関する社会現象を説明するための閾値モデルにつ�
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture8/](https://lvzeyu.github.io/social_modeling_lecture/lecture8/)
 
-### 8. ネットワークモデルモデル(2)
+### 9. ネットワークモデルモデル(2)
 
 BAモデルとネットワークモデルの応用について紹介する
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture9/](https://lvzeyu.github.io/social_modeling_lecture/lecture9/)
+
+
+### 10. 意見ダイナミクス(2)
+
+Voter ModelとMajority Modelについて紹介する
+
+- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture10/](https://lvzeyu.github.io/social_modeling_lecture/lecture10/)
