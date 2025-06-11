@@ -6,21 +6,31 @@ def read_students(file_path):
     """Read students from a file, one name per line."""
     path = Path(file_path)
     print(f"Reading students from {path}")
-    
     with path.open("r", encoding="utf-8") as f:
         students = [line.strip() for line in f if line.strip()]
-    
     return students
 
-def assign_presentations(students, dates):
-    """Randomly assign students to the dates as evenly as possible."""
-    random.shuffle(students)
+def assign_presentations(students, dates, forbidden_dates=None):
+    """Randomly assign students to the dates as evenly as possible, avoiding forbidden dates."""
+    if forbidden_dates is None:
+        forbidden_dates = {}
+
     schedule = defaultdict(list)
-    
-    for i, student in enumerate(students):
-        date = dates[i % len(dates)]
-        schedule[date].append(student)
-    
+    random.shuffle(students)
+    student_idx = 0
+
+    while student_idx < len(students):
+        student = students[student_idx]
+        # Try to find a valid date
+        for offset in range(len(dates)):
+            date = dates[(student_idx + offset) % len(dates)]
+            if date not in forbidden_dates.get(student, []):
+                schedule[date].append(student)
+                break
+        else:
+            print(f"⚠️ Warning: Could not find valid date for {student}.")
+        student_idx += 1
+
     return schedule
 
 def print_schedule(schedule):
@@ -50,10 +60,16 @@ if __name__ == "__main__":
     # Settings
     student_file = "presentation_2025/student_list.txt"
     output_file = "presentation_2025/presentation_schedule.txt"
-    presentation_dates = ["2025-06-26", "2025-07-02", "2025-07-16", "2025-07-23"]
+    presentation_dates = ["2025-06-26", "2025-07-03", "2025-07-17", "2025-07-24"]
+
+    # Forbidden date dictionary (student -> list of dates they cannot present)
+    forbidden_dates = {
+        "吉田　桃香": ["2025-07-17"],
+        "阿部　哲士": ["2025-06-26"],
+    }
 
     # Run
     students = read_students(student_file)
-    schedule = assign_presentations(students, presentation_dates)
+    schedule = assign_presentations(students, presentation_dates, forbidden_dates)
     print_schedule(schedule)
     write_schedule(schedule, output_file)
