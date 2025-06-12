@@ -588,7 +588,7 @@ level: 2
     - 多数派の意見の拡大と少数派の消滅
         - ある意見が多数派である場合、その意見を持つエージェントが隣接するエージェントを模倣させる機会が多くになり、多数派の意見はさらに多くのエージェントに伝播し、拡大していく
         - 少数派の意見を持つエージェントは、周囲に多数派の意見を持つエージェントが多い状況に置かれやすく、自身の意見を変える可能性が高い
-- Demo
+- [Demo](https://colab.research.google.com/github/lvzeyu/social_modeling_lecture/blob/main/lecture10/voter_majority_comparision.ipynb)
 </div>
 
 <style>

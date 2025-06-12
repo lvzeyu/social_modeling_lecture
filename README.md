@@ -62,7 +62,7 @@ BAモデルとネットワークモデルの応用について紹介する
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture9/](https://lvzeyu.github.io/social_modeling_lecture/lecture9/)
 
 
-### 10. 意見ダイナミクス(2)
+### 10. 意見ダイナミクス
 
 Voter ModelとMajority Modelについて紹介する
 
