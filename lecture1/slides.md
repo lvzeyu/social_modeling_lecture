@@ -250,6 +250,7 @@ NetLogoによるモデルの実装
 ---
 transition: fade-out
 level: 2
+layout: two-cols
 ---
 
 # 授業の進め方
@@ -261,6 +262,13 @@ level: 2
    - 資料のソースコードは[Github](https://github.com/lvzeyu/social_modeling_lecture)で公開されています
 - 参考資料と参考文献は授業中適宜提示
 - 授業で取り上げるモデルの一部について、実装コードを共有する
+
+::right::
+
+<div class="flex flex-col items-center justify-center h-full gap-2">
+  <QRCode value="https://lvzeyu.github.io/https:/github.com/lvzeyu/social_modeling_lecture" :width="180" :height="180" />
+  <span class="text-sm text-gray-500">授業資料</span>
+</div>
 
 
 ---
