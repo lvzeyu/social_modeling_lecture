@@ -37,7 +37,7 @@ jobs:
             if [ -f "$dir/package.json" ]; then
               echo "Building $dir"
               cd $dir
-              nci
+              ni
               nr build --base /${{github.event.repository.name}}/${dir%/}/
               mkdir -p ../output/${dir%/}
               mv dist/* ../output/${dir%/}
