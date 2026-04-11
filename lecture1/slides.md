@@ -242,7 +242,7 @@ NetLogoによるモデルの実装
 </div>
 
 <div class="flex items-center justify-center">
-  <img src="./image/Netlogo.png" width="350" />
+  <img src="./image/NetLogo.png" width="350" />
 </div>
 
 </div>
