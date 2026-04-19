@@ -78,16 +78,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -114,16 +104,6 @@ ABMの特徴
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 ABMの特徴と主な着目点
@@ -159,14 +139,6 @@ level: 2
 </v-clicks>
 
 <style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
 
 .table-wrapper {
   font-size: 0.9em;
@@ -203,16 +175,6 @@ level: 2
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 - 前の車との距離が十分なら 加速
@@ -244,16 +206,6 @@ level: 2
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 ABMのAgentでは複数種類のエージェントを設定することが可能です
@@ -282,16 +234,6 @@ level: 2
         - [Virus on a Network](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Networks/Virus%20on%20a%20Network.nlogo)
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 ネットワーク型環境は、エージェント・ベースド・モデル（ABM）において、エージェント間の相互作用を「関係構造」としてモデル化するための枠組みです。物理的な空間上の位置ではなく、**誰と誰がつながっているか（構造的な接続）**が、行動や情報の流れ、影響の伝播に重要な意味を持ちます。
@@ -314,16 +256,6 @@ level: 2
 | 環境－環境相互作用| 環境内の異なる要素同士が影響を及ぼし合い、環境構造や状態が変化する |
 | エージェント－環境相互作用| エージェントが環境を変化させ、その変化した環境がまたエージェントにフィードバックを与える |
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -346,16 +278,6 @@ level: 2
         - 渋滞モデルの場合：1台ずつ順番に車が動く。次に動く車は、前の車の最新の位置を見ながら動く
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -376,16 +298,6 @@ ODDプロトコル
 |  | Entities, State Variables, and Scales（主体・状態変数・尺度） | エージェント、環境、変数、時間・空間スケールを定義する。 |
 |  | Process Overview and Scheduling（プロセス概要とスケジューリング） | 行動や状態更新がどの順序・タイミングで行われるかを概観する。 |
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 ---
 transition: slide-up
 level: 2
@@ -411,14 +323,6 @@ ODDプロトコル
 </div>
 
 <style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
 
 .table-wrapper {
   max-height: 300px; /* 👈 表の高さ上限を設定 */
@@ -444,14 +348,6 @@ ODDプロトコル
 |  | サブモデル | (もしあれば)各プロセスや行動ルールの具体的なアルゴリズムや数式 |
 
 <style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
 
 </style>
 
@@ -489,14 +385,6 @@ ODDプロトコル
 </div>
 
 <style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
 
 .table-wrapper {
   max-height: 300px; /* 👈 表の高さ上限を設定 */
@@ -528,16 +416,6 @@ level: 2
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -558,16 +436,6 @@ level: 2
     - 週ごとの意思決定サイクルはステップとなる
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -591,16 +459,6 @@ level: 2
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -625,13 +483,3 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>

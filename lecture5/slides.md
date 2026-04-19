@@ -61,16 +61,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -87,16 +77,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -115,16 +95,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -141,16 +111,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -192,16 +152,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -227,16 +177,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 - 江戸時代の身分制度士農工商（しのうこうしょう）制度、特定地域に強制的に居住させられた。
@@ -263,16 +203,6 @@ level: 2
  </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -298,16 +228,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 孟母三遷(もうぼさんせん)
@@ -363,16 +283,6 @@ level: 2
 黒人（こくじん）
 -->
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -414,16 +324,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -464,16 +364,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -515,16 +405,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -563,16 +443,6 @@ level: 2
 </p>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -614,16 +484,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -661,16 +521,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -712,16 +562,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -763,16 +603,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -810,16 +640,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -858,16 +678,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -908,16 +718,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -941,16 +741,6 @@ $$\Large I = \frac{M \sum_i \sum_j w_{i,j} (x_i - \bar x) (x_j - \bar x)}{(\sum_
     - 空間上に分布する値（この場合はエージェントの属性）が、隣接関係においてどの程度類似しているか（空間自己相関）を測定する
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 この統計量は、同じ属性を持つエージェントがどの程度空間的に集まって配置されているか、つまり空間的なクラスターの強さを示します。
@@ -977,16 +767,6 @@ $$\sigma =  \sum_i (x_i-\bar x)^2$$
 - セル（エージェントが存在する場所）をループ処理することで、逐次的に $C$、$W$、$\sigma$ を計算できます
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 <!--
@@ -1051,16 +831,6 @@ Moran's I の例（1）
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -1088,16 +858,6 @@ transition: slide-up
 
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -1125,16 +885,6 @@ transition: slide-up
 
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -1161,16 +911,6 @@ transition: slide-up
 
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -1199,16 +939,6 @@ transition: slide-up
 
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -1238,16 +968,6 @@ transition: slide-up
 
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -1282,16 +1002,6 @@ transition: slide-up
 
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -1328,16 +1038,6 @@ level: 2
 
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -1371,16 +1071,6 @@ level: 2
         - ここでは寛容度の閾値$F$に注目したが、空きマスの割合、エージェントの構成比率などのパラメータに対する検証も考えられる
     - 政策介入の効果を評価する
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -1405,16 +1095,6 @@ level: 2
 </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -1434,16 +1114,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -1465,16 +1135,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -1512,16 +1172,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -1554,16 +1204,6 @@ Agent属性と選好の多様化
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -1601,13 +1241,3 @@ level: 2
  
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>

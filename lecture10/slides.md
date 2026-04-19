@@ -70,16 +70,6 @@ level: 2
   ネットワークモデルとABMの組み合わせによる<br/><br/>複雑現象のシミュレーションと解析
 </p>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -116,16 +106,6 @@ ABMの要素
 
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -158,16 +138,6 @@ ABMの要素
 
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -195,16 +165,6 @@ level: 2
 </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -241,16 +201,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -275,16 +225,6 @@ level: 2
 </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -312,16 +252,6 @@ level: 2
 </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -360,16 +290,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -391,16 +311,6 @@ level: 2
 </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -439,16 +349,6 @@ Ising model
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -487,16 +387,6 @@ level: 2
 
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -522,16 +412,6 @@ level: 2
         - 複数のハブが異なる意見を持っているとき、それぞれの周辺で安定した意見ドメインが形成され、意見の統一が阻害される
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -560,16 +440,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -591,16 +461,6 @@ level: 2
 - [Demo](https://colab.research.google.com/github/lvzeyu/social_modeling_lecture/blob/main/lecture10/voter_majority_comparision.ipynb)
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -624,16 +484,6 @@ Voter Modelの拡張: q-Voterモデル
     - $q$人の意見が一致していない場合は、エージェントは確率的に意見を変化させるか、あるいは自身の意見を維持する 
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 エージェントと意見: システム内の各エージェントは、通常、バイナリな意見（例: +1 または -1）を持っています。
@@ -671,16 +521,6 @@ Voter Modelの拡張: バイアスや柔軟性の導入
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -706,16 +546,6 @@ Voter Modelの拡張: 記憶の導入
 </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -785,16 +615,6 @@ Voter Modelの拡張: 記憶の導入
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -843,13 +663,3 @@ level: 2
 </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>

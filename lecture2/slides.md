@@ -44,6 +44,14 @@ css: unocss
   </a>
 </div>
 
+<style>
+h1 {
+  color: white;
+  -webkit-text-fill-color: white;
+  -moz-text-fill-color: white;
+}
+</style>
+
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
@@ -59,7 +67,12 @@ transition: fade-out
 
 - 人間は様々な情報を処理して世の中を理解・制御している
     - 対象となるものの振る舞いが複雑すぎると、直感的な理解や制御が及ばない場合がある
+
+<v-click>
+
 > 対象から情報(**データ**)を取得して、それを分析することによって、その対象がどのようなメカニズム・ルールで働いているのかを客観的に理解・制御しようとするのが**データ分析**である。
+
+</v-click>
 
 <div style="text-align: center;">
 ```mermaid {theme: 'neutral', scale: 1}
@@ -90,16 +103,6 @@ class データ {
 </p>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 class: flex justify-center items-center gap-20 px-40 text-xl
@@ -153,16 +156,6 @@ level: 1
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -174,11 +167,15 @@ transition: fade-out
 
 なぜモデルなのか
 
+<v-clicks depth="2">
+
 - モデルとは、対象のデータの生成ルールを模擬したものである
     - 実際の分析対象では、自由に観測したり、内部条件を変えて操作したりすることは普通できません
 - 同じような振る舞いをするモデルを作ってしまえば、様々な用途がある
-  - 形式としては、数学やコンピュータープログラムなどの形式言語で書けるようなもの(Formal Model)と、言葉や図で表現するもの(Informal Model)がある
-  - 考えを伝えたり理解したりするため
+  - 形式としては、数学やコンピュータープログラムなどの形式言語で書けるようなもの([Formal Model]{.hl})と、言葉や図で表現するもの([Informal Model]{.hl})がある
+  - **モデルの目的**：考えを伝えたり理解したりするため
+
+</v-clicks>
 
 
 <div style="text-align: center;">
@@ -197,16 +194,6 @@ stateDiagram
 ```
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 Here is another comment.
@@ -253,16 +240,26 @@ transition: fade-out
 
 # Informal Modelからモデルへの考察
 
+<v-clicks depth="3">
+
 - モデルとは、複雑な現実世界や抽象的な概念を、特定の目的のために単純化・抽象化し、分かりやすく構造化したもの
     - 形状で事物を区分する「モデル」
     - 色で事物を抽象化する「モデル」
 - 人間の認知は 「直接現実を扱う」のではなく「表象」を扱う
     - 人間は現実をそのまま把握しているのではなく、常に何らかの「モデル」を通して世界を認識し、思考しているといえる
-    - モデルとは、この「分解された要素」と「その関係」を記述したものでもある
+    - モデルとは、この「[分解された要素]{.hl}」と「[その関係]{.hl}」を記述したものでもある
 - 同じ対象や現象であっても、目的や視点に応じて、異なるモデルを適用することが可能である
 
 - 完全に正しいモデルは存在しない、あるのは、目的に応じて適切（あるいは最適）なモデルである
+
+</v-clicks>
+
+
+<v-clicks depth="3">
+
 > All models are wrong, but some are useful. - George E. P. Box
+
+</v-clicks>
 
 
 ---
@@ -298,6 +295,8 @@ transition: fade-out
 
 Formal Modelからの考察
 
+<v-clicks depth="2">
+
 - ニュートンの重力モデルは、惑星の公転軌道が円ではなく楕円であるという観測事実を踏まえ、それを説明する基盤の上に構築された
     - モデルは観測事実に基づく
 - 「重さをもつ物体どうしが互いに引き合う」という発想それ自体は、ニュートン以前にも存在していた
@@ -306,6 +305,8 @@ Formal Modelからの考察
    - 地球と太陽の関係に注目する一方で、天体の詳細な形状や材質、さらには当時まだ未知であった天体の影響などは基本的に扱っていない
 - 地球上の落下現象や惑星の運動など他の現象にも同じモデルで説明できる
    - 未知の現象にも適用可能
+
+</v-clicks>
 
 ---
 transition: slide-up
@@ -316,6 +317,9 @@ level: 2
 
  どのようにモデルを作成するのか
 
+<v-clicks depth="2">
+
+
 - **具現化のアプローチ(Embodiment Approach)**
     - モデルには重要な構成要素が含まれ、できるだけ実際の現象を忠実に再現することを目的とする
     > 気象モデル: 天候を予測するための数値シミュレーションでは、大気の流れ、温度、湿度などの重要な変数を考慮し、風速や降水量の予測を行う    
@@ -324,17 +328,8 @@ level: 2
     - 現実のシステムを抽象化し、別のよく理解されたシステムとの類似性を活用することで、モデリングを行う
   > 例：情報の拡散は病気のようにモデリングできる；生物の進化論を制度や文化の進化に応用する
 
+</v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -376,16 +371,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -398,6 +383,9 @@ level: 2
 
 アナロジーアプローチ
 
+<v-clicks depth="3">
+
+
 - 特定の対象を**直接的にモデル化することは難しい**場合、**すでに理解されている別のシステム**と類似点を見出し、それを活用してモデリングを行う
 
 > 問題：牛の革の量を推定するために、牛の体表面積を求めなさい
@@ -408,16 +396,9 @@ level: 2
     - 牛の代表的な寸法（例えば、体長や幅）から「平均的な半径$r$」を定める
 - 球体の表面積公式で牛全体の革面積の近似値とする
 - 切断ロスや余裕部分、部分的な重なりなどを考慮し、後に補正係数を適用する
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+
+</v-clicks>
+
 
 ---
 transition: slide-up
@@ -437,20 +418,14 @@ level: 2
 | **囚人Aが協力** | (−1, −1) | (−3, 0) |
 | **囚人Aが裏切る** | (0, −3) | (−2, −2) |
 
+<v-clicks depth="3">
+ 
+
 - **協力**: 2人とも1年間の懲役
 - **裏切り**: 裏切った方は釈放、裏切られた方は3年間の懲役
 - **相互裏切り**: 2人とも2年間の懲役
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+</v-clicks>
 
 
 ---
@@ -467,6 +442,8 @@ level: 2
 | **囚人Aが協力** | (−1, −1) | (−3, 0) |
 | **囚人Aが裏切る** | (0, −3) | (−2, −2) |
 
+<v-clicks depth="3">
+
 - 各囚人は**個別の最適戦略**として「裏切る」選択をする
   - もし囚人Bが協力すると考えるなら、囚人Aは「裏切る」ことで0年の懲役となり有利
   - もし囚人Bが裏切ると考えるなら、囚人Aが「協力」すると3年、裏切ると2年の懲役となるため「裏切る」方が有利
@@ -474,22 +451,13 @@ level: 2
   - 囚人Bも同様に考えるため、結果として両者が「裏切る」を選び、(−2, −2) となる
 - もし**協力**していれば (−1, −1) の方が良かったのに(社会的最適)、達成できない
 
+</v-clicks>
 
 <p v-click style="color: #3E1586; font-size: 1.5em; text-align: center;">
   個々の合理的選択が全体として非効率な結果を招くことを説明できる
 </p>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -498,6 +466,8 @@ level: 2
 ---
 
 # アナロジーアプローチ
+
+<v-clicks depth="3">
 
 簡単なモデルでも色々な問題に応用できる：囚人のジレンマを例として
 
@@ -511,21 +481,13 @@ level: 2
 - 環境問題における国際協力
 - 日用品の買い占め
 
+</v-clicks>
+
 <!--
 各国が環境保護のために協力することが望ましいものの、各国は自国の経済成長を優先し、環境対策を怠る可能性があります。全ての国が協力すれば環境改善が期待できますが、一部の国が協力を怠ると、全体の環境対策が効果を失うことになります。
 災害時などにおいて、個人が必要以上に物資を買い占めると、他の人々が必要な物資を入手できなくなります。全員が冷静に行動すれば物資は行き渡りますが、他者が買い占めることを恐れて自らも買い占めに走ると、結果として全体の物資不足が深刻化します。
 -->
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -536,6 +498,9 @@ level: 2
 
 アナロジーアプローチの観点からのモデリングの注意点
 
+<v-clicks depth="3">
+
+
 - 異なる社会現象でも共通のメカニズムで考えられる
 - 典型的なモデルでは多様な社会現象の説明に活用できる
     - 典型的なモデルの本質的な考え方を把握
@@ -544,16 +509,7 @@ level: 2
   - 例: 繰り返しゲームへの拡張
         - 国家間の協力や企業間競争の分析には、単発の意思決定だけでなく、繰り返しの対話がある状況（長期的な競争・協力関係）に拡張する
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+</v-clicks>
 
 ---
 transition: fade-out
@@ -561,6 +517,9 @@ level: 2
 ---
 
 # モデリングの二つの原理
+
+<v-clicks depth="3">
+
 
 - KIDS原理：Keep It Descriptive, Stupid
 
@@ -573,20 +532,13 @@ level: 2
        - 「分析志向」のシミュレーションでは重視される
        - 関連する学術領域の理論との比較と接合が容易となる
 
+</v-clicks>
+
+
 <p v-click style="color: #3E1586; font-size: 1.5em; text-align: center;">
   KISSとKIDSは対立概念ではなく補完的な関係にある
 </p>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -598,6 +550,8 @@ level: 1
 # モデリングの目的
 
 推論
+
+<v-clicks depth="3">
 
 - **推論**とは、現実世界の現象や仕組みを抽象化して、数理的・形式的なモデルを用いて未知の情報を**導き出す**ことを意味する。
     - 対象物の特徴や構造を明確にする
@@ -611,16 +565,8 @@ level: 1
    - モデルは前提を設けた上で定理を証明する
       - 相反する予測結果や説明が出てきたりするのは、前提が異なるため
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+</v-clicks>
+
 
 ---
 transition: fade-out
@@ -630,6 +576,8 @@ level: 2
 # モデリングの目的
 
 理解
+
+<v-clicks depth="3">
 
 **理解**: 経験的な現象に(検証可能な)説明を与える
 
@@ -645,16 +593,7 @@ level: 2
 - 長期的に見れば、需要の増加は価格を低下させることもある: 需要の増加は、大量生産の効果のため価格の低下を引き起こす
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+</v-clicks>
 
 
 ---
@@ -665,6 +604,8 @@ level: 2
 # モデリングの考察
 
 モデルによる予測と探索
+
+<v-clicks depth="3">
 
 - モデルは、個別の事象も全体的傾向も予測できる
 - モデルの予測と説明には密接な関係がある
@@ -677,20 +618,12 @@ level: 2
     - モデルを通じて、まだ観測されていないパターンや動作の可能性を探る
   - モデルのパラメータに、あえて現実の状況とは異なる値を入れて、対象の振る舞いをシミュレートする
 
+</v-clicks>
+
 <!--
 仮想的に現実とは異なるパラメータ（例えば、道路の容量を意図的に小さく設定する、特定の時間帯の交通量を極端に増加させる）を与えることで、渋滞がどのように発生し、どのように拡大するかを観察できます。これにより、モデルの挙動や実際の交通状況に対する理解が深まります。
 -->
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -701,6 +634,8 @@ level: 2
 # モデリングの例
 
 自然渋滞の問題
+
+<v-clicks depth="3">
 
 - モデルがデータを説明できるということは、モデルを作るときに仮定したモデル構造が正しかった可能性が高い
 
@@ -718,16 +653,7 @@ level: 2
 > <p v-click>道路上のクルマの数が増えて密度が高くなると、動けないクルマが出てくる。つまり、渋滞が発生することになる。</p>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+</v-clicks>
 
 ---
 transition: fade-out
@@ -737,6 +663,8 @@ level: 2
 # モデリングの例
 
 自然渋滞のモデリング
+
+<v-clicks depth="3">
 
 > 車間が詰まってくるほど遅い速度に調整
 
@@ -755,17 +683,8 @@ $$
 - $V(h)$ : 最適速度関数（ここで、$h_i$に応じて何らかの形で車両が取りたい速度を決めると思ってよい）
 - $a$ : 速度調整の応答係数（運転者の反応速度に関係）
 
+</v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: fade-out
@@ -775,28 +694,21 @@ level: 2
 # モデリングの考察
 
 モデルによる推論と説明
+
+<v-clicks depth="3">
 
 - 自然渋滞のモデリングに従って、仮想的な車たちを動かしてみることができる[(demo)](https://kaityo256.github.io/ov_model/)
     - 結果的には、モデルの中でも自然に渋滞が発生
   - モデルで仮定した数理構造(車の速度の変化を表したもの)から、対象としている現象を再現することができる
     - このモデルをさらに分析すると、「渋滞が発生する時には、車の速度の変動が後ろの車に伝わっていくにつれて拡大する」という論理的な説明や、渋滞が発生する混雑条件などが明らかになる
 
+</v-clicks>
 
 <div style="display: flex; justify-content: center;">
   <img src="./image/velocity_example.png" width="500" />
 </div>  
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: fade-out
@@ -806,6 +718,8 @@ level: 2
 # モデリングの考察
 
 モデルによる推論と説明
+
+<v-clicks depth="3">
 
 - **推論**: モデルで仮定した数理構造(車の速度の変化を表したもの)から対象としている現象を再現することができる
     - モデルを用いると、どのような車間距離や交通密度のもとで渋滞が自発的に発生するかを推論できる
@@ -817,16 +731,8 @@ level: 2
     - 渋滞を「個人レベルの行動の連鎖が集団的な非直感的なパターンを生む現象」として説明できる
     - 直感的には、事故や信号の故障など明確な外的原因によって渋滞が発生すると想定される(はず)
     - ミクロ（ドライバーの行動）からマクロ（交通流の集団挙動）への因果構造
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+
+</v-clicks>
 
 
 ---
@@ -838,24 +744,19 @@ level: 2
 
 モデルによる予測と探索
 
+<v-clicks depth="3">
+
 - モデルを用いると、現時点での交通密度が一定のしきい値を超えた場合、渋滞がどの地点でどのように発生・波及するかをシミュレーションで予測できる
 - 異なる車種や運転手と反応速度の違いを仮定してモデルを動かすと、意外な渋滞パターンや緩和戦略が発見される
     - 「現実では試すことが難しい条件」を仮想的に試す思考実験の道具としてモデルを使う
     -  自動運転車が数台入るだけで渋滞波が大幅に減少する可能性がモデルから示唆されている（[Stern et al., 2018](https://www.sciencedirect.com/science/article/pii/S0968090X18301517)）
+
+</v-clicks>
+
 <!--
 仮想的に現実とは異なるパラメータ（例えば、道路の容量を意図的に小さく設定する、特定の時間帯の交通量を極端に増加させる）を与えることで、渋滞がどのように発生し、どのように拡大するかを観察できます。これにより、モデルの挙動や実際の交通状況に対する理解が深まります。
 -->
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -870,6 +771,9 @@ level: 1
 
 基本的に、モデルは二つの軸で整理することができる
 
+<v-clicks depth="3">
+
+
 - 目的：「分析」ー「設計」
   - 「分析志向」:ある現象に対して、その現象が生じるメカニズムを明らかにし、新たな理論を構築しようとする
     - 「設計志向」:ある現象に対して、ある介入を実施したりシステムに導入することで状態がどのように変わりうるのかを予測する
@@ -878,20 +782,12 @@ level: 1
     - 「具体的志向」:特定の社会現象(例えば対象のデータが現実的に収集できるレベル)を対象にする
   - 「抽象的志向」:観察される現象一般を統一的に扱おうとする
 
+</v-clicks>
+
 <p v-click style="color: #3E1586; font-size: 1.5em; text-align: center;">
   モデルは極にのみ存在するものではない
 </p>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -901,6 +797,8 @@ level: 2
 ---
 
 # まとめ
+
+<v-clicks depth="3">
 
 注意: 説明力があるモデル $\neq$ 真のモデル 
 
@@ -912,16 +810,7 @@ level: 2
         - 単純化しすぎていないか
         - 他の解釈可能性を排除していないか
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+</v-clicks>
 
 
 ---
@@ -933,19 +822,12 @@ level: 2
 
 モデルの思考に慣れるように
 
+<v-clicks depth="3">
+
 - 抽象化：本質的な要素を抜き出す
 - 前提を明示する: 「何を仮定するか」によって、モデルの構造も結果も変わることを意識する
 - 因果を構造でとらえる: 結果から逆に構造を推測したり、「なぜそうなるのか」を関係で捉える
 
+</v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>

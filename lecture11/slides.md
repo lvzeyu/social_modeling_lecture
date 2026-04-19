@@ -67,16 +67,6 @@ level: 2
     - 社会シミュレーションの構築と応用
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -95,16 +85,6 @@ level: 2
     - 典型的な定常状態が二極化か断片化である
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -126,16 +106,6 @@ level: 2
         - それ以外の場合には、意見は変化しない
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -159,16 +129,6 @@ Deffuant-Weisbuch (DW) モデル
   - $\mu$ は収束パラメータ（妥協度）
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -194,16 +154,6 @@ $$|x_i(t) - x_j(t)| < \epsilon$$
 </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -233,16 +183,6 @@ $$x_i(t+1) = x_i(t) + \mu (x_j(t) - x_i(t))$$
 </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -268,16 +208,6 @@ Hegselmann-Krause (HK) モデル
 </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -301,16 +231,6 @@ HKモデルとDWモデル
 </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -335,16 +255,6 @@ level: 2
 </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -369,16 +279,6 @@ level: 2
  </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -403,16 +303,6 @@ level: 2
  </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -449,16 +339,6 @@ Link recommendation algorithms and dynamics of polarization in online social net
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -479,16 +359,6 @@ $$x_i(t+1) = \gamma x_i(t) + K \sum_{j}^{N} A_{ij} \tanh(\alpha x_j(t)) / k_i$$
 - $/ k_i$:**個体 $i$ の次数（接続している隣人の数）** $k_i = \sum_{j}^{N} A_{ij}$ で除算することで、隣人の平均的な影響に基づいて更新される
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -519,16 +389,6 @@ $$x_i(t+1) = \gamma x_i(t) + K \sum_{j}^{N} A_{ij} \tanh(\alpha x_j(t)) / k_i$$
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -554,16 +414,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -588,16 +438,6 @@ $$S_{i,j} = \frac{|N_i \cap N_j|^\eta}{\sum_{k}^{N} |N_i \cap N_k|^\eta}$$
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 * [cite_start]**$\eta$ の値が小さい場合（例: $\eta = 0$）**[cite: 88]:
@@ -631,16 +471,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 <!--
@@ -686,16 +516,6 @@ level: 2
 </div>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 **A. [cite_start]中立的コンセンサス (Neutral consensus)** [cite: 136]
@@ -741,16 +561,6 @@ level: 2
     - $x_i(t)$ と $x_j(t)$ が**同じ符号**を持つ場合（$\sigma_i(t) \sigma_j(t) = +1$）、$\tanh(\alpha x_j(t))$ の項はそのまま機能し、意見は強化されます。
     - $x_i(t)$ と $x_j(t)$ が**異なる符号**を持つ場合（$\sigma_i(t) \sigma_j(t) = -1$）、$\tanh(\alpha (-x_j(t)))$ となり、、 $j$ の意見が $i$ の意見を**さらに反対方向へ押しやる**ように作用し、結果として意見の分極を促進する　→　**分極型**
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 
@@ -777,16 +587,6 @@ level: 2
 </p>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 
@@ -830,14 +630,4 @@ level: 2
    - 感度分析
 - モデルの改善
    - 解析と検証の結果、または新たな知見に基づいて、モデルの構造、エージェントの行動ルール、環境設定などを修正・追加する
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 

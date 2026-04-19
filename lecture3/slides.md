@@ -68,16 +68,6 @@ level: 2
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -98,16 +88,6 @@ level: 2
   「メカニズムの説明」が社会学の核心問題
 </p>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -127,16 +107,6 @@ level: 2
 - 情報技術の進展により、SNS、センサーデータ、行政記録など、多様なビッグデータが収集可能となった
     - (計算社会科学は)ビックデータを用いて社会現象と人間行動に関わる各要素を分析する
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 - 社会学には色々な方法論がありますが、ここで実証主義的な視座を取り上げます。
@@ -176,14 +146,6 @@ level: 2
  [^1]: ただし、高度の統計手法による限定的に因果関係を説明することができる
 
 <style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
 .footnotes {
   font-size: 0.65rem;
   color: #666;
@@ -222,16 +184,6 @@ level: 2
 > ネットワークの観点で、「若年層は高齢者に比べて投票率が低い」をどのように説明することができる？
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 さらに、社会調査を用いることで行われる実証的な社会科学研究で絵は次のような根本的な限界がある：
@@ -269,16 +221,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 - 分析社会学（Analytical Sociology）は、社会現象を表面的な変数間の相関ではなく、その背後にある因果的メカニズムを構成的に明示することを目的とした理論的・方法論的アプローチである。
@@ -305,16 +247,6 @@ level: 2
 </div>  
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 学歴と地位の関連を説明するために、「ネットワークが雇用機会へのアクセスを左右する構造」があるというマクロレベルの構造を出発点として考えたい。
@@ -336,16 +268,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 - 欲求経由の影響:「周囲に失業者が多い → 働く意欲が低下 → 現状に満足 → 求職をしなくなる」
@@ -425,16 +347,6 @@ level: 2
 
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 
@@ -473,16 +385,6 @@ ABMの概要
 | 更新ルール  | 各ステップでの状態変化を決める規則。                                     |
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 <!--
@@ -521,16 +423,6 @@ ABMの具体例
  [^1]:  自然渋滞モデルの環境を変更する例：[Traffic Grid](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Social%20Science/Traffic%20Grid.nlogo)
  [^2]:  自然渋滞モデルの相互作用を変更する例：[Traffic 2 Lanes](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Social%20Science/Traffic%202%20Lanes.nlogo)
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 
@@ -566,16 +458,6 @@ level: 2
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 
@@ -611,16 +493,6 @@ $$
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 意思決定システムの例として合理的行為者モデルを紹介
@@ -668,16 +540,6 @@ level: 2
 </div>
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -714,16 +576,6 @@ level: 2
 </div>
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 
 ---
@@ -765,16 +617,6 @@ $$
 </div>
 </div>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -826,16 +668,6 @@ $$
 </p>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -860,16 +692,6 @@ level: 2
 </v-clicks>
 
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -893,16 +715,6 @@ level: 2
 
 </v-clicks>
  
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 ---
 transition: slide-up
@@ -934,16 +746,6 @@ level: 2
 </v-clicks>
  
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 
@@ -999,16 +801,6 @@ level: 2
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 みんな仕事を見つけられていない」という情報を耳にすることで、就職活動の成功確率を悲観的に見積もる
@@ -1054,16 +846,6 @@ level: 2
 
 </v-clicks>
  
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 ルールベースモデルでは、「一定の選好にもとづいて行動する」のではなく、「こういう状況ではこうする」「他人がこうしたら自分もこうする」など、状況や文脈に応じた行動規則が行動を導きます
@@ -1095,16 +877,6 @@ level: 2
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 適応ルールはなぜ重要なのかを説明
@@ -1132,16 +904,6 @@ level: 2
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 -->
@@ -1166,16 +928,6 @@ level: 2
     - ルールベースモデルでは、「特定の条件を満たしたとき、ある行動を実行する」という形で、個体の認知・判断プロセスを直接モデル化できる
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 ルールベースモデルがABMに相応しい理由
@@ -1201,16 +953,6 @@ level: 2
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 
 <!--
 -->
@@ -1238,13 +980,3 @@ level: 2
 
 </v-clicks>
 
-<style>
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
