@@ -20,7 +20,7 @@ drawings:
 transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
-
+contextMenu: false
 ---
 
 ## 行動科学概論

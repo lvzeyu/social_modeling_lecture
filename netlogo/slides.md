@@ -20,7 +20,10 @@ drawings:
 transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
-
+contextMenu: false
+hideNavigation: true
+shortcut:
+  toc: false
 ---
 
 # NetLogo入門
@@ -93,6 +96,12 @@ layout: two-cols-header
 ::right::
  
 <img src="./image/graphic_tool.png" class="h-64 mx-auto" />
+
+<style scoped>
+.two-cols-header {
+  row-gap: 0.5rem !important;
+}
+</style>
 
 
 ---
@@ -205,67 +214,6 @@ class: flex justify-center items-center gap-20 px-40 text-xl
   </v-click>
 </div>
 
-
----
-transition: fade-out
-layout: two-cols
----
-
-# 変数の種類
-
-変数の目的による使い分け
-
-
-::left::
-
-<v-click at="1">
-
-**グローバル変数**（`globals`）
-- モデル全体で共有される変数
-- どのエージェント・手続きからでも参照・更新できる
-
-</v-click>
-
-<v-click at="2">
-
-**エージェント変数**
-- 各エージェントがそれぞれ独立した値を持つ
-
-</v-click>
-
-<v-click at="3">
-
-**ローカル変数**（`let`）
-- 手続き内だけで有効な一時的な変数
-
-</v-click>
-
-::right::
-
-```text {1,6|2-3,8,11|16}{at:1}
-globals [total-count]
-turtles-own [energy]
-patches-own [fertility]
-
-to setup
-  set total-count 100
-  create-turtles total-count [
-    set energy 50
-  ]
-  ask patches [
-    set fertility random 10
-  ]
-end
-
-to go
-  let avg-energy mean [energy] of turtles
-  ask turtles [
-    set energy energy - 1
-  ]
-end
-```
-
-
 ---
 transition: fade-out
 layout: two-cols-header
@@ -309,6 +257,69 @@ set x 10 + 5
 set y 12 * 2 / 4 - 3
 set z 10 mod 3
 ```
+
+
+
+---
+transition: fade-out
+layout: two-cols-header
+---
+
+# 変数の種類
+
+変数の目的による使い分け
+
+
+::left::
+
+<v-click at="1">
+
+**グローバル変数**（`globals`）
+- モデル全体で共有される変数
+- どのエージェント・手続きからでも参照・更新できる
+
+</v-click>
+
+<v-click at="2">
+
+**エージェント変数**
+- 各エージェントがそれぞれ独立した値を持つ
+
+</v-click>
+
+<v-click at="3">
+
+**ローカル変数**（`let`）
+- 手続き内だけで有効な一時的な変数
+
+</v-click>
+
+::right::
+
+```text {1,6|2-3,8,11|16}
+globals [total-count]
+turtles-own [energy]
+patches-own [fertility]
+
+to setup
+  set total-count 100
+  create-turtles total-count [
+    set energy 50
+  ]
+  ask patches [
+    set fertility random 10
+  ]
+end
+
+to go
+  let avg-energy mean [energy] of turtles
+  ask turtles [
+    set energy energy - 1
+  ]
+end
+```
+
+
 
 ---
 transition: fade-out
@@ -796,3 +807,7 @@ class: text-center
 9. よく使う命令
 10. インターフェースの活用（スライダー・グラフ・コマンドセンター）
 
+
+<style>
+.toc { display: none !important; }
+</style>
