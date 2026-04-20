@@ -43,6 +43,14 @@ Agent Based Model (ABM)の紹介
   </a>
 </div>
 
+<style>
+h1 {
+  color: white;
+  -webkit-text-fill-color: white;
+  -moz-text-fill-color: white;
+}
+</style>
+
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
