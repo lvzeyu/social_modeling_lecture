@@ -28,7 +28,7 @@ mdc: true
 # 社会科学におけるモデル入門
 
 
-Opinion Dynamics: Granovetter's threshold model
+シェリングの分居モデル
 
 ### 呂沢宇
 
@@ -60,25 +60,104 @@ transition: slide-up
 level: 2
 ---
 
-# 背景
+# 研究背景
 
-More Is Different (量が多いことは質の違いを生む)
+都市におけるセグリゲーション(人種)
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/SegTrend.png" width="700" />
+</div>
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# 研究背景
+
+都市におけるセグリゲーション(人種)
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/NY_racial_map.jpg" width="800" />
+</div>
+
+
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# 研究背景
+
+都市におけるセグリゲーション(収入)
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/mesh_income.png" width="1200" />
+</div>
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# 研究背景
+
+都市におけるセグリゲーション(職業)
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/occupation_distribution_map.png" width="1000" />
+</div>
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# 研究背景
+
+近隣効果
+
+<div grid="~ cols-2 gap-4">
+<div>
 
 <v-clicks depth="2">
 
 
-- 「More Is Different」は１９７２年にAndersonがScience誌に発表した[エッセイ](https://solid-mater.com/entry/more)のタイトルである。
+- 近隣効果とは、個人の行動や成長が、居住している地域の環境や他の住民の特徴によって左右されることを論じている
 
-> P. W. Anderson．１９７７年のノーベル物理学賞受賞者にして、最も創造性の高い物理学者と呼ばれるなど、二十世紀を象徴する理論物理学者である
+- セグリゲーションによって貧困層が特定の地域に集中すると、教育・就労・治安などの社会資源へのアクセスが制限され、次世代にわたって機会の格差が再生産される
 
-- 還元主義(Reductionist)という考え方
-    - この世界の全てはある基本法則に基づいて決められている
-        - 物理学の基本的な粒子(素粒子)を理解すれば、物理、化学や生物学全ての現象が自動的に理解可能になる
+- セグリゲーションによって特定の地区が「危険」「貧困層の巣窟」といった負のイメージでスティグマ化されると、住民は社会的・心理的に疎外され、外部との交流や社会参加が抑制される傾向がある
+- [Opportunity Atlas](https://www.opportunityatlas.org/)
 
-- 還元主義に対する批判
-    - スケールの違いによる本質的な違い: 「量的な差異（More）」は単なる量の増加ではなく、「質的な差異（Different）」をもたらす
-    - 創発（Emergence）の重要性: 個々の要素の単純な相互作用が、より高次のレベルで「質的に新しい現象」を生み出すことがあり、それらは要素の性質から直接的に予測・説明できない
 </v-clicks>
+
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/neighborhood-effects.png" width="600" />
+</div>
+
+</div>
+
+</div>
+
 
 
 
@@ -88,318 +167,88 @@ transition: slide-up
 level: 2
 ---
 
-# 背景
-
-Complexity Science (複雑系科学)
-
-<div grid="~ cols-2 gap-4">
-<div>
+# 研究関心
 
 <v-clicks depth="2">
 
-- 自然や社会の様々な現象や構造には，多数の分散した構成要素の相互作用によって継続的に発展する「複雑系」としての性質がある
-    - 多数の小さな要素とそれを含む大きな要素の関係に現れる「**創発**」
-    - 系の時間的発展の中に現れる「**自己組織化**」
-    - 現象の数理モデル・計算モデルを創り計算機内で動かして理解する「**構成的手法**」を用いて，複雑系を理解する
-        - 要素間の相互作用がシステムの挙動を決めるため、個々の要素だけを見ても全体の挙動を完全には予測できない
-</v-clicks>
+セグリゲーション（居住分離）がどのように形成されるのか
 
+- ❓トップダウン型セグリゲーション：差別的な政策 
+    - 政府や行政による制度的・法的な差別、たとえば特定人種や民族に対する住宅差別、ゾーニング規制、公共施設の分離などにより、人為的に居住の分断が生み出されるケース
 
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/nature2.png" width="600" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# 背景
-
-複雑系としての人間社会
-
-
-<v-clicks depth="2">
-
-- 社会科学が対象とする複雑現象には非線形な相互作用が存在し，系全体として創発的な振舞いを示す
-- Interaction-induced collective behavior: 相互作用の強さやパターンによって、個々の行動の単純な総和とは異なる「集団レベルの現象」が創発する
-    - 自然渋滞モデル；個々の車の小さなブレーキや速度調整が積み重なることで、渋滞パターンが発生する
-    - Schelling's model: 個々のエージェントのわずかな非寛容さが相互作用を繰り返すうちに、都市やコミュニティ全体の大規模なセグリゲーションを生む。
-- Diversity-induced collective behavior: 個々人の属性や性質の「ばらつき（多様性）」が存在することで、全体としてのマクロな挙動が創発される
-    - **Granovetter's threshold model**: 個々人の属性（意見や閾値）の差による、社会運動や流行が発生しやすくなる現象を説明
-</v-clicks>
-
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-単純な意思決定から見る集団的行動
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks depth="3">
-
-デモや抗議運動などに参加することを例で考えなさい
-- 個人が単純な二値的（binary）的な意思決定を行う：「デモに参加する」／「デモに参加しない」
-    - 社会的影響（Social Influence）：個人の態度や行動が、他者からの影響によって変化する（説得、同調、服従など）
-- 各個人の持つ「閾値（threshold）」という概念が導入される
-    - 「自分以外に何人以上の人がデモに参加していれば、自分も参加する」という基準
-
-</v-clicks>
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/demo.png" width="600" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-Diversity-induced collective behavior
-
-
-
-<v-clicks depth="3">
-
-- 研究関心：人々の選好（＝閾値）の分布が集団行動にどのように影響する
-    -  個々人の選好を知っていても、直接的には集団全体の振る舞いを予測できないはず
-        - 一人ひとりの選好を単純に合計するではなく、他者の行動との相互作用を通じて非線形的に影響している
-    - 「代表的な平均的個人（mean member）」の特性だけではなく、集団内の異質性（heterogeneity）や多様性（diversity）がどのように全体の行動に影響を与えるかを把握する
+- ⭐️**ボトムアップ型セグリゲーション：個人の居住選択の積み重ね**
+    - セグリゲーションは、明示的な差別政策がなくても、住民の選択行動の集積によって自然に発生する
 
 </v-clicks>
 
 
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-モデルの仮定
-
-
-<v-clicks depth="3">
-
-集団行動への参加決定は、コストと利得という二つの要素によって決められる
-
-- 参加に伴うコスト
-    - デモへの参加による逮捕・拘束のリスク
-    - 時間や経済的なコスト
-
-- 参加に伴う利得
-    - デモ成功による制度的変化
-
-</v-clicks>
-
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-モデルの仮定
-
-<div grid="~ cols-2 gap-4">
-  <!-- 左側のテキスト部分 -->
-  <div>
-    <v-clicks>
-      <ul>
-        <li><strong>Net benefit = 利得（Benefit）− コスト（Cost）</strong></li>
-        <li>個人が集団行動に参加するかどうかは、Net benefit によって決まる。
-          <ul>
-            <li><code>Net benefit &gt; 0</code> の場合、個人は行動に参加する。</li>
-            <li><code>Net benefit ≤ 0</code> の場合、個人は行動に参加しない。</li>
-          </ul>
-        </li>
-      </ul>
-    </v-clicks>
-  </div>
-
-  <!-- 右側の画像部分 -->
-  <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="./image/Benefit.png" width="600" />
-  </div>
-</div>
-
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-モデルの動き
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks depth="3">
-
-- エージェント数：100人  
-- 閾値（threshold）は 0〜99 の一様分布（整数）  
-- 最初のエージェントが行動を開始し、それをトリガーに次々と参加  
-- 各ステップで1人ずつ行動に参加し、最終的に全員が参加する  
-
-</v-clicks>
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Riot1.svg" width="600" />
-</div>
-
-</div>
-
-</div>
-
-カスケード(cascade): 階段状に水が流れ落ちていく滝のように、ある個人または少数の個体の行動や選択の影響が連鎖的に他者へと広がっていく現象
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-モデルの動き
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks depth="3">
-
-- 基本設定はバージョン1と同じ  
-- ただし、閾値が $1$ と $3$ のエージェントが $2$ に変更された  
-- 最初のエージェントは行動を開始するが、他の誰も続かず終了  
-    - 一部のエージェントの閾値が少し高くといった小さい変更だけで、連鎖がが途中で止まってしまった
-</v-clicks>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Riot2.svg" width="600" />
-</div>
-
-</div>
-
-</div>
-
-<v-clicks depth="3">
-
-- カスケードを生み出すには、十分な数の低閾値エージェントが必要
-    - 行動が広がるか否かは、平均的な傾向ではなく、「どこに低閾値の人がいるか（分布の構造）」に強く依存する　→　マイクロな条件の重要性
-</v-clicks>
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-閾値の分布
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks depth="3">
-
-- $r(t)$ は時点 $t$ におけるアクティブなエージェント数
-    - 例えば、デモに参加している人の数
-     - $r(0)$：初期の「先導者（instigator）」の数
-
-- $F(x)$ は閾値の累積分布関数を表す
-  $$
-  F(x) = P(\Theta_i < x)
-  $$
-    - 潜在的参加者を表す
-
-
-- シミュレーションの均衡状態：
-  $$
-  r_e = F(r_e)
-  $$  
-
-</v-clicks>
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/CDF.png" width="600" />
-</div>
-
-</div>
-
-</div>
 
 
 
 
 <!--
-- 横軸: 行動に参加している人の割合（例: デモに参加している人の割合）
-- 縦軸（y軸）: 閾値がx以下の人の割合、つまり「今の参加率で参加する人の割合」→ その割合を見て「自分も行動に参加しよう」と判断する人の割合（つまり潜在的参加者）
-- 曲線：累積分布関数F(x)は、各値x 以下の閾値を持つ人の割合を表します。
-    - 
-- F(x)が急激に上昇する箇所では、「ちょっと参加者が増えるだけで参加したがる人が一気に増える」
-    - 初期の参加者（インスティゲーター）の役割が非常に重要
-- 参加率と実際に参加する人の割合が一致する点が均衡点になります
-    - この点では、参加する人の割合と、行動しようとする人の割合が一致しています。したがって、これ以上参加者は変化しません。これが**システムの安定状態（equilibrium）**です。
+- 江戸時代の身分制度士農工商（しのうこうしょう）制度、特定地域に強制的に居住させられた。
+- 在日朝鮮人に対する住宅政策:公営住宅への入居が制限された時期があり、結果として貧困地域に集住
+-->
+---
+transition: slide-up
+level: 2
+---
+
+# 研究関心
+
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/macro-micro.png" width="1200" />
+</div>
+
+<v-clicks depth="2">
+
+- ボトムアップ型セグリゲーション：個人の居住選択の積み重ね 
+    - 社会構造が個人の行動をどのように規定する❓
+    - どのような個人の行動の累積によるセグリゲーションに導く❓
+
+ </v-clicks>
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# モデルの構築
+
+理論前提
+
+<v-clicks depth="2">
+
+- 人間の同質性選好（homophily）
+    - Homophily Principle: 個人が自分と似た属性（年齢、性別、教育、価値観など）を持つ他者と関係を築きやすい [(McPherson et al., 2001)](https://www.annualreviews.org/content/journals/10.1146/annurev.soc.27.1.415)
+        - 価値観や生活様式が共有できる相手を選ぶことで心理的安定性、信頼性、コミュニケーション効率の向上
+
+- 人間の同質性選好は「どのような人々が周囲に住んでいるか」という居住環境の選好にも強く反映される
+    - 「自分と似た人が多く住む地域に居住したい」という選好が生まれる
+    
+> 孟母三遷: 中国、戦国時代の思想家孟子の母が、孟子の教育のために三度も住居を遷ったとの故事をいう。孟母は初め墓地の近くに居を定めたが、孟子が葬式のまねばかりするので、市場の近くに転居した。すると今度は商売人のまねをして遊ぶので、ここもわが子のためにふさわしい所ではないと、学校のそばに居を移すと、孟子が喜々として礼儀作法のまねをするようになったので、孟母はこここそがわが子のいるべき所だといって、ついにここに住居を定めたと伝える。
+ </v-clicks>
+
+
+
+
+<!--
+孟母三遷(もうぼさんせん)
+
+- 最初の住まい：墓地の近く → 孟子が葬式ごっこをして遊ぶ → 環境がふさわしくないとして引越し
+
+- 二番目の住まい：市場の近く → 孟子が商人の真似をする → またもや移転
+
+- 最終的な住まい：学問所の近く → 孟子が礼儀作法を真似るように → ここで定住
+
+孟母は、周囲の社会的環境（死者の儀式、商業的価値観、学問と礼節）を比較し、自ら望ましいとする社会的・文化的環境（学問）を選び他の価値観を持つ集団との空間的分離を行った。
+
+これは、今日の都市部における学区選択や教育熱心な家庭の集住と同じメカニズムです。
 -->
 
 
@@ -408,37 +257,39 @@ transition: slide-up
 level: 2
 ---
 
-# Threshold model
+# モデルの構築
 
-閾値の分布
+シェリングモデルの概要
 
 <div grid="~ cols-2 gap-4">
 <div>
 
-<v-clicks depth="3">
-
-- 仮定：閾値は平均 $\mu$、標準偏差 $\sigma$ の正規分布に従う 
-    - エージェント数は常に100人、$\mu = 25$ で設定される
-- $r_e$：平衡時のアクティブなエージェント数  
+<v-clicks depth="2">
 
 
-
+- **目的**：白人と黒人という2種類の人種が2次元格子状にランダムに配置され、自由に移動できるようにした場合に、住み分けが生じるかどうかを明らかにすることを目的とする
+- **要素**: エージェントは住人と呼ばれる。$N$人からなる集団は$r \times r$の2次元格子状に配置される (ただし、$r \times r> N$)
+    - 同じ場所に配置できる住人は1人である
+    - 各住人は固有番号であるIDと人種(白人と黒人)、配置された場所番号を持つ
+  
 </v-clicks>
+
 
 </div>
 
 <div>
 
 <div style="display: flex; justify-content: center;">
-  <img src="./image/STD.png" width="600" />
+  <img src="./image/schelling.gif" width="600" />
 </div>
 
 </div>
 
 </div>
 
-
-
+<!--
+黒人（こくじん）
+-->
 
 
 ---
@@ -446,178 +297,38 @@ transition: slide-up
 level: 2
 ---
 
-# Threshold model
+# モデルの構築
 
-閾値の分布
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks depth="3">
-
-
-- 臨界値より小さいの際には、ほとんどの人が「25人くらいが行動しないと、自分は動かない」と思って、閾値が非常に低い人がほとんど存在しなくなるるため、誰も続かない
-    - 標準偏差が小さいため、「5人でも行動する」「10人でも行動する」という極端に閾値の低い人がほぼ存在しない
-    - 集団があまりに均質すぎると、誰も最初にリスクをとらず、変化が起きない
-
-
-
-</v-clicks>
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/s1.svg" width="300" />
-</div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/s10.svg" width="300" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-閾値の分布
+シェリングモデルの概要
 
 <div grid="~ cols-2 gap-4">
 <div>
 
-<v-clicks depth="3">
+<v-clicks depth="2">
 
 
-- 臨界値に近いの場合、閾値分布がちょうどよい多様性を持つため、少数のインスティゲーターの行動が、低い閾値を持つエージェントを引き込み、次々と参加者が増えていくことで、カスケードが発生する
-
-- 臨界値に等しいの場合は、社会全体に行動が拡大し、100人全員が最終的に行動に参加
-
-
-
-</v-clicks>
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/s12.svg" width="300" />
-</div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/s13.svg" width="300" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-閾値の分布
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks depth="3">
-
-
-- 臨界値より大きいの場合、閾値のばらつきが大きくなりすぎる。
-    - 非常に低い閾値の人（たとえば「2人でも行動する」）と非常に高い閾値の人（たとえば「90人以上が行動しないと自分は動かない」）が混在
-
-- 初期の参加者は一部の人を動かすが、それが途中で途切れやすい
-
-</v-clicks>
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/s60.svg" width="600" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-閾値の分布
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks depth="3">
-
-
-- 多様性の重要性:適度な多様性があることで、集合的行動が広がる
-    - 平均閾値が同じでも、分布が違えば集団行動は全く異なる
-
-- 転換点の特定
-    - 特定な臨界値を境に、劇的な変化が起こりうる
-
-- [Demo](https://rf.mokslasplius.lt/granovetters-threshold-model/)
-</v-clicks>
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/STD.png" width="600" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-閾値モデルの拡張
-
-- Granovetter（1978）の閾値モデルでは、「各個人は、他の全員の行動を見て、それに応じて自分の行動を決める」という完全情報・完全接続の社会を想定している
-
-- 局所ネットワークにおける閾値モデルの適用
-    - 各個人は、社会全体の行動率ではなく、自分の「局所的な近隣（近くの人々）」の中での行動率に応じて行動する([Centola & Macy 2007](https://www.journals.uchicago.edu/doi/10.1086/521848);[Siegel 2009](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1540-5907.2008.00361.x);[Watts 2002](https://www.pnas.org/doi/10.1073/pnas.082090499))
+- **過程**
+    - シミュレーションの最初に全ての住人は初期化される
+        - ID、人種、場所が割り当てられる
+    - シミュレーションでは、複数ラウンドが実行される
+        - 各ラウンドにおいて、すべての住人は、満足度関数を計算し、その結果による次の行動を決める
+  
     
+  
+</v-clicks>
+
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/schelling.gif" width="600" />
+</div>
+
+</div>
+
+</div>
 
 
 
@@ -627,51 +338,78 @@ transition: slide-up
 level: 2
 ---
 
-# Threshold model
+# モデルの構築
 
-閾値モデルの拡張
+シェリングモデルの概要
 
-- エージェントの観察範囲は、ネットワーク構造によって決まる ([Siegel 2009](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1540-5907.2008.00361.x))
+<div grid="~ cols-2 gap-4">
+<div>
 
+<v-clicks depth="2">
+
+
+- **設計**
+    - 満足度関数は、近隣に配置されている住人によって決める
+        - 近隣はムーア近傍(8近傍)とする
+        - 同じ人種である近隣住人数が、閾値$F$より大きい場合は$1$を出力し、それ以外は$0$を出力する
+            - $0$であった場合は、その時点で住人が配置されていない場所のリストからランダムに選ばれる場所に移動する
+    - 観察指標は、 シミュレーション終了時における2次元格子空間に配置された人種の分布で計算する
+  
+</v-clicks>
+
+
+</div>
+
+<div>
 
 <div style="display: flex; justify-content: center;">
-  <img src="./image/network_threshold.png" width="500" />
+  <img src="./image/schelling.gif" width="600" />
+</div>
+
+</div>
+
 </div>
 
 
 
 
 
-
 ---
 transition: slide-up
 level: 2
 ---
 
-# Threshold model
+# モデルの構築
 
-閾値モデルの拡張
-
-- 局所ネットワークの（同質性）特徴は、集合的行動の結果を大きく左右する([Mustafa Yavaş & Gönenç Yücel 2014](https://journals.sagepub.com/doi/10.1177/0894439313512464))
-
+エージェントの設定
 
 <div grid="~ cols-2 gap-4">
 <div>
 
 <div style="display: flex; justify-content: center;">
-  <img src="./image/network_example.png" width="300" />
+  <img src="./image/Schelling2.svg" width="300" />
 </div>
+
+- $F=0.35$
+- 同じ人種である近隣住人の比率$\frac{3}{3}=1$ので、現状を維持
+    - 住人がある地域しかカウントされない
+
 </div>
 
 <div>
 
 <div style="display: flex; justify-content: center;">
-  <img src="./image/network_result.png" width="600" />
+  <img src="./image/Schelling3.svg" width="300" />
+</div>
+
+- $F=0.35$
+- 同じ人種である近隣住人の比率$\frac{1}{3}$
+    - $\frac{1}{3}<0.35$ので、引越しをする
+
 </div>
 
 </div>
 
-</div>
 
 
 
@@ -682,87 +420,70 @@ transition: slide-up
 level: 2
 ---
 
-# Threshold model
+# モデルの構築
 
-閾値モデルの応用
-
-- 閾値モデルは、様々のコンテイション(contagion)に関する社会現象の説明に用いられている
-    - 社会運動・抗議行動
-    - 技術革新・製品普及　([Valente 1996](https://www.sciencedirect.com/science/article/pii/0378873395002561))
-    - 政策受容([GILARDI & WASSERFALLEN, 2019](https://ejpr.onlinelibrary.wiley.com/doi/full/10.1111/1475-6765.12326))
-    - 誤情報の伝播([Törnberg, 2018](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0203958))
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-閾値モデルの応用
-
-- **閾値モデルは転換点（tipping point）の重要性を示した**；一定の割合以上の少数派が存在すれば、一見安定しているように見える社会的規範でもコンテイションを通じて覆される可能性がある
-    - 性別役割に対する社会的期待
-    - ゴミ分類という規範の受容
-    - 禁煙活動
-    - 流行語の普及
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-閾値モデルの応用
-
-[Centola et al., (2018)](https://www.science.org/doi/full/10.1126/science.aas8827): 転換点（tipping point）という示唆に基づく実証研究
-- 問題関心：社会的規範の転換がどの時点で起こるかを実験で再現・検証しよう
-
-- 実験設計
-    - 参加者グループに写真を提示
-        - ある人物の写真を見せて、その人物の「名前」を決めてもらう
-        - 複数ラウンドを通して話し合いを行い、グループ内で共通の名前（=社会的合意）を形成させる
-    - 異なる意見を持つ「confederates」を投入
-        - 合意が形成されたあと、一貫して「違う名前」を主張するconfederatesをグループに加える
-    - インセンティブは「協調すること」のみ
-        - お金や正解の有無はなく、できるだけ他人と同じ名前を答えることが望ましいというルールだけが与えられる(社会的影響の要因)
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# Threshold model
-
-閾値モデルの応用
-
+エージェントの設定
 
 <div grid="~ cols-2 gap-4">
 <div>
 
-- 協力者の割合が10～20%程度では、影響は限定的で、多数派の意見は維持される傾向
-- 協力者（少数派）の割合が約25%に達すると、それまで形成されていた多数派の合意が崩れ始める
-    - 最終的には少数派が提示した新しい名前が、グループ全体の新たな合意になる
+<div style="display: flex; justify-content: center;">
+  <img src="./image/Schelling3.svg" width="300" />
+</div>
 
-- 「粘り強い少数派からの変化」は閾値モデルによる提示する理論的な示唆だけでなく実験でも実証可能であると示した
+
 </div>
 
 <div>
 
 <div style="display: flex; justify-content: center;">
-  <img src="./image/Centola1.jpeg" width="250" />
+  <img src="./image/Schelling4.svg" width="300" />
+</div>
+
+
+</div>
+
+</div>
+
+
+<p v-click style="color: #3E1586; font-size: 1.5em; text-align: center;">
+  計算を続ける
+</p>
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# モデルの構築
+
+エージェントの設定
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks depth="2">
+
+
+- $f<F$ という条件満たす住民は「不満である😕」
+- 「不満である😕」住人が配置されていない場所のリストからランダムに選ばれる場所に移動する
+
+- 移動の順番
+   - ランダム順序：不満足なエージェントをランダムな順番で選び、順に移動させる
+   - 固定順序：エージェントを固定された順番（たとえば行番号やID順）で選び、移動させる
+
+</v-clicks>
+
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/Schelling7.svg" width="600" />
 </div>
 
 </div>
@@ -772,5 +493,759 @@ level: 2
 
 
 
+
+---
+transition: slide-up
+level: 2
+---
+
+# モデルの構築
+
+シミュレーションの結果
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks depth="2">
+
+
+- 全ての住民は「満足している😀」状態になっている
+    - これ以上移動が生じないので、シミュレーションを終了する　
+- 白人居住地域と黒人居住地域の住み分けが生じてしまうことを明らかにした
+</v-clicks>
+
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/SchellingEnd.png" width="600" />
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# シミュレーションの初期設定
+
+シェリングの分居モデルの初期設定パラメータ
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/setup.png" width="600" />
+</div>
+
+<v-clicks depth="2">
+ 
+- [Demo](http://nifty.stanford.edu/2014/mccown-schelling-model-segregation/)
+- グリッドサイズ
+    -  各マスには「赤エージェント」「青エージェント」「空きマス」のいずれかが配置される
+- エージェントの割合 
+</v-clicks>
+
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/schelling.gif" width="600" />
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# シミュレーションの実行
+
+シェリングの分居モデルの初期設定パラメータ
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/setup.png" width="600" />
+</div>
+
+<v-clicks depth="2">
+ 
+- [Demo](http://nifty.stanford.edu/2014/mccown-schelling-model-segregation/)
+- 空きマスの割合
+- 類似性しきい値（Similar threshold）
+    - 各エージェントは、自分の近隣に少なくとも何%が自分と同じ属性であれば満足と感じる
+    - しきい値が低いのは、「高い寛容性」を意味している
+</v-clicks>
+
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/schelling.gif" width="600" />
+</div>
+
+</div>
+
+</div>
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# シミュレーションの実行
+
+シミュレーションの結果比較：寛容性が高いの場合
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+
+<v-clicks depth="2">
+ 
+- $F=0.2$
+- 全てのエージェント短時間で「満足」な状態になる
+- 目立ったセグリゲーションは見られない　
+
+</v-clicks>
+
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/20.png" width="400" />
+</div>
+
+</div>
+
+</div>
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# シミュレーションの実行
+
+シミュレーションの結果比較：寛容性が低いの場合
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+
+<v-clicks depth="2">
+ 
+- $F=0.6$
+- 明確なセグリゲーションが見られた
+- 安定の状態までにある程度のiterationsが必要とする
+- 空きマスがクラスター間の境界を形成している
+
+</v-clicks>
+
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/60.png" width="400" />
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# モデルの構築
+
+エージェントの設定
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/40.png" width="300" />
+</div>
+
+<div style="text-align: center;">
+  F=0.4
+</div>
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/50.png" width="300" />
+</div>
+
+<div style="text-align: center;">
+  F=0.5
+</div>
+
+</div>
+
+</div>
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# シェリングの分居モデルの解析
+
+Moran's I
+
+$$\Large I = \frac{M \sum_i \sum_j w_{i,j} (x_i - \bar x) (x_j - \bar x)}{(\sum_i \sum_j w_{i,j}) \sum_i (x_i-\bar x)^2}$$
+
+- $M$: 空きマスは含まず、エージェントが存在するセルの総数
+- $w_{i,j}$: $i$ と $j$ の間の隣接関係を表す隣接行列
+  - $w_{i,j} = 1$ のとき、セル $i$ はセル $j$ の近傍である
+- $x_i$: セル $i$ におけるエージェントの「色（属性）」を表す値
+  - $x_i = 0$ のとき、そのセルには青のエージェントであり、$x_i = 1$ のとき、そのセルには赤のエージェントである
+- $\bar x$: $x_i$ の平均値、すなわち全エージェントのうち赤のエージェントの割合（比率）
+- Moran’s Iという空間自己相関指標
+    - 空間上に分布する値（この場合はエージェントの属性）が、隣接関係においてどの程度類似しているか（空間自己相関）を測定する
+
+
+
+<!--
+この統計量は、同じ属性を持つエージェントがどの程度空間的に集まって配置されているか、つまり空間的なクラスターの強さを示します。
+
+地点iと j の空間的な重み（例：隣接していれば1、そうでなければ0）
+-->
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# シェリングの分居モデルの解析
+
+Moran's I
+
+モランの I を$\Large I = \frac{M C}{W \sigma}$のような形で再定義すると
+
+$$C = \sum_i \sum_j w_{i,j} (x_i - \bar x) (x_j - \bar x)$$
+$$W = \sum_i \sum_j w_{i,j}$$
+$$\sigma =  \sum_i (x_i-\bar x)^2$$
+
+- セル（エージェントが存在する場所）をループ処理することで、逐次的に $C$、$W$、$\sigma$ を計算できます
+
+
+
+
+<!--
+- $C$：共分散項（空間的な類似度の総和）
+    - 各セル $i$ とその隣接セル $j$ の間で、色（属性）値の偏差の積を計算します。
+    - $x_i - \bar{x}$ は、セル $i$ の属性が平均からどれだけ離れているかを示します。
+    - $w_{i,j}$ によって、隣接しているセルのペアのみをカウントします。
+
+- $W$：重みの総和（隣接関係の全数）
+    - 全てのセルのペアに対して、隣接している（$w_{i,j}=1$）ものの数を合計します。
+    - モデル全体の隣接関係の数を表します。
+
+- $\sigma$：全体の分散（偏差の平方和）
+    - 各エージェントの属性値（0または1）と全体平均 $\bar{x}$ の二乗誤差を合計したもの。
+    - データ全体のばらつきを表します。
+
+-->
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# シェリングの分居モデルの解析
+
+Moran's I の例（1）
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+
+<v-clicks depth="2">
+
+
+- $3\times3$ の格子状のセル
+    - 9 セル
+
+- エージェントの配置
+
+  - $x_i = 1$：4つの赤のエージェントが入っている
+
+  - $x_i = 0$：4つの青のエージェントが入っている
+
+  - $\bar x = 0.5$
+
+  - $M=8$: 8つのセルにエージェントが配置されており、残り1つは空きセル
+
+</v-clicks>
+
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/Moran1.svg" width="400" />
+</div>
+
+</div>
+
+</div>
+
+
+
+---
+transition: slide-up
+---
+
+# Moran's I の例（2）
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks>
+
+- セル1（青, $x_1=0$）を評価
+- $\sigma$への寄与：
+  $$\sigma \leftarrow \sigma + (x_1 - \bar x)^2 = (0 - 0.5)^2 = 0.25$$
+- 隣接セルは2つ（空きセル除く）
+
+</v-clicks>
+
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/Moran2.svg" width="400" />
+</div>
+
+</div>
+
+
+---
+transition: slide-up
+---
+
+# Moran's I の例（3）
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks>
+
+- 隣接セル2（赤）との共分散 $C$ の寄与：
+  $$C \leftarrow C + w_{1,2}(x_1 - \bar x)(x_2 - \bar x)$$
+  $$C \leftarrow C + 1(0 - 0.5)(1 - 0.5) = -0.25$$
+- 異なる属性の隣接ペアは $C$ を減らす（$I$ 減少）
+
+</v-clicks>
+
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/Moran3.svg" width="400" />
+</div>
+
+</div>
+
+
+
+---
+transition: slide-up
+---
+
+# Moran's I の例（4）
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks>
+
+- セル5は空きセル → $C$ には寄与しない  
+（空きセルとの関係は無視）
+
+</v-clicks>
+
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/Moran4.svg" width="400" />
+</div>
+
+</div>
+
+
+
+---
+transition: slide-up
+---
+
+# Moran's I の例（5）
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks>
+
+- セル4（青, $x_4=0$）との共分散：
+  $$C \leftarrow C + w_{1,4}(x_1 - \bar x)(x_4 - \bar x)$$
+  $$C \leftarrow C + 1(0 - 0.5)(0 - 0.5) = +0.25$$
+- 同じ属性同士は $I$ を高める
+
+</v-clicks>
+
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/Moran5.svg" width="400" />
+</div>
+
+</div>
+
+
+---
+transition: slide-up
+---
+
+# Moran's I の例（6）
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks>
+
+- セル2（赤, $x_2 = 1$）の処理：
+- $\sigma$ への寄与：
+  $$(1 - 0.5)^2 = 0.25$$
+- 隣接セル数：4 
+- $C$ の寄与：
+  $$C \leftarrow C + 0.25 + 0.25 - 0.25 - 0.25 = 0$$
+
+</v-clicks>
+
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/Moran6.svg" width="400" />
+</div>
+
+</div>
+
+
+
+---
+transition: slide-up
+---
+
+# Moran's I の例（7）: 最終計算
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks>
+
+- 全体の集計：
+
+  $$M = 8$$  
+  $$C = 16 \times 0.25 - 8 \times 0.25 = 2$$  
+  $$W = 24$$  
+  $$\sigma = 0.25 \times 8 = 2$$
+
+- よって Moran's I は：
+
+  $$\Large I = \frac{M C}{W \sigma} = \frac{8 \times 2}{24 \times 2} = 0.33$$
+
+</v-clicks>
+
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/Moran1.svg" width="400" />
+</div>
+
+</div>
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Moran's I の最大値の例
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks>
+
+- 完全に分離された配置において、モランの I は最大値（1）になる  
+- 各項の値：
+
+  $$M = 8$$  
+  $$C = 24 \times 0.25 = 6$$  
+  $$W = 24$$  
+  $$\sigma = 0.25 \times 8 = 2$$  
+
+- よって：
+
+  $$\Large I = \frac{M C}{W \sigma} = \frac{8 \times 6}{24 \times 2} = 1$$
+
+</v-clicks>
+
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/MoranMax.svg" width="400" />
+</div>
+
+</div>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# 寛容度とセグリゲーションの関係
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks>
+
+- 複数回のシミュレーション後に収束した I のボックスプロット  
+    - 寛容度の閾値$F$が低いとき、Moran's I は低くなる 
+    - $F > 0.2$ から、グリゲーションの程度は急激的に高くなる
+    - $F > 0.33$ のとき、明確なセグリゲーションが観察される
+
+</v-clicks>
+
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/IvsF.png" width="750" />
+</div>
+
+</div>
+
+- シミュレーションのパラメータを変更し、異なるシナリオにおけるセグリゲーションの動態を分析する
+    - セグリゲーションの発生条件を特定できる
+        - ここでは寛容度の閾値$F$に注目したが、空きマスの割合、エージェントの構成比率などのパラメータに対する検証も考えられる
+    - 政策介入の効果を評価する
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# シェリングモデルの一般化：セルオートマトン（Cellular Automaton, CA）
+
+セルオートマトンの基本構造
+
+<v-clicks depth="2">
+
+- Cellular Automataとは、簡単な局所ルールに基づいて、格子状のセルの状態が時間とともに変化していく離散的な計算モデルである  
+    - **セルの集合**：1次元（線状）、2次元（格子状）、または3次元の空間にセルが並んでいる ($i=1,...,L$)
+    - **セルの状態**: 離散的な値を取る $\theta_{i} (t) \in \{\theta_1,\dots, \theta_n \}$
+    - **近傍（neighborhood）**：$\beta_{i}(t)\in\{\beta_1,\ldots,\beta_m\}$ 
+    - **相互作用**：各セルは周囲一定範囲内（近傍）のセルと局所的な相互作用を行う
+    - **更新ルール**:次期のセルの状態は自身と近傍のセルの今期の状態によって決められる 
+        - $$\theta_{i}(t+1)=\mathbf{F}\left[\underline{\theta}(t),\underline{\beta}(t)\right]$$ 
+
+</v-clicks>
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# シェリングモデルの一般化：セルオートマトン（Cellular Automaton, CA）
+
+セル空間と近傍
+
+- セル空間と近傍の構造は多様である
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/neigh.png" width="800" />
+</div>
+
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# シェリングモデルの一般化：セルオートマトン（Cellular Automaton, CA）
+
+応用例
+
+- 自然現象や社会現象のモデリングに広く用いられます
+
+    - [Heat Diffusion](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Chemistry%20&%20Physics/Materials%20Science/Heat%20Diffusion.nlogo)
+
+    - [森林火災モデル（Forest Fire Model）](https://ccl.northwestern.edu/netlogo/models/Fire)
+        - セルの状態：木（T）、燃えている（F）、空（E）
+        - 木は隣接する火から燃え移る・燃えたセルは空になる
+
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# シェリングモデルの拡張
+
+空間構造の拡張
+
+- 従来の格子状の空間から、より現実的な空間表現に拡張する
+
+<div grid="~ cols-2 gap-4">
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="./image/space1.gif" width="400" />
+  <div style="margin-top: 0.5em;">
+    <a href="https://www.tandfonline.com/doi/full/10.1080/13658810903569572#d1e230" target="_blank">
+      Crooks（2010）
+    </a>
+  </div>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="./image/space3.jpg" width="300" />
+  <div style="margin-top: 0.5em;">
+    <a href="https://www.tandfonline.com/doi/full/10.1080/13658810903569572#d1e230" target="_blank">
+      Yin（2009）
+    </a>
+  </div>
+</div>
+
+</div>
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# シェリングモデルの拡張
+
+Agent属性と選好の多様化
+
+- 従来の2グループ（例：白人と黒人）から、より多様なグループ構成に拡張する
+
+<div grid="~ cols-2 gap-4">
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="./image/group1.jpeg" width="400" />
+
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="./image/group2.jpeg" width="350" />
+    <div style="margin-top: 2em;">
+    <a href="https://www.pnas.org/doi/full/10.1073/pnas.0708155105" target="_blank">
+      Clark & Fossett (2008)
+    </a>
+  </div>
+
+</div>
+
+</div>
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# シェリングモデルの拡張
+
+近隣関係
+
+
+<div grid="~ cols-2 gap-4" style="align-items: center;">
+
+<div>
+
+- エージェントが近隣と見なす範囲を「視野」という概念として定義し、セグリゲーションに対する影響を検討する
+
+<a href="https://journals.sagepub.com/doi/abs/10.1080/0042098032000146849" target="_blank">Laurie and Jaggi（2003)</a>
+
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="./image/vision.png" width="300" />
+</div>
+
+</div>
+
+
+- 川や道路などの自然的・人工的な障壁がエージェントの移動や近隣の認識に与える影響をモデル化  
+  <a href="https://www.tandfonline.com/doi/full/10.1080/13658810903569572#d1e230" target="_blank">Crooks (2010)</a>
+
+- 実際の行政区画に基づく近隣を定義  
+  <a href="https://www.tandfonline.com/doi/full/10.1080/13658810903569572#d1e230" target="_blank">Yin (2009)</a>
+
+ 
 
 

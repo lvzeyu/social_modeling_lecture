@@ -24,53 +24,59 @@
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture3/](https://lvzeyu.github.io/social_modeling_lecture/lecture3/)
 
-### 4. Agent Based Model (ABM)の紹介
+### 4. NetLogo入門
 
-Agent Based Model (ABM)の概念、要素、構成と検証について詳細に説明する
+NetLogoの基本操作について紹介する
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture4/](https://lvzeyu.github.io/social_modeling_lecture/lecture4/)
 
-### 5. シェリングの分居モデル
+### 5. Agent Based Model (ABM)の紹介
 
-シェリングの分居モデルについて紹介する
+Agent Based Model (ABM)の概念、要素、構成と検証について詳細に説明する
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture5/](https://lvzeyu.github.io/social_modeling_lecture/lecture5/)
 
+### 6. シェリングの分居モデル
 
-### 6. 閾値モデル
-
-Contagionに関する社会現象を説明するための閾値モデルについて紹介する
+シェリングの分居モデルについて紹介する
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture6/](https://lvzeyu.github.io/social_modeling_lecture/lecture6/)
 
-### 7. ネットワーク科学の基礎
 
-ネットワーク科学の基礎について紹介する
+### 7. 閾値モデル
+
+Contagionに関する社会現象を説明するための閾値モデルについて紹介する
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture7/](https://lvzeyu.github.io/social_modeling_lecture/lecture7/)
 
-### 8. ネットワークモデルモデル(1)
+### 8. ネットワーク科学の基礎
 
-ネットワークモデルの概念、ランダムネットワークモデルとスモールワールドモデルについて紹介する
+ネットワーク科学の基礎について紹介する
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture8/](https://lvzeyu.github.io/social_modeling_lecture/lecture8/)
 
-### 9. ネットワークモデルモデル(2)
+### 9. ネットワークモデルモデル(1)
 
-BAモデルとネットワークモデルの応用について紹介する
+ネットワークモデルの概念、ランダムネットワークモデルとスモールワールドモデルについて紹介する
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture9/](https://lvzeyu.github.io/social_modeling_lecture/lecture9/)
 
+### 10. ネットワークモデルモデル(2)
 
-### 10. 意見ダイナミクス(1)
-
-Voter ModelとMajority Modelについて紹介する
+BAモデルとネットワークモデルの応用について紹介する
 
 - 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture10/](https://lvzeyu.github.io/social_modeling_lecture/lecture10/)
 
 
-### 11. 意見ダイナミクス(2)
+### 11. 意見ダイナミクス(1)
+
+Voter ModelとMajority Modelについて紹介する
+
+- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture11/](https://lvzeyu.github.io/social_modeling_lecture/lecture11/)
+
+
+### 12. 意見ダイナミクス(2)
 
 意見ダイナミクスモデルの構築と応用について
 
-- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture11/](https://lvzeyu.github.io/social_modeling_lecture/lecture11/)
+- 資料: [https://lvzeyu.github.io/social_modeling_lecture/lecture12/](https://lvzeyu.github.io/social_modeling_lecture/lecture12/)

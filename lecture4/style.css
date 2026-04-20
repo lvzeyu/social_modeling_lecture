@@ -1,8 +1,5 @@
-h1 {
-  background-color: #3E1586;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+.slidev-toc-nav,
+.slidev-nav-toc,
+nav.slidev-toc {
+  display: none !important;
 }

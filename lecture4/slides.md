@@ -1,6 +1,6 @@
 ---
 # You can also start simply with 'default'
-theme: seriph
+theme: neversink
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
@@ -20,474 +20,921 @@ drawings:
 transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
+contextMenu: false
+hideNavigation: true
+shortcut:
+  toc: false
+layout: cover
+color: light
 
 ---
 
-## 行動科学概論
+# NetLogo入門
+
+東北大学文学研究科
+計算人文社会学
+
+**呂沢宇**   
+
+行動科学概論　_社会科学におけるモデル入門_ <a href="https://lvzeyu.github.io/https:/github.com/lvzeyu/social_modeling_lecture" class="ns-c-iconlink"><mdi-open-in-new /></a>  
+
+
+
+---
+layout: two-cols-title
+columns: is-7
+---
+
+::title::
+# シミュレーションモデルを実装するツール
+
+プログラミングベースのツール
+
+::left::
+
+- Python、Juliaなどのプログラミング言語を用いてシミュレーションモデルを実装することができる
+    - 高い柔軟性と拡張性
+- モデリングとシミュレーションの実装に支援するライブラリも多くある
+    - ライブラリは、自分で毎回ゼロからすべてを実装するのではなく、あらかじめ用意された機能を呼び出して利用できる仕組みである。これにより、開発を効率化し、複雑な処理も比較的容易に実装できる
+    - [Mesa](https://github.com/projectmesa/mesa)
+
+::right::
+
+```python {1|3-10|12-18|all}
+from mesa import Agent, Model
+
+class MoneyAgent(Agent):
+    def __init__(self, model):
+        super().__init__(model)
+        self.wealth = 1
+
+    def step(self):
+        if self.wealth > 0:
+            other = self.random.choice(
+                list(self.model.agents))
+            other.wealth += 1
+            self.wealth -= 1
+
+class MoneyModel(Model):
+    def __init__(self, N):
+        super().__init__()
+        for _ in range(N):
+            MoneyAgent(self)
+
+    def step(self):
+        self.agents.shuffle_do("step")
+```
+
+
+---
+layout: two-cols-title
+---
+
+::title::
+# シミュレーションモデルを実装するツール
+
+グラフィックツール
+
+::left::
+
+- インタフェースで操作しながらモデルを構築・実行するツール
+    - 直感的に扱いやすく
+    - 実装の自由度や拡張性は、プログラミングベースのツールより制限される
+- [Agent Sheets](http://www.agentsheets.com/)
+- [VisualBots](https://github.com/nyje/visual-bots)
+- [Repast Simphony](https://repast.github.io/repast_simphony.html)
+
+::right::
  
-# 社会科学におけるモデル入門
-
-
-Agent Based Model (ABM)の紹介
-
-### 呂沢宇
-
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
-</div>
-
-<div class="abs-br m-6 text-xl">
-
-  <a href="https://github.com/lvzeyu/social_modeling_lecture" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
-</div>
-
-<style>
-h1 {
-  color: white;
-  -webkit-text-fill-color: white;
-  -moz-text-fill-color: white;
-}
-</style>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
-transition: slide-up
-level: 2
----
-
-# Agent Based Model (ABM)の基本概念
-
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks depth="2">
-
-
-- エージェントベースモデル（Agent-Based Model, ABM）は、複雑なシステムを解析するための手法であり、**システム全体の振る舞いをエージェント個別の要素の行動や相互作用を通じてモデリング**する。
-    - エージェントの行動ルールを定義し、ロレベル（エージェント単位）の行動が積み重なることで、マクロレベル（システム全体）の現象を創発させる手法である。
-    - マクロレベルの現象の原因をミクロレベルのエージェントの行動にまで遡って分析するのに役立つ。
-</v-clicks>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/abm_micro_macro.png" width="450" />
-</div>
-</div>
-</div>
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# Agent Based Model (ABM)の基本概念
-
-ABMの特徴
-
-<v-clicks depth="1">
-
-- **相互作用の構造**：ABM はエージェント間の相互作用から，どのような社会状態が帰結するのかを探求する
-    - エージェントが行為を選択する際にどのエージェントを参照するのかということや，どのエージェントと実際にゲームを行うのかということは結果を左右する重要な要素である
-
-- **エージェントの意思決定ルール**: ABM では，エージェントが自身の意思決定ルールに従って行為を選択する
-    - 多くの場合，エージェントによって，その意思決定ルールが異なる．エージェントの意思決定ルールにどの程度多様性をもたせるのか，ということも結果を左右する
-
-- **適応過程**: ABM では，多くの場合，エージェントが自身の行為の帰結や周囲のエージェントの影響により，その意思決定ルールを変更する
-
-- **状態の再帰性**: $t$時点の全エージェントの行為が集積したものを$t$時点の社会状態と呼ぶとすれば，$t+1$時点の各エージェントの行為選択は，$t$時点の社会状態からも影響を受ける
-    - 1 時点の社会状態の帰結ではなく，各エージェントと社会状態の再帰的な影響過程の長期な帰結を問う
-
-</v-clicks>
-
-
-<!--
-ABMの特徴と主な着目点
--->
-
----
-transition: slide-up
-level: 2
----
-
-# ABMの要素と構成
-
-エージェント
-
-<v-clicks depth="2">
-
-- **エージェントの属性(properties)**
-    - エージェントが持つ内部状態・特徴・個性を表す情報
-    - エージェントがどう行動するか、どう相互作用するかを決める基盤となるもの
-
-- 自然渋滞モデルにおけるエージェントの属性
-
-<div class="table-wrapper">
-
-| 属性名 | 説明 |
-|:--------|:-----|
-| 位置 (position) | 道路上の位置（空間座標） |
-| 速度 (velocity) | 現在の走行速度 |
-| 加速度 (acceleration) | 現在の加速度（速度の変化率） |
-| 安全車間距離 (desired headway) | 他車との理想的な車間距離 |
-
-</div>
-</v-clicks>
-
-<style>
-
-.table-wrapper {
-  font-size: 0.9em;
-  overflow-x: auto;
-  overflow-y: auto;
-}
-</style>
-
-<!--
-ABMの構成要素について説明します
--->
-
-
----
-transition: slide-up
-level: 2
----
-
-# ABMの要素と構成
-
-エージェント
-
-<v-clicks depth="1">
-
-- **エージェントの行動(Actions)**
-    - 各エージェントが自身の属性や、環境・他エージェントとの相互作用に基づいての振る舞い
-
-- エージェントの行動では様々の種類がある
-    - 移動行動: 空間上の位置を変える
-    - 状態変化行動: 内部の属性を変化させる
-    - 相互作用行動: 他のエージェントとの交流や影響のやりとり
-    - 意思決定行動: 状況に応じた選択を行う
-
-
-</v-clicks>
-
-
-<!--
-- 前の車との距離が十分なら 加速
-- 距離が詰まってきたら 減速
-
-- 車両は時間の経過とともに道路上を前進し、位置が更新される
-- エージェントは自身の速度や加速度を逐次変化させます
-- 「加速するか減速するか」という判断が、車間距離と理想速度との比較に基づいて決定されます
--->
-
----
-transition: slide-up
-level: 2
----
-
-# ABMの要素と構成
-
-エージェント
-
-<v-clicks depth="1">
-
-- エージェントの「属性（properties）」や「行動（actions）」を定義することによって、異なる種類のエージェント（heterogeneous agents）を設計・区別することができる
-    - 異なる属性や行動ルールを持たせることで現実世界の多様なアクターを再現できる
-        - 人々の社会経済的属性や価値観などは異なる
-    - 異なる種類のエージェントに異なる機能や役割を割り当てることで、制度や役割構造をモデル化できる
-        - 社会における異なる職業の人々は異なる役割を果たしている
-
-- 多くのABMでは、現実の複雑性を再現するためにheterogeneous agentsが用いられている
-
-</v-clicks>
-
-
-<!--
-ABMのAgentでは複数種類のエージェントを設定することが可能です
--->
-
----
-transition: slide-up
-level: 2
----
-
-# ABMの要素と構成
-
-環境
-
-<v-clicks depth="2">
-
-- ABMの環境は、エージェントが存在し、行動し、相互作用する空間である
-    - 環境がもつ状態やルールが、エージェントの行動や相互作用に影響を与える
-    - エージェントの行動が環境を変えることもある
-
-- 環境は静的にも動的にも設計でき、空間・ネットワーク・属性ベースなど多様な形態を持つ
-    - 空間型環境: 2次元や3次元のグリッドまたは現実の地図データに基づく空間にエージェントが存在する
-        - [シェリングの分居モデル](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Social%20Science/Segregation.nlogo)
-        - [Traffic Grid](https://ccl.northwestern.edu/netlogo/models/TrafficGrid)
-    - ネットワーク型環境: 環境はノード（点）とエッジ（線）で構成されるネットワーク構造である
-        - [Virus on a Network](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Networks/Virus%20on%20a%20Network.nlogo)
-</v-clicks>
-
-
-<!--
-ネットワーク型環境は、エージェント・ベースド・モデル（ABM）において、エージェント間の相互作用を「関係構造」としてモデル化するための枠組みです。物理的な空間上の位置ではなく、**誰と誰がつながっているか（構造的な接続）**が、行動や情報の流れ、影響の伝播に重要な意味を持ちます。
--->
-
----
-transition: slide-up
-level: 2
----
-
-# ABMの要素と構成
-
-相互作用
-
-| 相互作用の種類 | 説明 |
-|:---|:---|
-| エージェント－自己相互作用  | エージェントが自分自身の内部状態に基づいて行動や状態変化を行う|
-| 環境－自己相互作用  | 環境が自律的に状態変化を起こす |
-| エージェント－エージェント相互作用 | 異なるエージェント同士が影響を与え合い、行動や状態を変化させる|
-| 環境－環境相互作用| 環境内の異なる要素同士が影響を及ぼし合い、環境構造や状態が変化する |
-| エージェント－環境相互作用| エージェントが環境を変化させ、その変化した環境がまたエージェントにフィードバックを与える |
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# ABMの要素と構成
-
-スケジュール（Schedule）
-<v-clicks depth="2">
-
-- ABMにおけるスケジュール（Schedule）は、エージェントや環境がいつ、どの順番で、どのように行動・更新するかを制御するルールやプロセスを指す
-    - エージェントの状態更新や相互作用が「時間と順序」に依存するため、スケジューリングの設計はモデルの振る舞いに大きな影響を与える
-
-- 同期型更新(Asynchronous Updates) vs. 非同期型更新(Synchronous Updates)
-    - 全エージェントが現在の状態に基づき同時に行動を決定し、一斉に次の状態に更新する
-        - 渋滞モデルの場合：すべての車（エージェント）が同時に、現在の状況（前の車との距離、速度）を見て、同時に移動する
-    - エージェントが順番に行動し、行動後すぐに状態を更新する。他のエージェントの変化を見てから次のエージェントが行動する
-        - 渋滞モデルの場合：1台ずつ順番に車が動く。次に動く車は、前の車の最新の位置を見ながら動く
-</v-clicks>
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# ABMの表現と記述
-
-ODDプロトコル
-
-- ODDプロトコルは、ABMを体系的に記述・報告するための標準プロトコルとして提案された
-
-
-| セクション | 項目 | 内容 |
-|:---|:---|:---|
-| Overview（概要） | Purpose（目的） | モデルの目的と、解決を目指す問いを説明する。 |
-|  | Entities, State Variables, and Scales（主体・状態変数・尺度） | エージェント、環境、変数、時間・空間スケールを定義する。 |
-|  | Process Overview and Scheduling（プロセス概要とスケジューリング） | 行動や状態更新がどの順序・タイミングで行われるかを概観する。 |
-
----
-transition: slide-up
-level: 2
----
-
-# ABMの表現と記述
-
-ODDプロトコル
-<div class="table-wrapper">
-
-| セクション | 項目 | 内容 |
-|:---|:---|:---|
-| 設計概念 | 基本原理 | モデルが依拠する理論やコンセプト |
-|  | 適応 | エージェントが環境や経験に応じて行動を変更する仕組み|
-|  | 目標 | エージェントの持つ目標や意図を説明 |
-|  | 学習 | エージェントが学習によって行動戦略を変えるかどうかを説明 |
-|  | 予測| エージェントが未来の状況を予測して行動を決定するかどうか |
-|  | 感覚と知覚| エージェントが環境や他者からどの範囲で情報を得るか |
-|  | 相互作用 | エージェント同士またはエージェントと環境の相互作用の形態|
-|  | 確率性 | モデルに含まれる確率的要素やランダム性について説明する。 |
-|  | 集団と停止条件 | エージェント集団やグループ化、モデルの終了条件 |
-|  | 観測 | モデルから収集・分析されるデータや指標 |
-</div>
-
-<style>
-
-.table-wrapper {
-  max-height: 300px; /* 👈 表の高さ上限を設定 */
-  overflow-y: auto;  /* 👈 はみ出したら縦スクロール */
-  border: 1px solid #ccc; /* (オプション) テーブル枠を付けても見やすい */
-  padding: 0.5em;
-}
-</style>
-
----
-transition: slide-up
-level: 2
----
-
-# ABMの表現と記述
-
-ODDプロトコル
-
-| セクション | 項目 | 内容 |
-|:---|:---|:---|
-| 詳細 | 初期化 | モデルの初期条件設定の方法 |
-|  | 入力データ | モデルで使用する外部データがあれば、その内容と利用方法 |
-|  | サブモデル | (もしあれば)各プロセスや行動ルールの具体的なアルゴリズムや数式 |
-
-<style>
-
-</style>
-
-
----
-transition: slide-up
-level: 2
----
-
-# ABMの表現と記述
-
-ODDプロトコル
-
-<div class="table-wrapper">
-
-| セクション | 項目 | 内容（自然渋滞モデルの場合） |
-|:---|:---|:---|
-| 概要 | 目的 | 外部障害なしで渋滞が自然発生するメカニズムを理解・再現する。 |
-|  | 主体・状態変数・尺度 | エージェント：車両（位置、速度、加速度）。時間は離散ステップ、空間は一次元道路。 |
-|  | プロセス概要とスケジューリング | 各ステップの開始時に行動順序を決め、決まった順番に従って、各車両が前方車両の現在の位置と速度を観察し、加速や減速を判断して即時に移動・状態更新を行う |
-| 設計概念 | 基本原理 | 車間距離と安全運転原理に基づく個別行動の累積により、渋滞現象を創発させる。 |
-|  | 適応 | 前方車両との距離に応じて、加速・減速を動的に切り替える。 |
-|  | 目標 | 安全に走行しつつ、できるだけ高速で走行しようとする。 |
-|  | 学習 | このモデルでは学習はない（単純な反応型）。 |
-|  | 予測 | 前方車両の動きに即応するが、将来予測はしない。 |
-|  | 感覚と知覚 | 前方車両との車間距離と相対速度を感知できる。 |
-|  | 相互作用 | 前方車両との相対位置・速度に応じた行動変化（追従行動）。 |
-|  | 確率性 | 加速度や減速度に小さなランダム変動（運転手のばらつき）を入れる場合がある。 |
-|  | 集団と停止条件 | 車列全体が安定状態に到達するか、最大ステップに達したら停止。 |
-|  | 観測 | 交通流量、平均速度、渋滞の発生頻度や波動のパターンを記録。 |
-| 詳細 | 初期化 | 車両の総数、初期位置、初期速度、道路長、最大速度などのシミュレーション初期パラメータを設定する |
-|  | 入力データ | 初期パラメータ |
-|  | サブモデル | 加速規則、減速規則、安全車間距離ルール、速度上限ルールなどの具体的アルゴリズムを定義。 |
-
-</div>
-
-<style>
-
-.table-wrapper {
-  max-height: 300px; /* 👈 表の高さ上限を設定 */
-  overflow-y: auto;  /* 👈 はみ出したら縦スクロール */
-  border: 1px solid #ccc; /* (オプション) テーブル枠を付けても見やすい */
-  padding: 0.5em;
+<img src="./image/graphic_tool.png" class="h-64 mx-auto" />
+
+<style scoped>
+.two-cols-header {
+  row-gap: 0.5rem !important;
 }
 </style>
 
 
 ---
-transition: slide-up
-level: 2
+class: flex justify-center items-center gap-20 px-40 text-xl
 ---
 
-# ABMの解析
-
-階層的モデルの解析
-
-<v-clicks depth="2">
-
-- ABMをシミュレーションで実装するでは、いくつかの条件の下で実行したモデルの挙動を観察することである
-    - 「どのような条件でどのような現象が発生するのか」：様々なパラメータを条件として制御し、モデルの出力を観察する
-- 一つのシミュレーションは複数のパラメータセットによる試行で構成され、一つの試行を**シナリオ**と呼ぶ
-    - 確率的な要素を用いる場合、同一のシナリオをシートが異なる乱数を用いて実行し、結果の統計的性質を確認することで各シナリオの結果を解釈する必要がある
-- 同じシナリオ内で乱数のシードを変えて行う試行を**エピソート**と呼ぶ
-- 一つのエピソードは複数の時間単位で構成され、その時間単位内で相互作用を行い行動や戦略をアップデータする
-    - 時間単位を**ステップ**と呼ぶ
-
-</v-clicks>
+<div
+  absolute text-3xl
+  :class="$clicks < 1 ? 'text-black' : 'translate-y--18 scale-40 text-black/30'"
+  transition duration-500 ease-in-out
+>
+  <span>コードを少し書きながらビジュアルも使えるツールでもある?</span>
+</div>
 
 
+<div flex flex-col items-center>
+  <v-clicks>
+    <div mt-12>
+      <h1 flex flex-col items-center text="4xl!" style="text-align: center; line-height: 1.4;">
+        <a href="https://ccl.northwestern.edu/netlogo/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 no-underline">
+          <img src="./image/netlogo_logo.png" class="h-10 w-auto" alt="NetLogo logo" />
+          <span style="color: #000000;">NetLogo</span>
+        </a>
+      </h1>
+    </div>
+  </v-clicks>
+</div>
 
----
-transition: slide-up
-level: 2
----
-
-# ABMの解析
-
-階層的モデルの解析：エル・ファロル問題を例として
-
-<v-clicks depth="2">
-
-- [エル・ファロル問題demo](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/IABM%20Textbook/chapter%203/El%20Farol%20Extensions/El%20Farol%20Extension%203.nlogo)
-- シナリオの作成：許容混雑率、予測戦略の種類と数、履歴の長さ、初期条件(初期のバー利用率やエージェントの戦略割り当て)
-- エピソートの解析： 確率的要素（例えばエージェントがランダムに新しい予測戦略を選ぶ、または過去の情報の変動）を含むため、同一シナリオでも異なる乱数シードを用いて複数回シミュレーションを行い、結果のばらつき（平均来店者数、混雑度の分布など）を統計的に解析する必要がある
-- 一つのエピソードは、例えば週ごとに一回の意思決定とバーへの来店行動を繰り返す構成となる
-    - 週ごとの意思決定サイクルはステップとなる
-</v-clicks>
 
 
 
 ---
-transition: slide-up
-level: 2
+transition: fade-out
 ---
 
-# ABMの解析
+# NetLogoの画面
 
-モデルの検証
-<v-clicks depth="2">
+<div class="flex justify-center">
+  <img src="./image/netlogo_general.png" class="h-100 w-auto" alt="NetLogo logo" />
+</div>
 
-- モデル内部の理論的整合性
-    - 構築するモデルが依拠する学問分野の先行知見を援用しつつ研究対象のモデル化として不自然な仮定を置いていないかなどを検討
-- モデルとモデル外部との接合の妥当性
-    - 得られた結果が理解しようとしている社会現象としてあり得るものなのか、意味のある知見を提供しているのかを検証
-        - 「反直感的」結果とその説得性のバランスを注意深く検討することが求められる
-    - ただし、モデルの志向性によって求められる検証の粒度が異なっている
-- 感度分析:シミュレーションの結果は様々なパラメータに依存する
-    - 得られた結果が特定のパラメータセットのみ観察されるのか、それぞれのパラメータの変化による結果の頑丈性を検証
+---
 
-</v-clicks>
+# インターフェース画面
+
+<img src="./image/netlogo-interface.png" class="h-96 mx-auto" />
+
+---
+transition: fade-out
+---
+
+# NetLogoの動作の仕組み
+
+<div class="grid grid-cols-2 gap-8 mt-8 items-center">
+  <div class="flex justify-center">
+    <img src="./image/netlogo_procedure.png" class="h-60 object-contain rounded" />
+  </div>
+
+  <div>
+
+  - インターフェース画面でボタンを押すことによって、プログラムが実行される
+      - `setup` と`go` の2 つのボタンを作成することが規範的な作り方である
+          - `setup` で初期化
+          - `go` で実行
+  - `go procedure` の中から別の`procedure`を呼び出して、より複雑な処理などを行うことになる
+      - `ask`文を使って、エージェントに命令するという形式でプログラミングを行う設定を使うことは多い
+
+  </div>
+</div>
+
+
+---
+
+# NetLogoで構築されるモデルの基本要素
+
+<div class="flex justify-center">
+  <img src="./image/netlogo_component.png" class="h-80 w-auto" alt="NetLogo logo" />
+</div>
+
+- **patch** がグリッド状に敷き詰められ，その上を **turtle** が動く
+- **link** は turtle 同士をつなぐもの（有向リンクと無向リンクがある）
+- **observer** は turtle, patch, link に命令を出すことができる
+
+
+---
+class: flex justify-center items-center gap-20 px-40 text-xl
+---
+
+<div
+  absolute text-3xl
+  :class="$clicks < 1 ? 'text-black' : 'translate-y--18 scale-60 text-black/30'"
+  transition duration-500 ease-in-out
+>
+  <span>これからNetLogoの文法を説明する</span>
+</div>
+<div flex flex-col items-center>
+  <div
+    mt-12
+    :class="$clicks < 1 ? 'opacity-0' : $clicks < 2 ? 'opacity-100' : 'translate-y--8 scale-60 opacity-30'"
+    transition duration-500 ease-in-out
+  >
+    <h1 flex flex-col items-center text="4xl!" style="text-align: center; line-height: 1.4;">
+      <span style="color: #000000;">一度にすべてを覚えるのは難しい....</span>
+    </h1>
+  </div>
+  <v-click at="2">
+    <div mt-6 text-center text-2xl text-gray-600>
+      <span>💡 まずは聞き流し、その後は実践を通して理解していく</span>
+    </div>
+  </v-click>
+</div>
+
+---
+layout: iframe-left
+title: iframe Left Layout
+url: https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Social%20Science/Prisoner's%20Dilemma/Prisoner's%20Dilemma%20Basic.nlogox
+scale: 0.5
+class: my-cool-content-on-the-right
+---
+
+
+```ts {|1|8-10|13,21-29|15-17|3-19,22-29}{maxHeight:'500px'}
+globals [partner-is-silent?]
+
+to setup
+  clear-all
+  ;;Build the jail cell
+  ask patches with [ count neighbors != 8 ] [
+    set pcolor gray]
+
+  ;;make the face visible
+  create-turtles 1 [set color gray set size 30 set shape "face"]
+  ;; set up the prisoner's dilemma
+  ifelse partner-silence-known? [
+    set partner-is-silent? partner-silent?
+  ]
+  [
+    ;;if partner silence is not known, choose randomly whether or not he is silent.
+    ifelse random 2 = 0
+    [ set partner-is-silent? true ]
+    [ set partner-is-silent? false ]
+  ]
+end
+
+;;play the game, changing the face depending on the outcome.
+to answer
+  setup  ;;clears variables away so that setup doesn't need to be pressed every time.
+
+  ;;next the four possible combinations of choices are dealt with.
+  ;;the result corresponds to the tables in the interface and Info tabs.
+  ;;first check to see if your partner was silent.
+  ifelse partner-is-silent? [
+      ;;now go through your two possible choices
+      ifelse you-silent? [
+      ask turtles [set shape "face silent"]
+      user-message "You and your partner both remain silent.  You are sentenced to one year imprisonment."
+    ] [
+      ask turtles [set shape "face devious"]
+      user-message "You confess and your partner remains silent. You go free."
+    ]
+  ]
+  ;;your partner confessed.
+  [
+    ;;again go through your two possible choices
+    ifelse you-silent? [
+      ask turtles [set shape "face sucker" ]
+      user-message "You remain silent, but your partner confesses.  You are sentenced to five years imprisonment."
+    ] [
+      ask turtles [set shape "face rational"]
+      user-message "You and you partner both confess.  You are sentenced to three years imprisonment."
+    ]
+  ]
+end
+```
+
+
+---
+transition: fade-out
+layout: two-cols-title
+---
+
+::title::
+# Netlogoの基本文法
+
+変数の代入と演算
+
+::left::
+
+<v-click at="1">
+
+**`set` コマンドで変数に値を代入する**
+
+- `x = 10` のような書き方はできない
+- 変数の型（数値・文字列など）を宣言する必要はない
+- 文字列は `"..."` で囲む
+
+</v-click>
+
+<v-click at="2">
+
+**四則演算**
+
+- `+ - * /` の前後に**半角スペース**が必要
+- 論理演算子：`and`，`or`，`not`
+
+</v-click>
+
+::right::
+
+```text {|1-3|5-8|10-13}
+; 変数の代入
+set x 10
+set y "hogehoge"
+
+; 四則演算
+set x 10 + 5
+set y 12 * 2 / 4 - 3
+set z 10 mod 3
+
+; 論理演算子
+if (x > 5 and x < 20) [ ... ]
+if (x < 0 or x > 100) [ ... ]
+if (not (x = 0)) [ ... ]
+```
+
+</br>
+
+<Admonition title="Info" color="teal-light" width="400px">
+<span style="font-size: 1.3em;">`;` で始まる行は**コメント**です。NetLogoはその行を無視します。</span>
+</Admonition>
+
+
+---
+transition: fade-out
+layout: two-cols-title
+---
+
+::title::
+# 変数の種類
+
+変数の目的による使い分け
+
+::left::
+
+<v-click at="1">
+
+**グローバル変数**（`globals`）
+- モデル全体で共有される変数
+- どのエージェント・手続きからでも参照・更新できる
+
+</v-click>
+
+<v-click at="2">
+
+**エージェント変数**
+- 各エージェントがそれぞれ独立した値を持つ
+
+</v-click>
+
+<v-click at="3">
+
+**ローカル変数**（`let`）
+- 特定な処理範囲内だけで有効な一時的な変数
+
+</v-click>
+
+::right::
+
+```text {1|1,6|2-3,8,11|16}
+globals [total-count]
+turtles-own [energy]
+patches-own [fertility]
+
+to setup
+  set total-count 100
+  create-turtles total-count [
+    set energy 50
+  ]
+  ask patches [
+    set fertility random 10
+  ]
+end
+
+to go
+  let avg-energy mean [energy] of turtles
+  ask turtles [
+    set energy energy - 1
+  ]
+end
+```
 
 
 
 ---
-transition: slide-up
-level: 2
+transition: fade-out
+layout: two-cols-title
+---
+
+::title::
+# Netlogoの基本文法
+
+リストの操作
+
+::left::
+
+<v-click at="1">
+
+**リストの作成**
+
+- `(list ...)` でリストを作成
+- インデックスアクセス（`x[0]`）は**不可**
+
+</v-click>
+
+<v-click at="2">
+
+**要素の取り出し**
+
+- `item (番号) (リスト)` で指定した位置の要素を取得
+
+</v-click>
+
+<v-click at="3">
+
+**要素の置き換え**
+
+- `replace-item (番号) (リスト) (値)` で指定位置の要素を更新
+
+</v-click>
+
+::right::
+
+```text {|1-3|5-7|9-11}
+; リストの作成
+set y (list 1 2 3)
+; => [1 2 3]
+
+; 要素の取り出し
+let first-item item 0 y
+; => 1
+
+; 要素の置き換え
+set y replace-item 0 y 99
+; => [99 2 3]
+```
+
+
+---
+transition: fade-out
+layout: two-cols-title
+---
+
+::title::
+# ask 文
+
+エージェントへの命令を定義する
+
+::left::
+
+<v-click at="1">
+
+**turtle への命令**
+- `turtles` — 現在存在する全ての turtle
+- `turtle (番号)` — 指定した ID の turtle のみ
+
+</v-click>
+
+<v-click at="2">
+
+**patch への命令**
+- `patches` — 全ての patch
+- `patch (x) (y)` — 指定した座標の patch のみ
+
+</v-click>
+
+<v-click at="3">
+
+**link への命令**
+- `links` — 全ての link
+- `link (n1) (n2)` — 指定した2つの turtle 間の link のみ
+
+</v-click>
+
+
+
+::right::
+
+```text {|1-6|8-12|14-19}
+; turtle への命令
+ask turtles [
+  fd 1                   ; 1歩前進
+  set color red          ; 色を赤に変更
+]
+ask turtle 4 [ rt 90 ]  ; id=4 の turtle のみ右折
+
+; patch への命令
+ask patches [
+  set pcolor scale-color green fertility 0 10
+                         ; fertility の値で緑の濃淡を設定
+]
+ask patch 0 0 [ set pcolor white ]  ; 原点の patch のみ白
+
+; link への命令
+ask links [
+  set color gray         ; 全 link をグレーに
+  set thickness 0.5      ; 太さを設定
+]
+ask link 0 1 [ set color red ]  ; turtle 0-1 間の link のみ赤
+```
+
+
+---
+layout: two-cols-title
+---
+
+::title::
+# 制御構文
+
+::left::
+
+<v-click at="1">
+
+**if 文**
+
+条件が真のときだけブロックを実行する
+
+</v-click>
+
+<v-click at="2">
+
+**ifelse 文**
+
+条件が真のときと偽のときで異なるブロックを実行する
+
+</v-click>
+
+<v-click at="3">
+
+**while 文**
+
+条件が真の場合、ブロックを繰り返し実行する
+
+</v-click>
+
+<Admonition title="ブロック [ ] とは" color="teal-light" width="400px">
+
+`[ ]` で囲まれた部分が**ブロック**です。条件が成立したときに実行する命令をまとめて記述します。
+
+</Admonition>
+
+::right::
+
+
+```text {|1-5|7-13|15-20}
+ask turtles [
+  if xcor > 0 [
+    set color red
+  ]
+]
+
+ask patches [
+  ifelse pxcor > 0 [
+    set pcolor blue
+  ][
+    set pcolor red
+  ]
+]
+
+ask turtle 0 [
+  while [any? other turtles-here][
+    right random 360
+    fd 1
+  ]
+]
+```
+
+---
+layout: two-cols-title
+---
+
+::title::
+# 制御構文
+
+::left::
+
+<v-click at="1">
+
+**repeat 文**
+
+指定した回数だけブロックを繰り返し実行する
+
+</v-click>
+
+<v-click at="2">
+
+**foreach 文**
+
+リストの各要素に対してブロックを順番に実行する
+
+</v-click>
+
+<v-click at="3">
+
+**loop 文**
+
+`stop` が呼ばれるまで無限にブロックを繰り返す
+
+</v-click>
+
+
+
+
+::right::
+
+```text {|1-3|5-12|14-22}
+ask turtle 0 [
+  repeat 10 [fd 1]
+]
+
+set tlist (list turtle 0 turtle 1)
+foreach tlist [
+  x -> ask x [
+    right random 360
+    fd 1
+  ]
+]
+
+loop [
+  ask turtle 0 [
+    if any? other turtles-here [
+      right random 360
+      fd 1
+      stop
+    ]
+  ]
+]
+```
+
+---
+layout: two-cols-title
+---
+
+::title::
+# procedureについて
+
+
+> 他のプログラミング言語の「関数」に相当
+::left::
+
+<v-click at="1">
+
+**`to`〜`end`：通常の procedure**
+
+- 名前をつけた命令のまとまり
+- `to 名前` で定義し、名前を書くだけで呼び出す
+
+</v-click>
+
+<v-click at="2">
+
+**`to-report`〜`end`：戻り値がある procedure**
+
+- 計算結果を返したいときに使う
+- `report` で値を返す
+
+</v-click>
+
+<v-click at="3">
+
+**引数をとる procedure**
+
+- 名前の後ろに `[ 引数名 ]` を書く
+
+</v-click>
+
+::right::
+
+```text {|1-7|9-14|16-20}
+; 通常の procedure
+to move-turtle
+  right random 360
+  fd 1
+end
+
+ask turtles [ move-turtle ]
+
+; 戻り値がある procedure
+to-report double [ x ]
+  report x * 2
+end
+
+set y double 5  ; y = 10
+
+; 引数をとる procedure
+to color-turtle [ c ]
+  set color c
+end
+
+ask turtles [ color-turtle red ]
+```
+
+---
+layout: two-cols-title
+---
+
+::title::
+# Netlogoで囚人的ジレンマモデルの実装
+
+::left::
+
+<v-click at="1">
+
+- **変数の定義**
+
+</v-click>
+
+<v-click at="2">
+
+- **エージェントの設定**
+  - `create-turtles` でエージェントを生成・初期化
+
+</v-click>
+
+<v-click at="3">
+
+- **手続きの定義**
+  - `to`〜`end` で処理をまとめた手続きを定義
+  - `setup` で初期化，`answer` でゲームを実行
+
+</v-click>
+
+<v-click at="4">
+
+- **演算・論理演算子**
+
+</v-click>
+
+<v-click at="5">
+
+- **制御構文**
+  - `ifelse` で条件分岐し，パートナーの行動・自分の選択に応じて結果を切り替える
+
+</v-click>
+
+::right::
+
+```ts {|1,13,18,19|6-7,10,33,36,44,47|3-21,24-51|6,17|12-19,29-51}{maxHeight:'550px'}
+globals [partner-is-silent?]
+
+to setup
+  clear-all
+  ;;Build the jail cell
+  ask patches with [ count neighbors != 8 ] [
+    set pcolor gray]
+
+  ;;make the face visible
+  create-turtles 1 [set color gray set size 30 set shape "face"]
+  ;; set up the prisoner's dilemma
+  ifelse partner-silence-known? [
+    set partner-is-silent? partner-silent?
+  ]
+  [
+    ;;if partner silence is not known, choose randomly whether or not he is silent.
+    ifelse random 2 = 0
+    [ set partner-is-silent? true ]
+    [ set partner-is-silent? false ]
+  ]
+end
+
+;;play the game, changing the face depending on the outcome.
+to answer
+  setup  ;;clears variables away so that setup doesn't need to be pressed every time.
+
+  ;;next the four possible combinations of choices are dealt with.
+  ;;the result corresponds to the tables in the interface and Info tabs.
+  ;;first check to see if your partner was silent.
+  ifelse partner-is-silent? [
+      ;;now go through your two possible choices
+      ifelse you-silent? [
+      ask turtles [set shape "face silent"]
+      user-message "You and your partner both remain silent.  You are sentenced to one year imprisonment."
+    ] [
+      ask turtles [set shape "face devious"]
+      user-message "You confess and your partner remains silent. You go free."
+    ]
+  ]
+  ;;your partner confessed.
+  [
+    ;;again go through your two possible choices
+    ifelse you-silent? [
+      ask turtles [set shape "face sucker" ]
+      user-message "You remain silent, but your partner confesses.  You are sentenced to five years imprisonment."
+    ] [
+      ask turtles [set shape "face rational"]
+      user-message "You and you partner both confess.  You are sentenced to three years imprisonment."
+    ]
+  ]
+end
+```
+
+
+---
+
+# よく使う命令
+
+**エージェントの生成**
+
+| 命令 | 説明 |
+|------|------|
+| `create-turtles (数値)` | 指定数の turtle を作成 |
+| `hatch` | turtle から新しい turtle を生み出す（親の変数値を受け継ぐ） |
+
+**乱数**
+
+| 命令 | 説明 |
+|------|------|
+| `random (数値)` | 0 以上・指定値未満の整数をランダムに返す |
+| `random-float (数値)` | 0 以上・指定値未満のランダムな浮動小数点数を返す |
+
+
+
+---
+
+# よく使う命令
+
+
+**エージェント集合の操作**
+
+| 命令 | 説明 |
+|------|------|
+| `any?` | エージェント集合が空でなければ `true` を返す |
+| `with` | 条件を満たすエージェントだけを返す |
+| `of` | エージェントが持つ変数の値を返す：`[pcolor] of patch 3 5` |
+| `one-of` | エージェント集合からランダムに1つ返す |
+| `max-one-of` | 変数が最大のエージェントを1つ返す |
+| `min-one-of` | 変数が最小のエージェントを1つ返す |
+| `other` | 自分自身を除いたエージェント集合を返す |
+
+
+---
+
+# よく使う命令
+
+**patchに対する操作**
+
+| 命令 | 説明 |
+|------|------|
+| `neighbors4` | ノイマン近傍の4つの patch を返す |
+| `neighbors` | ムーア近傍の8つの patch を返す |
+| `in-radius (数値)` | 指定距離以下にある patch（または turtle）の集合を返す |
+| `patch-here` | turtle がいる patch を返す |
+| `patch-at (dx) (dy)` | 対象の turtle から見て相対座標 (dx, dy) の位置にある patch を返す |
+
+
+---
+
+# インターフェース画面での変数の設定（スライダー）
+
+<div class="p-4 border-2 border-dashed border-gray-400 rounded bg-gray-50 text-gray-500 text-sm text-center mb-4">
+  【画像プレースホルダー】スライドB.15 — スライダーの作成方法とダイアログボックスのスクリーンショット
+</div>
+
+- 上部の「ボタン」→「スライダー」を選択し，好きな場所でクリックして作成
+- グローバル変数名・最小値・最大値などを入力して設定
+- ソースコードを編集せずに，シミュレーション実行時に変数を変更できる
+- チューザー（chooser）やインプットボックスも同様に作成可能
+
+---
+
+# グラフの描画
+
+<div class="p-4 border-2 border-dashed border-gray-400 rounded bg-gray-50 text-gray-500 text-sm text-center mb-4">
+  【画像プレースホルダー】スライドB.16 — グラフの作成ダイアログとリアルタイムグラフの例のスクリーンショット
+</div>
+
+**作成の仕方**
+1. 「プロット」を選択し，インターフェース画面に配置
+2. ダイアログでグラフの名前・軸のラベルを入力
+3. **プロットペン**：何の値をプロットするかのコマンドを記述（例：`plot count turtles`）
+4. OK を押す
+
+実行すればリアルタイムにグラフが表示される
+
+---
+
+# コマンドセンター
+
+<div class="p-4 border-2 border-dashed border-gray-400 rounded bg-gray-50 text-gray-500 text-sm text-center mb-4">
+  【画像プレースホルダー】スライドB.17 — コマンドセンターのスクリーンショット
+</div>
+
+- インターフェース画面の**下部**にある入力欄
+- コマンドを直接入力して，エージェントに命令を送ることができる
+
+```text
+ask patches [set pcolor green]
+```
+
+全ての patch を緑色に変更できる（シミュレーション実行中でも可能）
+
+- `observer>` の部分をクリックすれば，`patches` / `turtles` / `links` を選択可能
+- turtle を右クリック → `inspect turtle (番号)` でも個別のコマンドセンターが利用可能
+
+---
+layout: center
+class: text-center
 ---
 
 # まとめ
 
-- ABMの実装は、エージェントの属性や行動、環境、相互作用、スケジュールの定義といった中心的な構成要素から成り立っている
-
-- ABMを体系的に記述・報告するには、ODDプロトコルに基づくことが求められる
-    - あるモデルを理解する際にも、ODDプロトコルにおいて提示される各項目を確認することが推奨される
-
--  ABMの解析は、多様なシナリオと繰り返し実行による統計的手法を用いて、モデルの妥当性と頑丈性を検証することが一般である
-
-<v-clicks depth="2">
-
-- **課題**: ODDプロトコルでエル・ファロルモデル(複数戦略リストを持つ場合)を記述・説明しなさい
-
-</v-clicks>
+1. ABMのためのソフトウェアツール
+2. NetLogoとは
+3. NetLogoの基本構成（画面・動作の仕組み）
+4. NetLogo世界の基本要素（turtle・patch・link・observer）
+5. 変数の定義と代入
+6. ask 文とエージェント集合
+7. 基本的な構文（if / ifelse / while / repeat / foreach）
+8. procedure の定義
+9. よく使う命令
+10. インターフェースの活用（スライダー・グラフ・コマンドセンター）
 
 
-
+<style>
+.toc { display: none !important; }
+</style>
