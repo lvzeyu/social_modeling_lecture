@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>NetLogo Introduction</title>
+
+        <meta name="description" content="An Introduction to NetLogo">
+        <meta name="author" content="Nick Malleson">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="./reveal/css/reveal.css">
+		<link rel="stylesheet" href="./reveal/css/theme/white.css">
+        
+        <!-- Some extra bits added by Nick -->
+        <link rel="stylesheet" href="./reveal/css/nick.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="./reveal/lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="http://www.geog.leeds.ac.uk/courses/level3/geog3150/reveal.js-master/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+
+            <div class="slides">
+                
+                <section class="title"  id="Title">
+                    
+                    <h3>GEOG5927 Predictive Analytics</h3>
+                    
+                    <hr/><h2>An Introduction to NetLogo</h2><hr/>
+                    
+                    <h4><a href="http://www.geog.leeds.ac.uk/people/n.malleson">Nick Malleson</a>
+                    and
+                    <a href="http://www.geog.leeds.ac.uk/people/a.heppenstall">Alison Heppenstall</a></h4>
+                    
+                </section>
+                
+                <section id="HowTo" >
+                    
+                    
+                    <h2>How to use these slides</h2>
+                    
+                    <div class="small">
+                    
+                    <p class="small">These slides are made using html, so they need to be read on-line. You can
+                    use the arrows in the bottom-right corner to move between slides, or press
+                    the right/left arrows on your keyboard. Pressing escape gives an overview of all
+                    slides.</p>
+                    
+                    <p class="small">There are also notes for some of the slides. To see these, either print out
+                    the slides (instructions below) or press the '<code>s</code>' key. This
+                    puts you into a different mode that will show notes alongside slides.</p>
+                    
+                    <p class="small">If you would like to print them out for offline reading, or save them
+                    as a pdf, you need to add '<code>?print-pdf</code>' to the end of the url, like so:</p>
+                    <p class="small l2">
+                        <a href="netlogo_lecture.html?print-pdf">
+                        netlogo_lecture.html?print-pdf</a>
+                    </p>
+                    
+                    <p class="small">Then you can print as normal (e.g. File -> Print). Depending on the version of
+                    your browser, you might also need to select 'landscape' paper type..</p>
+                    
+                    <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Google_Chrome_icon_%282011%29.svg/170px-Google_Chrome_icon_%282011%29.svg.png"
+                        style="width:50px; height:auto; float:left;" class="none" alt="Google Chrome logo"/>
+                    
+                    <p class="small"><strong>Important:</strong> printing only works using Google Chrome </p>
+                        
+                    </div>
+                    
+                </section>
+                
+                <section id="Programming">
+                    <figure class="right">
+                        <a href="http://www.flickr.com/photos/celestehodges/3544547604/">
+                            <img src="./figures/marmite.jpg" alt="marmite"/></a>
+                        <figcaption>Photo attributed to Celeste Hodges
+                            (<a href="http://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC 2.0</a>)
+                        </figcaption>
+                    </figure>
+                    
+                    <h2>Programming ...</h2>
+                    
+                    <p>In this unit, you will be introduced to computer proramming with NetLogo.</p>
+                    <p class=l2>Don't panic!</p>
+                    <p class=l2>The tasks are easy, but computers are stupid</p>
+                    <p class=l2>NetLogo was designed for children - a nice introduction to programming.</p>
+                    
+                    <p>Other benefits</p>                    
+                    <p class=l2>It will change the way you think (honestly, it will)</p>
+                    <p class=l2><strong>Basically an essential skill for data analytics</strong></p>
+                    <p class=l2>Open new, exciting opportunities to research the world</p>
+                    
+                    
+                    <aside class="notes">
+                        <p>Computer programming is set to become a key skill that all students will
+                        learn from an early age in order to participate in a world that is becoming
+                        increasingly digital. For geographers, being able to write write computer code
+                        opens up enormous possibilities for new and exciting areas of research. Huge
+                        volumes of spatial data are becoming available that geographers can exploit
+                        to learn about the world. Being able to program allows you to escape the
+                        restrictions that traditional geographic software and services (such as Google
+                        Maps) place on the types of analysis you can do.</p>
+                        
+                        <p>It does, of course, require much more than this single course to become a proficient
+                        programmer, capable of harvesting and exploiting new data to discover new things
+                        about the world. However, by learning to build some simple but powerful
+                        computer models using NetLogo you will have a basic grasp of how computer programs
+                        <i>work</i> - the next level of understanding is not much more than a small step
+                        away.</p>
+                        
+                        <p>If you are keen to learn more about programming, there are great online
+                        resources. Have a look at <a href="http://www.codecademy.com/">Code Academy</a>
+                        and, in particular, their <a href="http://www.codecademy.com/tracks/python">python tutorials</a>
+                        (python is an increasingly popular computer language).</p>
+                    </aside>
+                    
+                </section>                
+        
+                <section id="Programming2">
+                    <figure class="right">
+                        <a href="http://www.flickr.com/photos/celestehodges/3544547604/">
+                            <img src="./figures/marmite.jpg" alt="marmite"/></a>
+                        <figcaption>Photo attributed to Celeste Hodges
+                            (<a href="http://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC 2.0</a>)
+                        </figcaption>
+                    </figure>
+                    
+                    <h2>Programming ...</h2>
+                
+                    <p>If you are inspired to learn more...</p>
+                    <p class=l2>Try: <a href="http://www.codecademy.com/">Code Academy</a>
+                        (and their <a href="http://www.codecademy.com/tracks/python">python tutorials</a>).</p>
+                    <p class=l2>And: <a href="http://code.org/learn">code.org</a>.</p>
+                    
+                </section>
+                
+                <section id="Programming3">
+                
+                <blockquote>
+                    <p>"The spread of computers and the Internet will put jobs in two categories: people who tell
+                    computers what to do, and people who are told by computers what to do."</p>
+                    <footer>
+                        -
+                        <cite>
+                           <a href="http://en.wikipedia.org/wiki/Marc_Andreessen">Marc Andreessen</a> 
+                        </cite>
+                    </footer>
+                
+                </blockquote>
+                
+                </section>
+                
+                <section id="Programming4">
+                    
+                                      
+                    <!--<a href="http://www.youtube.com/watch?v=GuBt63f2I78">
+                        <iframe src="http://www.youtube.com/embed/GuBt63f2I78"></iframe>
+                    </a>-->
+                    <a href="http://www.youtube.com/watch?v=RZfwuCjbBDk">
+                        <iframe src="http://www.youtube.com/embed/RZfwuCjbBDk"></iframe>
+                    </a>
+                    
+                    
+                </section>
+                
+                <section id="Programming5">
+                
+                    <div class="box">
+                    <p style="color:red">
+                            Don't panic! At times you will find NetLogo programming frustrating, but
+                            there is lots of help available.
+                    </p>
+                    <p>If you want to hit your computer, ask for some help first.</p>
+                    </div>
+                </section>
+                
+                
+                
+                <section data-state="outline" id="Outline">
+                    <h2>Outline</h2>
+                    <ol class=outline>
+                        <li class="current"><a href=#/Tools>Tools for individual-level modelling</a></li>
+                        <li><a href=#/NetlogoIntro>Introduction to NetLogo</a></li>
+                        <li><a href=#/TheProgram>The Program</a></li>
+                        <li><a href=#/TurtlesPatches>Turtles and Patches</a></li>
+                        <li><a href=#/Variables>Variables</a></li>
+                        <li><a href=#/FlowControl>Flow Control</a></li>
+                        <li><a href=#/WritingCode>Writing Nice Code</a></li>
+                        <li><a href=#/Summary>Summary</a></li>
+                    </ol>
+                </section>
+
+                
+                
+                
+                <section id="Tools">
+                    <h2>Software Tools / Platforms</h2>
+                    <img class=top src="./figures/software_tools.png" alt="Different types of ABM software"/>
+                    <p>What are they?</p>
+                    <p class="l2">Pieces of software to help people build models</p>
+                    <p>Wide range of tools</p>
+                    <p class="l2">Computer code ('libraries')</p>
+                    <p class="l2">Entire graphical environment</p>
+                    <p class="l2">Somewhere in the middle</p>
+                    <p class="l2">... and somewhere else ...</p>
+                </section>
+
+                <section id="Libraries">
+                    <img class=right src="./figures/code.png" />
+                    <h2>Computer code ('libraries')</h2>
+                    <p>Researchers write software to perform useful functions:</p>
+                    <p class=l2>Draw graphs</p>
+                    <p class=l2>Visualise the model</p>
+                    <p class=l2>Manage the schedule</p>
+                    <p>Great for programmers</p>
+                    <p class=l2>Less time spend worrying about admin, more time on
+                    modelling</p>
+                </section>
+        
+                <section id="Libraries2">
+                    <img class=right src="./figures/code.png" />
+                    <h2>Computer code ('libraries')</h2>
+                    <p>ABM Examples:</p>
+                    <p class=l2><a href="http://cs.gmu.edu/~eclab/projects/mason/">MASON</a></p>
+                    <p class=l2><a href="http://repast.sourceforge.net/">Repast Simphony</a></p>
+                    <p class=l2><a href="https://github.com/projectmesa/mesa">Mesa</a></p>
+                    <p class=l2>Loads of others listed <a
+                    href="http://en.wikipedia.org/wiki/Comparison_of_agent-based_modeling_software"
+                    >here</a></p>
+                    <p>Others you might have heard of:</p>
+                    <p class=l2><a href="http://pandas.pydata.org/">pandas</a> (python)</p>
+                    <p class=l2><a href="">plyr</a> (R)</p>
+                    <p class=l2><a href="https://jquery.com/">jQuery</a> (javascript)</p>
+                    <p class=l2><a href="http://www.numpy.org/">numpy</a> (python)</p>
+                    <p class=l2> . . .</p>
+                </section>
+                
+                <section id="Graphical">
+                    <h2>Graphical Environments</h2>
+                    <!-- <a href="http://visualbots.com/"><img class=right src="http://visualbots.com/Images/tree2.gif"/></a> -->
+                    <a href="http://repast.sourceforge.net/docs.html">
+                        <img class="right" src="./figures/repast-behavior_editor_example.png" alt="Repast behaviour editor"/>
+                    </a>
+                    <p>Entirely visual - no programming needed</p>
+                    <p>Most useful for non-programmers</p>
+                    <p>Examples</p>
+                    <p class=l2><a href="http://www.agentsheets.com/">Agent Sheets</a></p>
+                    <p class=l2><a href="http://visualbots.com/">VisualBots</a></p>
+                    <p class=l2><a href="http://repast.sourceforge.net/">Repast Simphony</a></p>
+                    <p class=l2><a href="http://m.modelling4all.org/">Modelling4All</a></p>
+                </section>
+                
+                
+                <section id="Middle">
+                    <h2>Somewhere in the middle</h2>
+                    <img class="right" src="./figures/netlogo-gui.png" alt="NetLogo GUI"/>
+                    <p>Some prorams let you do a bit of code writing as well as visual development</p>
+                    <p>More powerful than purely visual tools, but easier to use.</p>
+                    <p>Save time having to learn to do simple tasks and concentrate on model
+                    behaviour</p>
+                    <p>e.g. <strong>NetLogo</strong></p>
+                </section>
+                
+                
+                <section data-state="outline" id="Outline-NetLogo">
+                    <h2>Outline</h2>
+                    <ol class=outline>
+                        <li><a href=#/Tools>Tools for individual-level modelling</a></li>
+                        <li class="current"><a href=#/NetlogoIntro>Introduction to NetLogo</a></li>
+                        <li><a href=#/TheProgram>The Program</a></li>
+                        <li><a href=#/TurtlesPatches>Turtles and Patches</a></li>
+                        <li><a href=#/Variables>Variables</a></li>
+                        <li><a href=#/FlowControl>Flow Control</a></li>
+                        <li><a href=#/WritingCode>Writing Nice Code</a></li>
+                        <li><a href=#/Summary>Summary</a></li>
+                    </ol>
+                </section>                
+                
+                
+                <section id="NetlogoIntro">
+                
+                    <a href="http://ccl.northwestern.edu/netlogo/">
+                        <!-- <img class=top src="http://ccl.northwestern.edu/netlogo/images/netlogo-title-wide-60.jpg"></img> -->
+                        <img class=top src="./figures/netlogo-title-wide-60.jpg"/>
+                    </a>
+                    
+                    <a href="http://www.youtube.com/watch?v=8wU6NdjTVTA">
+                        <iframe class="youtube-player-right" type="text/html"
+                            src="http://www.youtube.com/embed/8wU6NdjTVTA">
+                        </iframe>
+                    </a>
+                    
+                    <p>Base on <strong>Star Logo</strong>.</p>
+                    <p>Popular teaching tool</p>
+                    <p>Designed to be used by children</p>
+                    <p>But also powerful</p>
+                </section>
+                
+                <section id="NetlogoIntro2">
+                
+                    <a href="http://ccl.northwestern.edu/netlogo/">
+                        <!-- <img class=top src="http://ccl.northwestern.edu/netlogo/images/netlogo-title-wide-60.jpg"></img> -->
+                        <img class=top src="./figures/netlogo-title-wide-60.jpg"/>
+                    </a>
+                    
+                    <p>Developed by The Center for Connected Learning (CCL) and Computer-Based Modeling at Northwestern University</p>
+                    <p>Free!</p>
+                    <p>Uses Java in the background</p>
+                    <p class=l2><strong>Multi platform</strong></p>
+                    <p class=l2>Can be converted into applets (and embedded in websites)</p>
+                    <p>Great for quickly putting a model together and thinking through ideas</p>
+                    <p class=l2>Easy to  build</p>
+                    <p class=l2>Easy to interact with models</p>
+                    <p class=l2>East to extract data and create plots</p>
+                    
+                    <p>Excellent documentation: <a href="http://ccl.northwestern.edu/netlogo/docs/">http://ccl.northwestern.edu/netlogo/docs/</a></p>
+                </section>
+                
+                
+                
+                <section data-state="outline" id="Outline-Prog">
+                    <h2>Outline</h2>
+                    <ol class=outline>
+                        <li><a href=#/Tools>Tools for individual-level modelling</a></li>
+                        <li><a href=#/NetlogoIntro>Introduction to NetLogo</a></li>
+                        <li class="current"><a href=#/TheProgram>The Program</a></li>
+                        <li><a href=#/TurtlesPatches>Turtles and Patches</a></li>
+                        <li><a href=#/Variables>Variables</a></li>
+                        <li><a href=#/FlowControl>Flow Control</a></li>
+                        <li><a href=#/WritingCode>Writing Nice Code</a></li>
+                        <li><a href=#/Summary>Summary</a></li>
+                    </ol>
+                </section>
+                
+                <section id="TheProgram">
+                    <h2>The Program</h2>
+                    <P>NetLogo is "somewhere in the middle"</P>
+                    <p class=l2>Graphical part (<strong>Interface</strong>) with sliders, graphs, buttons and a map</p>
+                    <p class=l2>Scripting part (<strong>Procedures</strong>) which contains instructions (code)</p>
+                    <img src="./figures/netlogo-program.png" alt="NetLogo program"/>
+                </section>
+                
+                
+                
+                <section id="Program-Interface">
+                    <h2>The Interface</h2>
+                    <img src="./figures/netlogo-interface.png" alt="NetLogo interface" />
+                </section>
+                
+                <section id="InterfaceComponents">
+                    <h2>Interface Components</h2>
+                    <table>
+                        <tr>
+                            <td>Switch</td>
+                            <td><img src="./figures/netlogo_components/switch.png" alt="a NetLogo switch"/></td>
+                            <td>Slider</td>
+                            <td><img src="./figures/netlogo_components/slider.png" alt="a NetLogo slider"/></td>
+                        </tr>
+                        <tr>
+                            <td>Button</td>
+                            <td><img src="./figures/netlogo_components/button.png" alt="a NetLogo button"/></td>
+                            <td>Monitor</td>
+                            <td><img src="./figures/netlogo_components/monitor.png" alt="a NetLogo monitor"/></td>
+                        </tr>
+                        <tr>
+                            <td>Graph</td>
+                            <td><img src="./figures/netlogo_components/graph.png" alt="a NetLogo graph"/></td>
+                        </tr>
+                    </table>
+                </section>
+                                
+                <section id="Program-Information">
+                    <h2>The Information Tab</h2>
+                    <img src="./figures/netlogo-info.png" alt="NetLogo info" />
+                </section>
+                
+                
+                <section id="Program-Code">
+                    <h2>The Program - Code</h2>
+                    <img  src="./figures/netlogo-code.png" alt="NetLogo code tab" />
+                    
+                </section>
+                
+                
+                
+                
+                <section data-state="outline" id="Outline-TP">
+                    <h2>Outline</h2>
+                    <ol class=outline>
+                        <li><a href=#/Tools>Tools for individual-level modelling</a></li>
+                        <li><a href=#/NetlogoIntro>Introduction to NetLogo</a></li>
+                        <li><a href=#/TheProgram>The Program</a></li>
+                        <li class="current"><a href=#/TurtlesPatches>Turtles and Patches</a></li>
+                        <li><a href=#/Variables>Variables</a></li>
+                        <li><a href=#/FlowControl>Flow Control</a></li>
+                        <li><a href=#/WritingCode>Writing Nice Code</a></li>
+                        <li><a href=#/Summary>Summary</a></li>
+                    </ol>
+                </section>
+                
+                <section id="TurtlesPatches">
+                                      
+                    <h2>Turtles, Patches and the Observer</h2>
+                    
+                    <img class=right src="./figures/turtles-patches.png" alt="turtles and patches"/>
+                    
+                    <p>There are two types of objects in NetLogo: <strong>turtles</strong>
+                    and <strong>patches</strong>.</p>
+                    <p>Both are <i>agents</i></p>
+                    <p class=l2>They have rules that determine their behaviour</p>
+                    <p class=l2>They can interact with other agents</p>
+                    <p class=l2></p>
+                    
+                    <p>Main differences:</p>
+                    <p class=l2>Patches cannot move</p>
+                    <p class=l2>You can create different types of 'turtle' (e.g. person,
+                    dog, cat, car, etc.)</p>
+                    
+                    <p>&nbsp;</p>
+                    
+                    <div class=footnote>
+                        <p>Why turtles?</p>
+                        <p class="l2">'Logo' language originally used to control robot
+                    turtles. It seems that the name 'turtle' has stuck..</p>
+                    </div>
+                    
+                </section>
+                
+                <section id="TurtlesPatches2">
+                    
+                   
+                    <h2>Turtles, Patches and the Observer</h2>
+                    
+                    <img class=right src="./figures/turtles-patches-god.png" alt="turtles and patches"/>
+                    
+                   
+                    <p>Also important: the <strong>observer</strong></p>
+                    <p class="l2">The 'god' of a model</p>
+                    <p class="l2">Oversea everything that happens, give orders to turtles or patches,
+                    control other things like data input/output, virtual time, etc.</p>
+                    
+                </section>
+                
+                
+                
+                
+                <section data-state="outline" id="Outline-Vars">
+                    <h2>Outline</h2>
+                    <ol class=outline>
+                        <li><a href=#/Tools>Tools for individual-level modelling</a></li>
+                        <li><a href=#/NetlogoIntro>Introduction to NetLogo</a></li>
+                        <li><a href=#/TheProgram>The Program</a></li>
+                        <li><a href=#/TurtlesPatches>Turtles and Patches</a></li>
+                        <li class="current"><a href=#/Variables>Variables</a></li>
+                        <li><a href=#/FlowControl>Flow Control</a></li>
+                        <li><a href=#/WritingCode>Writing Nice Code</a></li>
+                        <li><a href=#/Summary>Summary</a></li>
+                    </ol>
+                </section>
+                
+                <section id="Variables">
+                    <h2>Variables</h2>
+                    
+                    <p>In programming, variables are a way of storing information. E.g.</p>
+                    <p class=l2><code>my-name = "Nick"</code></p>
+                    <p class=l2><code>seconds-per-minute = 60</code></p>
+                    <p class=l2><code>pi = 3.142</code></p>
+                    <p class=l2><code>infected = True</code></p>
+                    <p class=l2><code></code></p>
+                    
+                    <p>Variables can <i>belong</i> to different objects in the model.</p>
+                    
+                    <p>Examples:</p>
+                    
+                    <div class="box">
+                    
+                        <p class=l2><strong>Turtle variables</strong>: e.g. <code>name</code>, <code>age</code>,
+                        <code>occupation</code>, <code>wealth</code>, <code>energy</code></p>
+                        
+                        <p class=l2><strong>Patch variables</strong>: e.g. <code>height-above-sea</code>,
+                        <code>amount-of-grain</code>, <code>building-security</code>,
+                        <code>deprivation</code></p>
+                        
+                        <p class=l2><strong>Observer variables</strong>:<code>total-wealth</code>, <code>weather</code>,
+                        <code>time-of-day</code><code>pi</code></p>
+                    
+                    </div>
+                    
+                    <p>Different objects can have different <i>variable values</i></p>
+                    
+                </section>
+                                
+                <section id="DefaultVariables">
+                    <h2>Built-In Variables in NetLogo</h2>
+                    
+                    <img src="http://www.geog.leeds.ac.uk/courses/level3/geog3150/practicals/practical1/figures/variables.png" alt="Contexts and variables" />
+                    
+                </section>
+                
+                
+                <section id="Commands">
+                    <h2>NetLogo Commands</h2>
+                    
+                    <p>Commands are the way of telling NetLogo what we want it to do</p>
+                    
+                    <p>Some examples</p>
+                    <p class=l2>(don't worry, these will be explained properly in the
+                        <a href="../../practicals/practical1/2_basics.php">first practical</a>): </p>
+                    
+                    
+                    <table style="font-size:0.7em;">
+                        <tr>
+                            <td><code><strong>show</strong> "Hello World"</code></td><td>Prints something to the screen</td>
+                        </tr>
+                        <tr>
+                            <td><code><strong>set</strong> my-age 13</code></td><td>Sets the value of a variable</td>
+                        </tr>
+                        <tr>
+                            <td><code><strong>ask</strong> turtles [ ... ]</code></td><td>Ask the turtles to do something</td>
+                        </tr>
+                        <tr>
+                            <td><code><strong>ask</strong> turtles [ <strong>set</strong> color blue ]</code></td>
+                            <td>Asks the turtles to turn blue</td>
+                        </tr>
+                    </table>
+                    
+                    
+                    <p>Commands are very <a href="http://ccl.northwestern.edu/netlogo/docs/tutorial2.html">
+                    well documented</a></p>
+                    
+                </section>
+                
+                <section id="Brackets">
+                    <h2>Brackets</h2>
+                    
+                    <p>NetLogo uses both square <code>[ ]</code> and round <code>( )</code> brackets.</p>
+                    
+                    <p>Round brackets are used to set the <i>order of operations</i>. E.g.:</p>
+                    <p class="l2"><code>&nbsp;2 + 3&nbsp;&nbsp;× 4 = 14</code></p>
+                    <p class="l2"><code>(2 + 3) × 4 = 20</code></p>
+                    
+                    <p>Square brackets are used to split up commands. E.g.:</p>
+                    <p class=l2><code>ask turtles [ ... ]</code></p>
+                    <p class=l2>the <code>ask</code> command
+                    expects to find some more commands inside the brackets.</p>
+                    
+                </section>
+                
+                
+                <section id="Contexts">
+                    <h2>Contexts</h2>
+                    
+                    <img class="right" src="http://www.geog.leeds.ac.uk/courses/level3/geog3150/practicals/practical1/figures/contexts.png"
+                    alt="Contexts and variables" />
+                    
+                    <p>Contexts are NetLogo's way of controlling where commands are sent.</p>
+                    <p>There are three contexts:</p>
+                    <ol class="l2">
+                        <li>Observer</li>
+                        <li>Turtle</li>
+                        <li>Patch</li>
+                    </ol>
+                    
+                    <p><span style="color:red;">Don't Panic</span>: Lots of opportunity to understand these during the practicals..</p>
+                    
+                </section>
+                
+                
+                
+                <section data-state="outline" id="Outline-FC">
+                    <h2>Outline</h2>
+                    <ol class=outline>
+                        <li><a href=#/Tools>Tools for individual-level modelling</a></li>
+                        <li><a href=#/NetlogoIntro>Introduction to NetLogo</a></li>
+                        <li><a href=#/TheProgram>The Program</a></li>
+                        <li><a href=#/TurtlesPatches>Turtles and Patches</a></li>
+                        <li><a href=#/Variables>Variables</a></li>
+                        <li class="current"><a href=#/FlowControl>Flow Control</a></li>
+                        <li><a href=#/WritingCode>Writing Nice Code</a></li>
+                        <li><a href=#/Summary>Summary</a></li>
+                    </ol>
+                </section>
+                
+                <section id="FlowControl">
+                    
+                    <img class="right" src="./figures/ramsay.jpg"/>
+                    
+                    <h2>Flow Control</h2>
+                    
+                    <p>Programs are recipes</p>
+                    <p>And computers are really, really stupid cooks.</p>
+                    <p>Programmers need to tell the computer <i>exactly</i> what to do, and in what
+                    order</p>
+                    <p>Geek joke:</p>
+                    <div class="box">
+                        <p class="fragment l2">Q: How do you keep a programmer in the shower forever?</p>
+                        <p class="fragment  l2">A: Give them a bottle of shampoo that says "lather, rinse, repeat".</p>
+                    </div>
+                    
+                </section>
+                
+                <section id="Logic">
+                    
+                    <h2>Flow Control and Logic</h2>
+                    
+                    <!-- I don't like the following diagram
+                    <img class="right" src="./figures/flow_control.png" alt="Flow control with 'if' statements" />
+                    -->
+                    
+                    <p>Usually, NetLogo will run through your code, one line after the other.</p>
+                    
+                    <p><strong>But!</strong> Sometimes there are two or more possibilities for what
+                    to do next.</p>
+                    
+                    <p><code>if</code> statements are one example:</p>
+                    
+                    <div class="box footnote">
+                        <p>
+                            <code><i>... start here ... </i></code><br/><br/>
+                            <code>if ( age < 18 )</code><br/>
+                            <code>&nbsp;&nbsp[ <i>.. do something ..</i> ]</code><br/><br/>
+                            <code>if ( age > 18 ) </code><br/>
+                            <code>&nbsp;&nbsp[ <i>.. do something else ..</i> ]</code><br/><br/>
+                            <code><i>... now continue ...</i></code>
+                            
+                        </p>
+                    </div>
+                    
+                    
+                </section>
+                
+                
+                
+                <!-- 
+                <section id="Procedures">
+                    <p>XXXX one function can call another (e.g. <code>setup</code> -> <code>setup-people</code></p>
+                    <h2></h2>
+                    <p></p>
+                </section>
+
+                <section id="RunningProcedures">
+                    <h2>Running Procedures</h2>
+                    <p>XXXX Demo of how to type procedures into the Code tab and then run them
+                    in the command centre.</p>
+                </section>
+                
+                -->
+                
+                
+                
+                <section data-state="outline" id="Outline-NiceCode">
+                    <h2>Outline</h2>
+                    <ol class=outline>
+                        <li><a href=#/Tools>Tools for individual-level modelling</a></li>
+                        <li><a href=#/NetlogoIntro>Introduction to NetLogo</a></li>
+                        <li><a href=#/TheProgram>The Program</a></li>
+                        <li><a href=#/TurtlesPatches>Turtles and Patches</a></li>
+                        <li><a href=#/Variables>Variables</a></li>
+                        <li><a href=#/FlowControl>Flow Control</a></li>
+                        <li class="current"><a href=#/WritingCode>Writing Nice Code</a></li>
+                        <li><a href=#/Summary>Summary</a></li>
+                    </ol>
+                </section>
+                
+                <section id="WritingCode">
+                    <h2>Finally: Writing Nice Code</h2>
+                    
+                    <p>Computers don't care what code looks like</p>
+                    <p>But there are some good conventions that we can use to make our code easier
+                    to understand by humans</p>
+                    
+                    <p>Indentation</p>
+                    <p class="l2">New blocks of code should be <i>indented</i> (moved to the right)</p>
+                    <p class="l2">E.g. the <code>if</code> statements on previous slide</p>
+                    
+                    <p>White space</p>
+                    <p class="l2">Different sections of code can be separated by lots of white space</p>
+                    
+                    <p>Comments</p>
+                    <p class="l2">Comments are special parts of code that NetLogo will ignore.</p>
+                    <p class="l2">Anything after a <code>;</code> is ignored.</p>
+                    <p class="l2">Use comments to explain what your computer code does.</p>
+                </section>
+                
+                <style>
+                    
+
+                    
+                    </style>
+                
+                <section id="Code-Indentation">
+                    
+                    <h2>Indentation</h2>
+                    
+                    <div id="columns">
+                        <div class="left column">
+                            <p style="color:green;">Good</p>
+                            <div class="box" style="font-size: 0.5em;">
+                                <p><code>
+                                    if age = 15 [<br/><br/>
+                                  &nbsp;&nbsp;if count friends > 0 [<br/>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;set happiness ( happiness + 1 )<br/>
+                                  &nbsp;&nbsp;]<br/><br/>
+                                  &nbsp;&nbsp;if count friends > 5 [<br/>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;set happiness ( happiness + 5 )<br/>
+                                  &nbsp;&nbsp;]<br/><br/>
+                                  ]
+                                </code></p>
+                            </div>
+                        </div>
+                            
+                        <div class="right column">
+                            <p style="color:red;">Bad</p>
+                                <div class="box" style="font-size: 0.5em;">
+                                <p><code>
+                                  if age = 15 [<br/><br/>
+                                  if count friends > 0 [<br/>
+                                  set happiness ( happiness + 1 )<br/>
+                                  ]<br/><br/>
+                                  if count friends > 5 [<br/>
+                                  set happiness ( happiness + 5 )<br/>
+                                  ]<br/><br/>
+                                  ]
+                                </code></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="Code-Whitespace">
+                    
+                    <h2>Whitespace</h2>
+                    
+                    <div id="columns">
+                        <div class="left column">
+                            <p style="color:green;">Good</p>
+                                <div class="box" style="font-size: 0.5em;">
+                                <p><code>
+                                    if age = 15 [<br/><br/>
+                                  &nbsp;&nbsp;if count friends > 0 [<br/>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;set happiness ( happiness + 1 )<br/>
+                                  &nbsp;&nbsp;]<br/><br/>
+                                  &nbsp;&nbsp;if count friends > 5 [<br/>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;set happiness ( happiness + 5 )<br/>
+                                  &nbsp;&nbsp;]<br/><br/>
+                                  ]
+                                </code></p>
+                            </div>
+                            
+                        </div>
+                            
+                        <div class="right column">
+                            
+                            <p><span style="color:red;">Bad</span> (well, not too bad, but ..)</p>
+                                <div class="box" style="font-size: 0.5em;">
+                                <p><code>
+                                    if age = 15 [<br/>
+                                  &nbsp;&nbsp;if count friends > 0 [<br/>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;set happiness ( happiness + 1 )<br/>
+                                  &nbsp;&nbsp;]<br/>
+                                  &nbsp;&nbsp;if count friends > 5 [<br/>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;set happiness ( happiness + 5 )<br/>
+                                  &nbsp;&nbsp;]<br/>
+                                  ]
+                                </code></p>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                </section>
+                
+                <section id="Code-Comments">
+                    
+                    <h2>Comments</h2>
+                    
+                    <div id="columns">
+                        <div class="left column">
+                            <p style="color:green;">Good</p>
+                                <div class="box" style="font-size: 0.5em;">
+                                <p><code>
+                                    if age = 15 [<br/><br/>
+                                  &nbsp;&nbsp;; This happens if the agent is 15 years old:<br/>
+                                  &nbsp;&nbsp;if count friends > 0 [<br/>
+                                  &nbsp;&nbsp;; If at least 1 friend, then they're happy<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;set happiness ( happiness + 1 )<br/>
+                                  &nbsp;&nbsp;]<br/><br/>
+                                  &nbsp;&nbsp;if count friends > 5 [<br/>
+                                  &nbsp;&nbsp;; If they have 5, then even more happy<br/>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;set happiness ( happiness + 5 )<br/>
+                                  &nbsp;&nbsp;]<br/><br/>
+                                  ]
+                                </code></p>
+                            </div>
+                        </div>
+                            
+                        <div class="right column">
+                            
+                            <p style="color:red;">Bad</p>
+                            <div class="box" style="font-size: 0.5em;">
+                                <p><code>
+                                    if age = 15 [<br/><br/>
+                                  &nbsp;&nbsp;if count friends > 0 [<br/>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;set happiness ( happiness + 1 )<br/>
+                                  &nbsp;&nbsp;]<br/><br/>
+                                  &nbsp;&nbsp;if count friends > 5 [<br/>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;set happiness ( happiness + 5 )<br/>
+                                  &nbsp;&nbsp;]<br/><br/>
+                                  ]
+                                </code></p>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                </section>
+                
+                <section id="Summary">
+                    
+                    <h2>Conclusion</h2>
+                    <ol class=outline>
+                        <li><a href=#/Tools>Tools for individual-level modelling</a></li>
+                        <li><a href=#/NetlogoIntro>Introduction to NetLogo</a></li>
+                        <li><a href=#/TheProgram>The Program</a></li>
+                        <li><a href=#/TurtlesPatches>Turtles and Patches</a></li>
+                        <li><a href=#/Variables>Variables</a></li>
+                        <li><a href=#/FlowControl>Flow Control</a></li>
+                        <li><a href=#/WritingCode>Writing Nice Code</a></li>
+                    </ol>                   
+                    
+                </section>
+                
+            </div> <!-- class=slides -->
+
+            <!-- **** Slides finish here **** -->
+
+        </div> <!-- class=reveal -->
+
+		<script src="reveal/lib/js/head.min.js"></script>
+		<script src="reveal/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'reveal/plugin/markdown/marked.js' },
+					{ src: 'reveal/plugin/markdown/markdown.js' },
+					{ src: 'reveal/plugin/notes/notes.js', async: true },
+					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
