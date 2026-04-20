@@ -24,11 +24,20 @@ contextMenu: false
 hideNavigation: true
 shortcut:
   toc: false
+layout: cover
+color: light
+
 ---
 
 # NetLogo入門
 
-エージェントベースシミュレーション
+東北大学文学研究科
+計算人文社会学
+
+**呂沢宇**   
+
+行動科学概論　_社会科学におけるモデル入門_ <a href="https://lvzeyu.github.io/https:/github.com/lvzeyu/social_modeling_lecture" class="ns-c-iconlink"><mdi-open-in-new /></a>  
+
 
 
 ---
@@ -217,6 +226,70 @@ class: flex justify-center items-center gap-20 px-40 text-xl
 </div>
 
 ---
+layout: iframe-left
+title: iframe Left Layout
+url: https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Social%20Science/Prisoner's%20Dilemma/Prisoner's%20Dilemma%20Basic.nlogox
+scale: 0.5
+class: my-cool-content-on-the-right
+---
+
+
+```ts {|1|8-10|13,21-29|15-17|3-19,22-29}{maxHeight:'500px'}
+globals [partner-is-silent?]
+
+to setup
+  clear-all
+  ;;Build the jail cell
+  ask patches with [ count neighbors != 8 ] [
+    set pcolor gray]
+
+  ;;make the face visible
+  create-turtles 1 [set color gray set size 30 set shape "face"]
+  ;; set up the prisoner's dilemma
+  ifelse partner-silence-known? [
+    set partner-is-silent? partner-silent?
+  ]
+  [
+    ;;if partner silence is not known, choose randomly whether or not he is silent.
+    ifelse random 2 = 0
+    [ set partner-is-silent? true ]
+    [ set partner-is-silent? false ]
+  ]
+end
+
+;;play the game, changing the face depending on the outcome.
+to answer
+  setup  ;;clears variables away so that setup doesn't need to be pressed every time.
+
+  ;;next the four possible combinations of choices are dealt with.
+  ;;the result corresponds to the tables in the interface and Info tabs.
+  ;;first check to see if your partner was silent.
+  ifelse partner-is-silent? [
+      ;;now go through your two possible choices
+      ifelse you-silent? [
+      ask turtles [set shape "face silent"]
+      user-message "You and your partner both remain silent.  You are sentenced to one year imprisonment."
+    ] [
+      ask turtles [set shape "face devious"]
+      user-message "You confess and your partner remains silent. You go free."
+    ]
+  ]
+  ;;your partner confessed.
+  [
+    ;;again go through your two possible choices
+    ifelse you-silent? [
+      ask turtles [set shape "face sucker" ]
+      user-message "You remain silent, but your partner confesses.  You are sentenced to five years imprisonment."
+    ] [
+      ask turtles [set shape "face rational"]
+      user-message "You and you partner both confess.  You are sentenced to three years imprisonment."
+    ]
+  ]
+end
+```
+
+
+---
 transition: fade-out
 layout: two-cols-title
 ---
@@ -243,14 +316,13 @@ layout: two-cols-title
 **四則演算**
 
 - `+ - * /` の前後に**半角スペース**が必要
-- 余剰演算子は `%` ではなく `mod`
 - 論理演算子：`and`，`or`，`not`
 
 </v-click>
 
 ::right::
 
-```text {|1-3|5-8}
+```text {|1-3|5-8|10-13}
 ; 変数の代入
 set x 10
 set y "hogehoge"
@@ -259,8 +331,18 @@ set y "hogehoge"
 set x 10 + 5
 set y 12 * 2 / 4 - 3
 set z 10 mod 3
+
+; 論理演算子
+if (x > 5 and x < 20) [ ... ]
+if (x < 0 or x > 100) [ ... ]
+if (not (x = 0)) [ ... ]
 ```
 
+</br>
+
+<Admonition title="Info" color="teal-light" width="400px">
+<span style="font-size: 1.3em;">`;` で始まる行は**コメント**です。NetLogoはその行を無視します。</span>
+</Admonition>
 
 
 ---
@@ -293,13 +375,13 @@ layout: two-cols-title
 <v-click at="3">
 
 **ローカル変数**（`let`）
-- 手続き内だけで有効な一時的な変数
+- 特定な処理範囲内だけで有効な一時的な変数
 
 </v-click>
 
 ::right::
 
-```text {1,6|2-3,8,11|16}
+```text {1|1,6|2-3,8,11|16}
 globals [total-count]
 turtles-own [energy]
 patches-own [fertility]
@@ -376,18 +458,6 @@ let first-item item 0 y
 set y replace-item 0 y 99
 ; => [99 2 3]
 ```
----
-
-# 描画画面
-
-<div class="p-4 border-2 border-dashed border-gray-400 rounded bg-gray-50 text-gray-500 text-sm text-center mb-4">
-  【画像プレースホルダー】スライドB.6 — 描画画面とModel Settings（座標設定ダイアログ）のスクリーンショット
-</div>
-
-- インターフェース画面の黒い部分が patch の描画領域
-- 「設定」ボタンを押すと座標設定ダイアログが開く
-- 座標の原点・x 軸・y 軸の最大値と最小値を設定可能
-- **パッチサイズ**：パッチの一辺のピクセル数（小さくすると描画領域全体が小さくなる）
 
 
 ---
@@ -453,137 +523,50 @@ ask links [
 ask link 0 1 [ set color red ]  ; turtle 0-1 間の link のみ赤
 ```
 
----
-
-# エージェント集合の例
-
-```text
-other turtles
-; 自分以外の turtle
-
-turtles-here
-; この patch の上にいる全ての turtle
-
-turtles-here with [color = red]
-; この patch の上にいる全ての赤色（color が red）の turtle
-
-patches with [pxcor > 0]
-; 正の x 座標を持つ全ての patch
-
-turtles in-radius 3
-; その場所からの距離が3以下にいる全ての turtle
-
-neighbors4
-; ノイマン近傍の patch（ただし，その場所の patch は含まれない）
-
-turtles-on neighbors4
-; ノイマン近傍にいる全ての turtle
-```
 
 ---
 layout: two-cols-title
 ---
 
 ::title::
-# ask 文のサンプル
+# 制御構文
 
 ::left::
-**setup の例**
 
-```text
-to setup
-  clear-all
-  setup-patches
-  setup-turtles
-  reset-ticks
-end
-```
+<v-click at="1">
 
-**patch の設定**
-
-```text
-to setup-patches
-  ask patches [
-    set pcolor green
-  ]
-end
-```
-
-::right::
-
-**turtle の設定**
-
-```text
-to setup-turtles
-  create-turtles 100
-  ask turtles [
-    setxy random-xcor random-ycor
-    set color red
-  ]
-end
-```
-
-- `clear-all`：全てを初期化
-- `reset-ticks`：シミュレーションのカウンタを初期化
-- `setxy`：turtle の場所を設定
-- `random-xcor`, `random-ycor`：x/y 軸上のランダムな値
-
----
-
-# エージェント変数
-
-<div class="p-4 border-2 border-dashed border-gray-400 rounded bg-gray-50 text-gray-500 text-sm text-center mb-4">
-  【画像プレースホルダー】スライドB.12 — turtle・patch・link それぞれの inspect ウィンドウ（エージェント変数一覧）のスクリーンショット
-</div>
-
-| エージェント | 主なデフォルト変数 |
-|------------|-----------------|
-| **turtle** | `who`, `color`, `heading`, `xcor`, `ycor`, `shape`, `label`, ... |
-| **patch** | `pcolor`, `plabel`, `pxcor`, `pycor`, ... |
-| **link** | `end1`, `end2`, `color`, `label`, `thickness`, ... |
-
-- `turtles-own` 等で定義した変数も同じウィンドウに表示される
-- 右クリック → `inspect turtle (番号)` で確認可能
-
----
-layout: two-cols-title
----
-
-::title::
-# よく使う基本的な構文
-
-::left::
 **if 文**
 
-```text
-if (条件) [
-  （命令）
-]
-```
+条件が真のときだけブロックを実行する
+
+</v-click>
+
+<v-click at="2">
 
 **ifelse 文**
 
-```text
-ifelse (条件) [
-  （命令1）
-][
-  （命令2）
-]
-```
+条件が真のときと偽のときで異なるブロックを実行する
+
+</v-click>
+
+<v-click at="3">
 
 **while 文**
 
-```text
-while (条件) [
-  （命令）
-]
-```
+条件が真の場合、ブロックを繰り返し実行する
+
+</v-click>
+
+<Admonition title="ブロック [ ] とは" color="teal-light" width="400px">
+
+`[ ]` で囲まれた部分が**ブロック**です。条件が成立したときに実行する命令をまとめて記述します。
+
+</Admonition>
 
 ::right::
 
-**使用例**
 
-```text
+```text {|1-5|7-13|15-20}
 ask turtles [
   if xcor > 0 [
     set color red
@@ -611,40 +594,40 @@ layout: two-cols-title
 ---
 
 ::title::
-# NetLogo特有の構文
+# 制御構文
 
 ::left::
-**repeat 文**（while 文と似ているが，条件の代わりに数値を書く）
 
-```text
-repeat (数値) [
-  （命令）
-]
-```
+<v-click at="1">
 
-**foreach 文**（リストの各要素に処理する）
+**repeat 文**
 
-```text
-foreach リスト [
-  x -> （命令）
-]
-```
+指定した回数だけブロックを繰り返し実行する
 
-角括弧のブロック内の冒頭で `x ->` のようなコマンドを書く（`x` は任意の変数名）
+</v-click>
 
-**loop 文**（条件部分のない while 文。`stop` で抜け出す）
+<v-click at="2">
 
-```text
-loop [
-  （命令）
-]
-```
+**foreach 文**
+
+リストの各要素に対してブロックを順番に実行する
+
+</v-click>
+
+<v-click at="3">
+
+**loop 文**
+
+`stop` が呼ばれるまで無限にブロックを繰り返す
+
+</v-click>
+
+
+
 
 ::right::
 
-**使用例**
-
-```text
+```text {|1-3|5-12|14-22}
 ask turtle 0 [
   repeat 10 [fd 1]
 ]
@@ -669,37 +652,167 @@ loop [
 ```
 
 ---
+layout: two-cols-title
+---
 
-# procedure の定義
+::title::
+# procedureについて
 
-**通常の procedure（`to`〜`end`）**
 
-```text
-to my-procedure
-  （中身）
-end
-```
+> 他のプログラミング言語の「関数」に相当
+::left::
 
-**戻り値がある procedure（`to-report`〜`end`）**
+<v-click at="1">
 
-`return` ではなく `report` を使う点に注意
+**`to`〜`end`：通常の procedure**
 
-```text
-to-report my-reporter
-  （中身）
-  report 結果
-end
-```
+- 名前をつけた命令のまとまり
+- `to 名前` で定義し、名前を書くだけで呼び出す
+
+</v-click>
+
+<v-click at="2">
+
+**`to-report`〜`end`：戻り値がある procedure**
+
+- 計算結果を返したいときに使う
+- `report` で値を返す
+
+</v-click>
+
+<v-click at="3">
 
 **引数をとる procedure**
 
-引数が複数の場合は，角括弧の中に半角スペースで区切って並べる
+- 名前の後ろに `[ 引数名 ]` を書く
 
-```text
-to my-procedure [argument]
-  （中身）
+</v-click>
+
+::right::
+
+```text {|1-7|9-14|16-20}
+; 通常の procedure
+to move-turtle
+  right random 360
+  fd 1
+end
+
+ask turtles [ move-turtle ]
+
+; 戻り値がある procedure
+to-report double [ x ]
+  report x * 2
+end
+
+set y double 5  ; y = 10
+
+; 引数をとる procedure
+to color-turtle [ c ]
+  set color c
+end
+
+ask turtles [ color-turtle red ]
+```
+
+---
+layout: two-cols-title
+---
+
+::title::
+# Netlogoで囚人的ジレンマモデルの実装
+
+::left::
+
+<v-click at="1">
+
+- **変数の定義**
+
+</v-click>
+
+<v-click at="2">
+
+- **エージェントの設定**
+  - `create-turtles` でエージェントを生成・初期化
+
+</v-click>
+
+<v-click at="3">
+
+- **手続きの定義**
+  - `to`〜`end` で処理をまとめた手続きを定義
+  - `setup` で初期化，`answer` でゲームを実行
+
+</v-click>
+
+<v-click at="4">
+
+- **演算・論理演算子**
+
+</v-click>
+
+<v-click at="5">
+
+- **制御構文**
+  - `ifelse` で条件分岐し，パートナーの行動・自分の選択に応じて結果を切り替える
+
+</v-click>
+
+::right::
+
+```ts {|1,13,18,19|6-7,10,33,36,44,47|3-21,24-51|6,17|12-19,29-51}{maxHeight:'550px'}
+globals [partner-is-silent?]
+
+to setup
+  clear-all
+  ;;Build the jail cell
+  ask patches with [ count neighbors != 8 ] [
+    set pcolor gray]
+
+  ;;make the face visible
+  create-turtles 1 [set color gray set size 30 set shape "face"]
+  ;; set up the prisoner's dilemma
+  ifelse partner-silence-known? [
+    set partner-is-silent? partner-silent?
+  ]
+  [
+    ;;if partner silence is not known, choose randomly whether or not he is silent.
+    ifelse random 2 = 0
+    [ set partner-is-silent? true ]
+    [ set partner-is-silent? false ]
+  ]
+end
+
+;;play the game, changing the face depending on the outcome.
+to answer
+  setup  ;;clears variables away so that setup doesn't need to be pressed every time.
+
+  ;;next the four possible combinations of choices are dealt with.
+  ;;the result corresponds to the tables in the interface and Info tabs.
+  ;;first check to see if your partner was silent.
+  ifelse partner-is-silent? [
+      ;;now go through your two possible choices
+      ifelse you-silent? [
+      ask turtles [set shape "face silent"]
+      user-message "You and your partner both remain silent.  You are sentenced to one year imprisonment."
+    ] [
+      ask turtles [set shape "face devious"]
+      user-message "You confess and your partner remains silent. You go free."
+    ]
+  ]
+  ;;your partner confessed.
+  [
+    ;;again go through your two possible choices
+    ifelse you-silent? [
+      ask turtles [set shape "face sucker" ]
+      user-message "You remain silent, but your partner confesses.  You are sentenced to five years imprisonment."
+    ] [
+      ask turtles [set shape "face rational"]
+      user-message "You and you partner both confess.  You are sentenced to three years imprisonment."
+    ]
+  ]
 end
 ```
+
 
 ---
 
@@ -719,6 +832,13 @@ end
 | `random (数値)` | 0 以上・指定値未満の整数をランダムに返す |
 | `random-float (数値)` | 0 以上・指定値未満のランダムな浮動小数点数を返す |
 
+
+
+---
+
+# よく使う命令
+
+
 **エージェント集合の操作**
 
 | 命令 | 説明 |
@@ -731,11 +851,12 @@ end
 | `min-one-of` | 変数が最小のエージェントを1つ返す |
 | `other` | 自分自身を除いたエージェント集合を返す |
 
+
 ---
 
-# 周辺の patch を取得する命令・stop
+# よく使う命令
 
-**周辺の patch**
+**patchに対する操作**
 
 | 命令 | 説明 |
 |------|------|
@@ -745,11 +866,6 @@ end
 | `patch-here` | turtle がいる patch を返す |
 | `patch-at (dx) (dy)` | 対象の turtle から見て相対座標 (dx, dy) の位置にある patch を返す |
 
-**stop**
-
-- 対象エージェントが procedure や ask ブロックから**抜け出す**
-- そのエージェントが囲まれたブロックのみを停止するだけであり，**他のエージェントの実行は止めない**
-- フォーエバーオプションで実行中の go procedure を停止することも可能
 
 ---
 
