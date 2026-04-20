@@ -1,37 +1,20 @@
 ---
-# You can also start simply with 'default'
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Slidev
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply unocss classes to the current slide
-class: text-center
-# https://sli.dev/features/drawing
-drawings:
-  persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
+theme: neversink
+layout: cover
+color: indigo-light
 transition: slide-left
-# enable MDC Syntax: https://sli.dev/features/mdc
-mdc: true
-css: unocss
-
 ---
-
-## 行動科学概論
  
-# 社会科学におけるモデル入門
+# モデリングの概要
 
 
-モデリングの概要
+東北大学文学研究科
+計算人文社会学
 
-### 呂沢宇
+**呂沢宇**   
+
+行動科学概論　_社会科学におけるモデル入門_ <a href="https://lvzeyu.github.io/https:/github.com/lvzeyu/social_modeling_lecture" class="ns-c-iconlink"><mdi-open-in-new /></a> 
+
 
 <div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
   Press Space for next page <carbon:arrow-right />
@@ -44,17 +27,7 @@ css: unocss
   </a>
 </div>
 
-<style>
-h1 {
-  color: white;
-  -webkit-text-fill-color: white;
-  -moz-text-fill-color: white;
-}
-</style>
 
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
 
 
 ---
@@ -98,7 +71,7 @@ class データ {
 ```
 </div>
 
-<p v-click style="color: #3E1586; font-size: 1.5em; text-align: center;">
+<p v-click style="color: #4F46E5; font-size: 1.5em; text-align: center;">
   データを眺める以上の分析が必要ならモデルの出番
 </p>
 
@@ -121,7 +94,7 @@ class: flex justify-center items-center gap-20 px-40 text-xl
   <v-clicks>
     <div mt-12>
       <h1 flex flex-col items-center text="4xl!" style="text-align: center; line-height: 1.4;">
-        <span style="color: #3E1586;">なんか数式がいっぱいあって、<br />難しそうなもの</span>
+        <span style="color: #4F46E5;">なんか数式がいっぱいあって、<br />難しそうなもの</span>
       </h1>
     </div>
   </v-clicks>
@@ -129,29 +102,28 @@ class: flex justify-center items-center gap-20 px-40 text-xl
 
 
 ---
+layout: two-cols-title
 transition: fade-out
 level: 1
 ---
 
+:: title ::
 # モデルのタイプ
 
-
-<div class="grid grid-cols-2 gap-4">
-  <!-- 左侧图像 -->
-  <div class="flex flex-col items-center">
-    <div style="display: flex; justify-content: center;">
-      <img src="./image/hinan2.gif" width="500" />
-    </div>
-    <p class="text-sm text-center text-gray-600 mt-2">現実を再現するモデル</p>
+:: left ::
+<div class="flex flex-col items-center">
+  <div style="display: flex; justify-content: center;">
+    <img src="./image/hinan2.gif" width="500" />
   </div>
+  <p class="text-sm text-center mt-2">現実を再現するモデル</p>
+</div>
 
-  <!-- 右侧图像 -->
-  <div class="flex flex-col items-center">
-    <div style="display: flex; justify-content: center;">
-      <img src="./image/Harmonic.png" width="250" />
-    </div>
-    <p class="text-sm text-center text-gray-600 mt-2">物理現象のモデル</p>
+:: right ::
+<div class="flex flex-col items-center">
+  <div style="display: flex; justify-content: center;">
+    <img src="./image/Harmonic.png" width="250" />
   </div>
+  <p class="text-sm text-center mt-2">物理現象のモデル</p>
 </div>
 
 
@@ -172,7 +144,7 @@ transition: fade-out
 - モデルとは、対象のデータの生成ルールを模擬したものである
     - 実際の分析対象では、自由に観測したり、内部条件を変えて操作したりすることは普通できません
 - 同じような振る舞いをするモデルを作ってしまえば、様々な用途がある
-  - 形式としては、数学やコンピュータープログラムなどの形式言語で書けるようなもの([Formal Model]{.hl})と、言葉や図で表現するもの([Informal Model]{.hl})がある
+  - 形式としては、数学やコンピュータープログラムなどの形式言語で書けるようなもの(==Formal Model==)と、言葉や図で表現するもの(==Informal Model==)がある
   - **モデルの目的**：考えを伝えたり理解したりするため
 
 </v-clicks>
@@ -242,12 +214,12 @@ transition: fade-out
 
 <v-clicks depth="3">
 
-- モデルとは、複雑な現実世界や抽象的な概念を、特定の目的のために単純化・抽象化し、分かりやすく構造化したもの
-    - 形状で事物を区分する「モデル」
-    - 色で事物を抽象化する「モデル」
+- モデルとは、複雑な現実世界や抽象的な概念を、特定の目的のために**単純化・抽象化**し、分かりやすく構造化したもの
+    - >「形状」で事物を区分する「モデル」
+    - >「色」で事物を抽象化する「モデル」
 - 人間の認知は 「直接現実を扱う」のではなく「表象」を扱う
     - 人間は現実をそのまま把握しているのではなく、常に何らかの「モデル」を通して世界を認識し、思考しているといえる
-    - モデルとは、この「[分解された要素]{.hl}」と「[その関係]{.hl}」を記述したものでもある
+    - モデルとは、この「`分解された要素`」と「`その関係`」を記述したものでもある
 - 同じ対象や現象であっても、目的や視点に応じて、異なるモデルを適用することが可能である
 
 - 完全に正しいモデルは存在しない、あるのは、目的に応じて適切（あるいは最適）なモデルである
@@ -263,29 +235,29 @@ transition: fade-out
 
 
 ---
+layout: two-cols-title
 transition: fade-out
 ---
 
+:: title ::
 # 科学におけるモデル
 
 Formal Modelの概念と例
 
 - Formal Model とは、現象を数式・論理・アルゴリズムなどの**形式言語**によって**明示的に**表現し、**検証可能**な形で構築されたモデルである
 
-<div class="grid grid-cols-2 gap-8 mt-8 items-center">
-  <div class="flex justify-center">
-    <img src="./image/gravitation.png" class="h-60 object-contain rounded" />
-  </div>
-  <div>
-
-  - ニュートンの重力モデル
-      - 明示的：変数が明確である
-      - 分解（decomposition）：現象（落下・惑星運動）を質量、距離や力という要素に分解している
-      - 関係の定式化
-      - 検証可能：実験・観測で測定できる
-
-  </div>
+:: left ::
+<div class="flex justify-center">
+  <img src="./image/gravitation.png" class="h-60 object-contain rounded" />
 </div>
+
+:: right ::
+
+- ニュートンの重力モデル
+    - 明示的：変数が明確である
+    - 分解（decomposition）：現象（落下・惑星運動）を質量、距離や力という要素に分解している
+    - 関係の定式化
+    - 検証可能：実験・観測で測定できる
 
 ---
 transition: fade-out
@@ -300,7 +272,7 @@ Formal Modelからの考察
 - ニュートンの重力モデルは、惑星の公転軌道が円ではなく楕円であるという観測事実を踏まえ、それを説明する基盤の上に構築された
     - モデルは観測事実に基づく
 - 「重さをもつ物体どうしが互いに引き合う」という発想それ自体は、ニュートン以前にも存在していた
-   - それ以前にはそれを厳密に定式化し、予測や検証に耐える形で表現した formal model は存在しなかった
+   - それ以前にはそれを厳密に定式化し、予測や検証に耐える形で表現した `formal model` は存在しなかった
 - ニュートンの重力モデルは重要な要素を抽出した抽象化である
    - 地球と太陽の関係に注目する一方で、天体の詳細な形状や材質、さらには当時まだ未知であった天体の影響などは基本的に扱っていない
 - 地球上の落下現象や惑星の運動など他の現象にも同じモデルで説明できる
@@ -332,26 +304,26 @@ level: 2
 
 
 ---
+layout: two-cols-title
 transition: slide-up
 level: 2
 ---
 
+:: title ::
 # モデルのタイプ
 
 具現化のアプローチ
 
-<div grid="~ cols-2 gap-4">
+:: left ::
 
-<div>
+- 現象の再現性と説明力の向上を目指し、現実問題への応用に直結する志向
 
-  - 現象の再現性と説明力の向上を目指し、現実問題への応用に直結する志向  
+- **例: 避難行動モデル**
+  - 災害発生時避難行動をモデル化することで、誰が、いつ、どこへ、どのルートで避難するのかを予測
+  - 防災行動計画の立案を支援する
 
-  - **例: 避難行動モデル**  
-    - 災害発生時避難行動をモデル化することで、誰が、いつ、どこへ、どのルートで避難するのかを予測  
-    - 防災行動計画の立案を支援する
-</div>
-
-<div flex="~ col items-center">
+:: right ::
+<div class="flex flex-col items-center">
   <v-switch>
     <template #1>
       <img src="./image/information_2-6.jpg" alt="Image 1" class="h-64" />
@@ -366,8 +338,6 @@ level: 2
       <img src="./image/uc22-031_verification_2.png" alt="Image 4" class="h-64" />
     </template>
   </v-switch>
-</div>
-
 </div>
 
 
@@ -403,6 +373,7 @@ level: 2
 ---
 transition: slide-up
 level: 2
+margin: tight
 ---
 
 # アナロジーアプローチ
@@ -431,6 +402,7 @@ level: 2
 ---
 transition: slide-up
 level: 2
+margin: tight
 ---
 
 # アナロジーアプローチ
@@ -444,18 +416,14 @@ level: 2
 
 <v-clicks depth="3">
 
-- 各囚人は**個別の最適戦略**として「裏切る」選択をする
-  - もし囚人Bが協力すると考えるなら、囚人Aは「裏切る」ことで0年の懲役となり有利
-  - もし囚人Bが裏切ると考えるなら、囚人Aが「協力」すると3年、裏切ると2年の懲役となるため「裏切る」方が有利
-  - どちらのケースでも「裏切る」方が懲役が短くなるため、囚人Aは合理的に「裏切る」を選択
-  - 囚人Bも同様に考えるため、結果として両者が「裏切る」を選び、(−2, −2) となる
-- もし**協力**していれば (−1, −1) の方が良かったのに(社会的最適)、達成できない
+- 各囚人は**個別の最適戦略**として「`裏切る`」選択をする
+  - もし囚人Bが協力すると考えるなら、囚人Aは「`裏切る`」ことで0年の懲役となり有利
+  - もし囚人Bが裏切ると考えるなら、囚人Aが「`協力`」すると3年、裏切ると2年の懲役となるため「`裏切る`」方が有利
+  - どちらのケースでも「`裏切る`」方が懲役が短くなるため、囚人Aは合理的に「`裏切る`」を選択
+  - 囚人Bも同様に考えるため、結果として両者が「`裏切る`」を選び、(−2, −2) となる
+- もし**協力**していれば (−1, −1) の方が良かったのに(`社会的最適`)、達成できない
 
 </v-clicks>
-
-<p v-click style="color: #3E1586; font-size: 1.5em; text-align: center;">
-  個々の合理的選択が全体として非効率な結果を招くことを説明できる
-</p>
 
 
 
@@ -471,7 +439,8 @@ level: 2
 
 簡単なモデルでも色々な問題に応用できる：囚人のジレンマを例として
 
-色々な社会現象を囚人のジレンマのように表現し、アナロジーアプローチで分析することができる
+- 囚人のジレンマでは、個々の合理的選択が全体として非効率な結果を招くことを説明できる
+    - 色々な社会現象を囚人のジレンマのように表現し、アナロジーアプローチで分析することができる
 
 - 企業間の価格競争
     - 競合する企業同士が価格を下げることで市場シェアを拡大しようとする場合、双方が値下げを行うと利益が減少
@@ -507,7 +476,7 @@ level: 2
   - モデルの転移可能性を常に意識する
 - 対象や文脈に応じて拡張する必要性
   - 例: 繰り返しゲームへの拡張
-        - 国家間の協力や企業間競争の分析には、単発の意思決定だけでなく、繰り返しの対話がある状況（長期的な競争・協力関係）に拡張する
+    - 国家間の協力や企業間競争の分析には、単発の意思決定だけでなく、繰り返しの対話がある状況（長期的な競争・協力関係）に拡張する
 
 </v-clicks>
 
@@ -535,7 +504,7 @@ level: 2
 </v-clicks>
 
 
-<p v-click style="color: #3E1586; font-size: 1.5em; text-align: center;">
+<p v-click style="color: #4F46E5; font-size: 1.5em; text-align: center;">
   KISSとKIDSは対立概念ではなく補完的な関係にある
 </p>
 
