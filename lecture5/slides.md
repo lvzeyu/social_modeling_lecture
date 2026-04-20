@@ -1,36 +1,20 @@
 ---
-# You can also start simply with 'default'
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Slidev
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply unocss classes to the current slide
-class: text-center
-# https://sli.dev/features/drawing
-drawings:
-  persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
+theme: neversink
+layout: cover
+color: violet
 transition: slide-left
-# enable MDC Syntax: https://sli.dev/features/mdc
-mdc: true
-
 ---
-
-## 行動科学概論
  
-# 社会科学におけるモデル入門
+# Agent Based Model (ABM)
 
 
-シェリングの分居モデル
+東北大学文学研究科
+計算人文社会学
 
-### 呂沢宇
+**呂沢宇**   
+
+行動科学概論　_社会科学におけるモデル入門_ <a href="https://lvzeyu.github.io/https:/github.com/lvzeyu/social_modeling_lecture" class="ns-c-iconlink"><mdi-open-in-new /></a> 
+
 
 <div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
   Press Space for next page <carbon:arrow-right />
@@ -43,718 +27,219 @@ mdc: true
   </a>
 </div>
 
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Agent Based Model (ABM)の基本概念
+
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks depth="2">
+
+
+- エージェントベースモデル（Agent-Based Model, ABM）は、複雑なシステムを解析するための手法であり、**システム全体の振る舞いをエージェント個別の要素の行動や相互作用を通じてモデリング**する。
+    - エージェントの行動ルールを定義し、ロレベル（エージェント単位）の行動が積み重なることで、マクロレベル（システム全体）の現象を創発させる手法である。
+    - マクロレベルの現象の原因をミクロレベルのエージェントの行動にまで遡って分析するのに役立つ。
+</v-clicks>
+
+
+</div>
+
+<div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./image/abm_micro_macro.png" width="450" />
+</div>
+</div>
+</div>
+
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Agent Based Model (ABM)の基本概念
+
+ABMの特徴
+
+<v-clicks depth="1">
+
+- **相互作用の構造**：ABM はエージェント間の相互作用から，どのような社会状態が帰結するのかを探求する
+    - エージェントが行為を選択する際にどのエージェントを参照するのかということや，どのエージェントと実際にゲームを行うのかということは結果を左右する重要な要素である
+
+- **エージェントの意思決定ルール**: ABM では，エージェントが自身の意思決定ルールに従って行為を選択する
+    - 多くの場合，エージェントによって，その意思決定ルールが異なる．エージェントの意思決定ルールにどの程度多様性をもたせるのか，ということも結果を左右する
+
+- **適応過程**: ABM では，多くの場合，エージェントが自身の行為の帰結や周囲のエージェントの影響により，その意思決定ルールを変更する
+
+- **状態の再帰性**: $t$時点の全エージェントの行為が集積したものを$t$時点の社会状態と呼ぶとすれば，$t+1$時点の各エージェントの行為選択は，$t$時点の社会状態からも影響を受ける
+    - 1 時点の社会状態の帰結ではなく，各エージェントと社会状態の再帰的な影響過程の長期な帰結を問う
+
+</v-clicks>
+
+
+<!--
+ABMの特徴と主な着目点
+-->
+
+---
+transition: slide-up
+level: 2
+---
+
+# ABMの要素と構成
+
+エージェント
+
+<v-clicks depth="2">
+
+- **エージェントの属性(properties)**
+    - エージェントが持つ内部状態・特徴・個性を表す情報
+    - エージェントがどう行動するか、どう相互作用するかを決める基盤となるもの
+
+- 自然渋滞モデルにおけるエージェントの属性
+
+<div class="table-wrapper">
+
+| 属性名 | 説明 |
+|:--------|:-----|
+| 位置 (position) | 道路上の位置（空間座標） |
+| 速度 (velocity) | 現在の走行速度 |
+| 加速度 (acceleration) | 現在の加速度（速度の変化率） |
+| 安全車間距離 (desired headway) | 他車との理想的な車間距離 |
+
+</div>
+</v-clicks>
+
 <style>
-h1 {
-  color: white;
-  -webkit-text-fill-color: white;
-  -moz-text-fill-color: white;
+
+.table-wrapper {
+  font-size: 0.9em;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 </style>
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+ABMの構成要素について説明します
 -->
 
----
-transition: slide-up
-level: 2
----
-
-# 研究背景
-
-都市におけるセグリゲーション(人種)
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/SegTrend.png" width="700" />
-</div>
-
-
-
 
 ---
 transition: slide-up
 level: 2
 ---
 
-# 研究背景
+# ABMの要素と構成
 
-都市におけるセグリゲーション(人種)
+エージェント
 
-<div style="display: flex; justify-content: center;">
-  <img src="./image/NY_racial_map.jpg" width="800" />
-</div>
+<v-clicks depth="1">
 
+- **エージェントの行動(Actions)**
+    - 各エージェントが自身の属性や、環境・他エージェントとの相互作用に基づいての振る舞い
 
+- エージェントの行動では様々の種類がある
+    - 移動行動: 空間上の位置を変える
+    - 状態変化行動: 内部の属性を変化させる
+    - 相互作用行動: 他のエージェントとの交流や影響のやりとり
+    - 意思決定行動: 状況に応じた選択を行う
 
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# 研究背景
-
-都市におけるセグリゲーション(収入)
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/mesh_income.png" width="1200" />
-</div>
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# 研究背景
-
-都市におけるセグリゲーション(職業)
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/occupation_distribution_map.png" width="1000" />
-</div>
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# 研究背景
-
-近隣効果
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks depth="2">
-
-
-- 近隣効果とは、個人の行動や成長が、居住している地域の環境や他の住民の特徴によって左右されることを論じている
-
-- セグリゲーションによって貧困層が特定の地域に集中すると、教育・就労・治安などの社会資源へのアクセスが制限され、次世代にわたって機会の格差が再生産される
-
-- セグリゲーションによって特定の地区が「危険」「貧困層の巣窟」といった負のイメージでスティグマ化されると、住民は社会的・心理的に疎外され、外部との交流や社会参加が抑制される傾向がある
-- [Opportunity Atlas](https://www.opportunityatlas.org/)
 
 </v-clicks>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/neighborhood-effects.png" width="600" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# 研究関心
-
-<v-clicks depth="2">
-
-セグリゲーション（居住分離）がどのように形成されるのか
-
-- ❓トップダウン型セグリゲーション：差別的な政策 
-    - 政府や行政による制度的・法的な差別、たとえば特定人種や民族に対する住宅差別、ゾーニング規制、公共施設の分離などにより、人為的に居住の分断が生み出されるケース
-
-- ⭐️**ボトムアップ型セグリゲーション：個人の居住選択の積み重ね**
-    - セグリゲーションは、明示的な差別政策がなくても、住民の選択行動の集積によって自然に発生する
-
-</v-clicks>
-
-
-
-
 
 
 <!--
-- 江戸時代の身分制度士農工商（しのうこうしょう）制度、特定地域に強制的に居住させられた。
-- 在日朝鮮人に対する住宅政策:公営住宅への入居が制限された時期があり、結果として貧困地域に集住
+- 前の車との距離が十分なら 加速
+- 距離が詰まってきたら 減速
+
+- 車両は時間の経過とともに道路上を前進し、位置が更新される
+- エージェントは自身の速度や加速度を逐次変化させます
+- 「加速するか減速するか」という判断が、車間距離と理想速度との比較に基づいて決定されます
 -->
----
-transition: slide-up
-level: 2
----
-
-# 研究関心
-
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/macro-micro.png" width="1200" />
-</div>
-
-<v-clicks depth="2">
-
-- ボトムアップ型セグリゲーション：個人の居住選択の積み重ね 
-    - 社会構造が個人の行動をどのように規定する❓
-    - どのような個人の行動の累積によるセグリゲーションに導く❓
-
- </v-clicks>
-
-
-
 
 ---
 transition: slide-up
 level: 2
 ---
 
-# モデルの構築
+# ABMの要素と構成
 
-理論前提
+エージェント
 
-<v-clicks depth="2">
+<v-clicks depth="1">
 
-- 人間の同質性選好（homophily）
-    - Homophily Principle: 個人が自分と似た属性（年齢、性別、教育、価値観など）を持つ他者と関係を築きやすい [(McPherson et al., 2001)](https://www.annualreviews.org/content/journals/10.1146/annurev.soc.27.1.415)
-        - 価値観や生活様式が共有できる相手を選ぶことで心理的安定性、信頼性、コミュニケーション効率の向上
+- エージェントの「属性（properties）」や「行動（actions）」を定義することによって、異なる種類のエージェント（heterogeneous agents）を設計・区別することができる
+    - 異なる属性や行動ルールを持たせることで現実世界の多様なアクターを再現できる
+        - 人々の社会経済的属性や価値観などは異なる
+    - 異なる種類のエージェントに異なる機能や役割を割り当てることで、制度や役割構造をモデル化できる
+        - 社会における異なる職業の人々は異なる役割を果たしている
 
-- 人間の同質性選好は「どのような人々が周囲に住んでいるか」という居住環境の選好にも強く反映される
-    - 「自分と似た人が多く住む地域に居住したい」という選好が生まれる
-    
-> 孟母三遷: 中国、戦国時代の思想家孟子の母が、孟子の教育のために三度も住居を遷ったとの故事をいう。孟母は初め墓地の近くに居を定めたが、孟子が葬式のまねばかりするので、市場の近くに転居した。すると今度は商売人のまねをして遊ぶので、ここもわが子のためにふさわしい所ではないと、学校のそばに居を移すと、孟子が喜々として礼儀作法のまねをするようになったので、孟母はこここそがわが子のいるべき所だといって、ついにここに住居を定めたと伝える。
- </v-clicks>
+- 多くのABMでは、現実の複雑性を再現するためにheterogeneous agentsが用いられている
 
-
+</v-clicks>
 
 
 <!--
-孟母三遷(もうぼさんせん)
-
-- 最初の住まい：墓地の近く → 孟子が葬式ごっこをして遊ぶ → 環境がふさわしくないとして引越し
-
-- 二番目の住まい：市場の近く → 孟子が商人の真似をする → またもや移転
-
-- 最終的な住まい：学問所の近く → 孟子が礼儀作法を真似るように → ここで定住
-
-孟母は、周囲の社会的環境（死者の儀式、商業的価値観、学問と礼節）を比較し、自ら望ましいとする社会的・文化的環境（学問）を選び他の価値観を持つ集団との空間的分離を行った。
-
-これは、今日の都市部における学区選択や教育熱心な家庭の集住と同じメカニズムです。
+ABMのAgentでは複数種類のエージェントを設定することが可能です
 -->
 
-
 ---
 transition: slide-up
 level: 2
 ---
 
-# モデルの構築
+# ABMの要素と構成
 
-シェリングモデルの概要
-
-<div grid="~ cols-2 gap-4">
-<div>
+環境
 
 <v-clicks depth="2">
 
+- ABMの環境は、エージェントが存在し、行動し、相互作用する空間である
+    - 環境がもつ状態やルールが、エージェントの行動や相互作用に影響を与える
+    - エージェントの行動が環境を変えることもある
 
-- **目的**：白人と黒人という2種類の人種が2次元格子状にランダムに配置され、自由に移動できるようにした場合に、住み分けが生じるかどうかを明らかにすることを目的とする
-- **要素**: エージェントは住人と呼ばれる。$N$人からなる集団は$r \times r$の2次元格子状に配置される (ただし、$r \times r> N$)
-    - 同じ場所に配置できる住人は1人である
-    - 各住人は固有番号であるIDと人種(白人と黒人)、配置された場所番号を持つ
-  
+- 環境は静的にも動的にも設計でき、空間・ネットワーク・属性ベースなど多様な形態を持つ
+    - 空間型環境: 2次元や3次元のグリッドまたは現実の地図データに基づく空間にエージェントが存在する
+        - [シェリングの分居モデル](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Social%20Science/Segregation.nlogo)
+        - [Traffic Grid](https://ccl.northwestern.edu/netlogo/models/TrafficGrid)
+    - ネットワーク型環境: 環境はノード（点）とエッジ（線）で構成されるネットワーク構造である
+        - [Virus on a Network](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Networks/Virus%20on%20a%20Network.nlogo)
 </v-clicks>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/schelling.gif" width="600" />
-</div>
-
-</div>
-
-</div>
-
-<!--
-黒人（こくじん）
--->
-
-
----
-transition: slide-up
-level: 2
----
-
-# モデルの構築
-
-シェリングモデルの概要
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks depth="2">
-
-
-- **過程**
-    - シミュレーションの最初に全ての住人は初期化される
-        - ID、人種、場所が割り当てられる
-    - シミュレーションでは、複数ラウンドが実行される
-        - 各ラウンドにおいて、すべての住人は、満足度関数を計算し、その結果による次の行動を決める
-  
-    
-  
-</v-clicks>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/schelling.gif" width="600" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# モデルの構築
-
-シェリングモデルの概要
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks depth="2">
-
-
-- **設計**
-    - 満足度関数は、近隣に配置されている住人によって決める
-        - 近隣はムーア近傍(8近傍)とする
-        - 同じ人種である近隣住人数が、閾値$F$より大きい場合は$1$を出力し、それ以外は$0$を出力する
-            - $0$であった場合は、その時点で住人が配置されていない場所のリストからランダムに選ばれる場所に移動する
-    - 観察指標は、 シミュレーション終了時における2次元格子空間に配置された人種の分布で計算する
-  
-</v-clicks>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/schelling.gif" width="600" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# モデルの構築
-
-エージェントの設定
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Schelling2.svg" width="300" />
-</div>
-
-- $F=0.35$
-- 同じ人種である近隣住人の比率$\frac{3}{3}=1$ので、現状を維持
-    - 住人がある地域しかカウントされない
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Schelling3.svg" width="300" />
-</div>
-
-- $F=0.35$
-- 同じ人種である近隣住人の比率$\frac{1}{3}$
-    - $\frac{1}{3}<0.35$ので、引越しをする
-
-</div>
-
-</div>
-
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# モデルの構築
-
-エージェントの設定
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Schelling3.svg" width="300" />
-</div>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Schelling4.svg" width="300" />
-</div>
-
-
-</div>
-
-</div>
-
-
-<p v-click style="color: #3E1586; font-size: 1.5em; text-align: center;">
-  計算を続ける
-</p>
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# モデルの構築
-
-エージェントの設定
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks depth="2">
-
-
-- $f<F$ という条件満たす住民は「不満である😕」
-- 「不満である😕」住人が配置されていない場所のリストからランダムに選ばれる場所に移動する
-
-- 移動の順番
-   - ランダム順序：不満足なエージェントをランダムな順番で選び、順に移動させる
-   - 固定順序：エージェントを固定された順番（たとえば行番号やID順）で選び、移動させる
-
-</v-clicks>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Schelling7.svg" width="600" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# モデルの構築
-
-シミュレーションの結果
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks depth="2">
-
-
-- 全ての住民は「満足している😀」状態になっている
-    - これ以上移動が生じないので、シミュレーションを終了する　
-- 白人居住地域と黒人居住地域の住み分けが生じてしまうことを明らかにした
-</v-clicks>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/SchellingEnd.png" width="600" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# シミュレーションの初期設定
-
-シェリングの分居モデルの初期設定パラメータ
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/setup.png" width="600" />
-</div>
-
-<v-clicks depth="2">
- 
-- [Demo](http://nifty.stanford.edu/2014/mccown-schelling-model-segregation/)
-- グリッドサイズ
-    -  各マスには「赤エージェント」「青エージェント」「空きマス」のいずれかが配置される
-- エージェントの割合 
-</v-clicks>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/schelling.gif" width="600" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# シミュレーションの実行
-
-シェリングの分居モデルの初期設定パラメータ
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/setup.png" width="600" />
-</div>
-
-<v-clicks depth="2">
- 
-- [Demo](http://nifty.stanford.edu/2014/mccown-schelling-model-segregation/)
-- 空きマスの割合
-- 類似性しきい値（Similar threshold）
-    - 各エージェントは、自分の近隣に少なくとも何%が自分と同じ属性であれば満足と感じる
-    - しきい値が低いのは、「高い寛容性」を意味している
-</v-clicks>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/schelling.gif" width="600" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# シミュレーションの実行
-
-シミュレーションの結果比較：寛容性が高いの場合
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-
-<v-clicks depth="2">
- 
-- $F=0.2$
-- 全てのエージェント短時間で「満足」な状態になる
-- 目立ったセグリゲーションは見られない　
-
-</v-clicks>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/20.png" width="400" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# シミュレーションの実行
-
-シミュレーションの結果比較：寛容性が低いの場合
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-
-<v-clicks depth="2">
- 
-- $F=0.6$
-- 明確なセグリゲーションが見られた
-- 安定の状態までにある程度のiterationsが必要とする
-- 空きマスがクラスター間の境界を形成している
-
-</v-clicks>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/60.png" width="400" />
-</div>
-
-</div>
-
-</div>
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# モデルの構築
-
-エージェントの設定
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/40.png" width="300" />
-</div>
-
-<div style="text-align: center;">
-  F=0.4
-</div>
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/50.png" width="300" />
-</div>
-
-<div style="text-align: center;">
-  F=0.5
-</div>
-
-</div>
-
-</div>
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# シェリングの分居モデルの解析
-
-Moran's I
-
-$$\Large I = \frac{M \sum_i \sum_j w_{i,j} (x_i - \bar x) (x_j - \bar x)}{(\sum_i \sum_j w_{i,j}) \sum_i (x_i-\bar x)^2}$$
-
-- $M$: 空きマスは含まず、エージェントが存在するセルの総数
-- $w_{i,j}$: $i$ と $j$ の間の隣接関係を表す隣接行列
-  - $w_{i,j} = 1$ のとき、セル $i$ はセル $j$ の近傍である
-- $x_i$: セル $i$ におけるエージェントの「色（属性）」を表す値
-  - $x_i = 0$ のとき、そのセルには青のエージェントであり、$x_i = 1$ のとき、そのセルには赤のエージェントである
-- $\bar x$: $x_i$ の平均値、すなわち全エージェントのうち赤のエージェントの割合（比率）
-- Moran’s Iという空間自己相関指標
-    - 空間上に分布する値（この場合はエージェントの属性）が、隣接関係においてどの程度類似しているか（空間自己相関）を測定する
-
 
 
 <!--
-この統計量は、同じ属性を持つエージェントがどの程度空間的に集まって配置されているか、つまり空間的なクラスターの強さを示します。
-
-地点iと j の空間的な重み（例：隣接していれば1、そうでなければ0）
+ネットワーク型環境は、エージェント・ベースド・モデル（ABM）において、エージェント間の相互作用を「関係構造」としてモデル化するための枠組みです。物理的な空間上の位置ではなく、**誰と誰がつながっているか（構造的な接続）**が、行動や情報の流れ、影響の伝播に重要な意味を持ちます。
 -->
+
+---
+transition: slide-up
+level: 2
+---
+
+# ABMの要素と構成
+
+相互作用
+
+| 相互作用の種類 | 説明 |
+|:---|:---|
+| エージェント－自己相互作用  | エージェントが自分自身の内部状態に基づいて行動や状態変化を行う|
+| 環境－自己相互作用  | 環境が自律的に状態変化を起こす |
+| エージェント－エージェント相互作用 | 異なるエージェント同士が影響を与え合い、行動や状態を変化させる|
+| 環境－環境相互作用| 環境内の異なる要素同士が影響を及ぼし合い、環境構造や状態が変化する |
+| エージェント－環境相互作用| エージェントが環境を変化させ、その変化した環境がまたエージェントにフィードバックを与える |
+
 
 
 ---
@@ -762,36 +247,21 @@ transition: slide-up
 level: 2
 ---
 
-# シェリングの分居モデルの解析
+# ABMの要素と構成
 
-Moran's I
+スケジュール（Schedule）
+<v-clicks depth="2">
 
-モランの I を$\Large I = \frac{M C}{W \sigma}$のような形で再定義すると
+- ABMにおけるスケジュール（Schedule）は、エージェントや環境がいつ、どの順番で、どのように行動・更新するかを制御するルールやプロセスを指す
+    - エージェントの状態更新や相互作用が「時間と順序」に依存するため、スケジューリングの設計はモデルの振る舞いに大きな影響を与える
 
-$$C = \sum_i \sum_j w_{i,j} (x_i - \bar x) (x_j - \bar x)$$
-$$W = \sum_i \sum_j w_{i,j}$$
-$$\sigma =  \sum_i (x_i-\bar x)^2$$
+- 同期型更新(Asynchronous Updates) vs. 非同期型更新(Synchronous Updates)
+    - 全エージェントが現在の状態に基づき同時に行動を決定し、一斉に次の状態に更新する
+        - 渋滞モデルの場合：すべての車（エージェント）が同時に、現在の状況（前の車との距離、速度）を見て、同時に移動する
+    - エージェントが順番に行動し、行動後すぐに状態を更新する。他のエージェントの変化を見てから次のエージェントが行動する
+        - 渋滞モデルの場合：1台ずつ順番に車が動く。次に動く車は、前の車の最新の位置を見ながら動く
+</v-clicks>
 
-- セル（エージェントが存在する場所）をループ処理することで、逐次的に $C$、$W$、$\sigma$ を計算できます
-
-
-
-
-<!--
-- $C$：共分散項（空間的な類似度の総和）
-    - 各セル $i$ とその隣接セル $j$ の間で、色（属性）値の偏差の積を計算します。
-    - $x_i - \bar{x}$ は、セル $i$ の属性が平均からどれだけ離れているかを示します。
-    - $w_{i,j}$ によって、隣接しているセルのペアのみをカウントします。
-
-- $W$：重みの総和（隣接関係の全数）
-    - 全てのセルのペアに対して、隣接している（$w_{i,j}=1$）ものの数を合計します。
-    - モデル全体の隣接関係の数を表します。
-
-- $\sigma$：全体の分散（偏差の平方和）
-    - 各エージェントの属性値（0または1）と全体平均 $\bar{x}$ の二乗誤差を合計したもの。
-    - データ全体のばらつきを表します。
-
--->
 
 
 ---
@@ -799,216 +269,136 @@ transition: slide-up
 level: 2
 ---
 
-# シェリングの分居モデルの解析
+# ABMの表現と記述
 
-Moran's I の例（1）
+ODDプロトコル
 
-<div grid="~ cols-2 gap-4">
-<div>
+- ODDプロトコルは、ABMを体系的に記述・報告するための標準プロトコルとして提案された
 
+
+| セクション | 項目 | 内容 |
+|:---|:---|:---|
+| Overview（概要） | Purpose（目的） | モデルの目的と、解決を目指す問いを説明する。 |
+|  | Entities, State Variables, and Scales（主体・状態変数・尺度） | エージェント、環境、変数、時間・空間スケールを定義する。 |
+|  | Process Overview and Scheduling（プロセス概要とスケジューリング） | 行動や状態更新がどの順序・タイミングで行われるかを概観する。 |
+
+---
+transition: slide-up
+level: 2
+---
+
+# ABMの表現と記述
+
+ODDプロトコル
+<div class="table-wrapper">
+
+| セクション | 項目 | 内容 |
+|:---|:---|:---|
+| 設計概念 | 基本原理 | モデルが依拠する理論やコンセプト |
+|  | 適応 | エージェントが環境や経験に応じて行動を変更する仕組み|
+|  | 目標 | エージェントの持つ目標や意図を説明 |
+|  | 学習 | エージェントが学習によって行動戦略を変えるかどうかを説明 |
+|  | 予測| エージェントが未来の状況を予測して行動を決定するかどうか |
+|  | 感覚と知覚| エージェントが環境や他者からどの範囲で情報を得るか |
+|  | 相互作用 | エージェント同士またはエージェントと環境の相互作用の形態|
+|  | 確率性 | モデルに含まれる確率的要素やランダム性について説明する。 |
+|  | 集団と停止条件 | エージェント集団やグループ化、モデルの終了条件 |
+|  | 観測 | モデルから収集・分析されるデータや指標 |
+</div>
+
+<style>
+
+.table-wrapper {
+  max-height: 300px; /* 👈 表の高さ上限を設定 */
+  overflow-y: auto;  /* 👈 はみ出したら縦スクロール */
+  border: 1px solid #ccc; /* (オプション) テーブル枠を付けても見やすい */
+  padding: 0.5em;
+}
+</style>
+
+---
+transition: slide-up
+level: 2
+---
+
+# ABMの表現と記述
+
+ODDプロトコル
+
+| セクション | 項目 | 内容 |
+|:---|:---|:---|
+| 詳細 | 初期化 | モデルの初期条件設定の方法 |
+|  | 入力データ | モデルで使用する外部データがあれば、その内容と利用方法 |
+|  | サブモデル | (もしあれば)各プロセスや行動ルールの具体的なアルゴリズムや数式 |
+
+<style>
+
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# ABMの表現と記述
+
+ODDプロトコル
+
+<div class="table-wrapper">
+
+| セクション | 項目 | 内容（自然渋滞モデルの場合） |
+|:---|:---|:---|
+| 概要 | 目的 | 外部障害なしで渋滞が自然発生するメカニズムを理解・再現する。 |
+|  | 主体・状態変数・尺度 | エージェント：車両（位置、速度、加速度）。時間は離散ステップ、空間は一次元道路。 |
+|  | プロセス概要とスケジューリング | 各ステップの開始時に行動順序を決め、決まった順番に従って、各車両が前方車両の現在の位置と速度を観察し、加速や減速を判断して即時に移動・状態更新を行う |
+| 設計概念 | 基本原理 | 車間距離と安全運転原理に基づく個別行動の累積により、渋滞現象を創発させる。 |
+|  | 適応 | 前方車両との距離に応じて、加速・減速を動的に切り替える。 |
+|  | 目標 | 安全に走行しつつ、できるだけ高速で走行しようとする。 |
+|  | 学習 | このモデルでは学習はない（単純な反応型）。 |
+|  | 予測 | 前方車両の動きに即応するが、将来予測はしない。 |
+|  | 感覚と知覚 | 前方車両との車間距離と相対速度を感知できる。 |
+|  | 相互作用 | 前方車両との相対位置・速度に応じた行動変化（追従行動）。 |
+|  | 確率性 | 加速度や減速度に小さなランダム変動（運転手のばらつき）を入れる場合がある。 |
+|  | 集団と停止条件 | 車列全体が安定状態に到達するか、最大ステップに達したら停止。 |
+|  | 観測 | 交通流量、平均速度、渋滞の発生頻度や波動のパターンを記録。 |
+| 詳細 | 初期化 | 車両の総数、初期位置、初期速度、道路長、最大速度などのシミュレーション初期パラメータを設定する |
+|  | 入力データ | 初期パラメータ |
+|  | サブモデル | 加速規則、減速規則、安全車間距離ルール、速度上限ルールなどの具体的アルゴリズムを定義。 |
+
+</div>
+
+<style>
+
+.table-wrapper {
+  max-height: 300px; /* 👈 表の高さ上限を設定 */
+  overflow-y: auto;  /* 👈 はみ出したら縦スクロール */
+  border: 1px solid #ccc; /* (オプション) テーブル枠を付けても見やすい */
+  padding: 0.5em;
+}
+</style>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# ABMの解析
+
+階層的モデルの解析
 
 <v-clicks depth="2">
 
-
-- $3\times3$ の格子状のセル
-    - 9 セル
-
-- エージェントの配置
-
-  - $x_i = 1$：4つの赤のエージェントが入っている
-
-  - $x_i = 0$：4つの青のエージェントが入っている
-
-  - $\bar x = 0.5$
-
-  - $M=8$: 8つのセルにエージェントが配置されており、残り1つは空きセル
+- ABMをシミュレーションで実装するでは、いくつかの条件の下で実行したモデルの挙動を観察することである
+    - 「どのような条件でどのような現象が発生するのか」：様々なパラメータを条件として制御し、モデルの出力を観察する
+- 一つのシミュレーションは複数のパラメータセットによる試行で構成され、一つの試行を**シナリオ**と呼ぶ
+    - 確率的な要素を用いる場合、同一のシナリオをシートが異なる乱数を用いて実行し、結果の統計的性質を確認することで各シナリオの結果を解釈する必要がある
+- 同じシナリオ内で乱数のシードを変えて行う試行を**エピソート**と呼ぶ
+- 一つのエピソードは複数の時間単位で構成され、その時間単位内で相互作用を行い行動や戦略をアップデータする
+    - 時間単位を**ステップ**と呼ぶ
 
 </v-clicks>
-
-
-</div>
-
-<div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Moran1.svg" width="400" />
-</div>
-
-</div>
-
-</div>
-
-
-
----
-transition: slide-up
----
-
-# Moran's I の例（2）
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks>
-
-- セル1（青, $x_1=0$）を評価
-- $\sigma$への寄与：
-  $$\sigma \leftarrow \sigma + (x_1 - \bar x)^2 = (0 - 0.5)^2 = 0.25$$
-- 隣接セルは2つ（空きセル除く）
-
-</v-clicks>
-
-</div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Moran2.svg" width="400" />
-</div>
-
-</div>
-
-
----
-transition: slide-up
----
-
-# Moran's I の例（3）
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks>
-
-- 隣接セル2（赤）との共分散 $C$ の寄与：
-  $$C \leftarrow C + w_{1,2}(x_1 - \bar x)(x_2 - \bar x)$$
-  $$C \leftarrow C + 1(0 - 0.5)(1 - 0.5) = -0.25$$
-- 異なる属性の隣接ペアは $C$ を減らす（$I$ 減少）
-
-</v-clicks>
-
-</div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Moran3.svg" width="400" />
-</div>
-
-</div>
-
-
-
----
-transition: slide-up
----
-
-# Moran's I の例（4）
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks>
-
-- セル5は空きセル → $C$ には寄与しない  
-（空きセルとの関係は無視）
-
-</v-clicks>
-
-</div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Moran4.svg" width="400" />
-</div>
-
-</div>
-
-
-
----
-transition: slide-up
----
-
-# Moran's I の例（5）
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks>
-
-- セル4（青, $x_4=0$）との共分散：
-  $$C \leftarrow C + w_{1,4}(x_1 - \bar x)(x_4 - \bar x)$$
-  $$C \leftarrow C + 1(0 - 0.5)(0 - 0.5) = +0.25$$
-- 同じ属性同士は $I$ を高める
-
-</v-clicks>
-
-</div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Moran5.svg" width="400" />
-</div>
-
-</div>
-
-
----
-transition: slide-up
----
-
-# Moran's I の例（6）
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks>
-
-- セル2（赤, $x_2 = 1$）の処理：
-- $\sigma$ への寄与：
-  $$(1 - 0.5)^2 = 0.25$$
-- 隣接セル数：4 
-- $C$ の寄与：
-  $$C \leftarrow C + 0.25 + 0.25 - 0.25 - 0.25 = 0$$
-
-</v-clicks>
-
-</div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Moran6.svg" width="400" />
-</div>
-
-</div>
-
-
-
----
-transition: slide-up
----
-
-# Moran's I の例（7）: 最終計算
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks>
-
-- 全体の集計：
-
-  $$M = 8$$  
-  $$C = 16 \times 0.25 - 8 \times 0.25 = 2$$  
-  $$W = 24$$  
-  $$\sigma = 0.25 \times 8 = 2$$
-
-- よって Moran's I は：
-
-  $$\Large I = \frac{M C}{W \sigma} = \frac{8 \times 2}{24 \times 2} = 0.33$$
-
-</v-clicks>
-
-</div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/Moran1.svg" width="400" />
-</div>
-
-</div>
 
 
 
@@ -1017,235 +407,58 @@ transition: slide-up
 level: 2
 ---
 
-# Moran's I の最大値の例
+# ABMの解析
 
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks>
-
-- 完全に分離された配置において、モランの I は最大値（1）になる  
-- 各項の値：
-
-  $$M = 8$$  
-  $$C = 24 \times 0.25 = 6$$  
-  $$W = 24$$  
-  $$\sigma = 0.25 \times 8 = 2$$  
-
-- よって：
-
-  $$\Large I = \frac{M C}{W \sigma} = \frac{8 \times 6}{24 \times 2} = 1$$
-
-</v-clicks>
-
-</div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/MoranMax.svg" width="400" />
-</div>
-
-</div>
-
-
----
-transition: slide-up
-level: 2
----
-
-# 寛容度とセグリゲーションの関係
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-<v-clicks>
-
-- 複数回のシミュレーション後に収束した I のボックスプロット  
-    - 寛容度の閾値$F$が低いとき、Moran's I は低くなる 
-    - $F > 0.2$ から、グリゲーションの程度は急激的に高くなる
-    - $F > 0.33$ のとき、明確なセグリゲーションが観察される
-
-</v-clicks>
-
-</div>
-
-<div style="display: flex; justify-content: center;">
-  <img src="./image/IvsF.png" width="750" />
-</div>
-
-</div>
-
-- シミュレーションのパラメータを変更し、異なるシナリオにおけるセグリゲーションの動態を分析する
-    - セグリゲーションの発生条件を特定できる
-        - ここでは寛容度の閾値$F$に注目したが、空きマスの割合、エージェントの構成比率などのパラメータに対する検証も考えられる
-    - 政策介入の効果を評価する
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# シェリングモデルの一般化：セルオートマトン（Cellular Automaton, CA）
-
-セルオートマトンの基本構造
+階層的モデルの解析：エル・ファロル問題を例として
 
 <v-clicks depth="2">
 
-- Cellular Automataとは、簡単な局所ルールに基づいて、格子状のセルの状態が時間とともに変化していく離散的な計算モデルである  
-    - **セルの集合**：1次元（線状）、2次元（格子状）、または3次元の空間にセルが並んでいる ($i=1,...,L$)
-    - **セルの状態**: 離散的な値を取る $\theta_{i} (t) \in \{\theta_1,\dots, \theta_n \}$
-    - **近傍（neighborhood）**：$\beta_{i}(t)\in\{\beta_1,\ldots,\beta_m\}$ 
-    - **相互作用**：各セルは周囲一定範囲内（近傍）のセルと局所的な相互作用を行う
-    - **更新ルール**:次期のセルの状態は自身と近傍のセルの今期の状態によって決められる 
-        - $$\theta_{i}(t+1)=\mathbf{F}\left[\underline{\theta}(t),\underline{\beta}(t)\right]$$ 
+- [エル・ファロル問題demo](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/IABM%20Textbook/chapter%203/El%20Farol%20Extensions/El%20Farol%20Extension%203.nlogo)
+- シナリオの作成：許容混雑率、予測戦略の種類と数、履歴の長さ、初期条件(初期のバー利用率やエージェントの戦略割り当て)
+- エピソートの解析： 確率的要素（例えばエージェントがランダムに新しい予測戦略を選ぶ、または過去の情報の変動）を含むため、同一シナリオでも異なる乱数シードを用いて複数回シミュレーションを行い、結果のばらつき（平均来店者数、混雑度の分布など）を統計的に解析する必要がある
+- 一つのエピソードは、例えば週ごとに一回の意思決定とバーへの来店行動を繰り返す構成となる
+    - 週ごとの意思決定サイクルはステップとなる
+</v-clicks>
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# ABMの解析
+
+モデルの検証
+<v-clicks depth="2">
+
+- モデル内部の理論的整合性
+    - 構築するモデルが依拠する学問分野の先行知見を援用しつつ研究対象のモデル化として不自然な仮定を置いていないかなどを検討
+- モデルとモデル外部との接合の妥当性
+    - 得られた結果が理解しようとしている社会現象としてあり得るものなのか、意味のある知見を提供しているのかを検証
+        - 「反直感的」結果とその説得性のバランスを注意深く検討することが求められる
+    - ただし、モデルの志向性によって求められる検証の粒度が異なっている
+- 感度分析:シミュレーションの結果は様々なパラメータに依存する
+    - 得られた結果が特定のパラメータセットのみ観察されるのか、それぞれのパラメータの変化による結果の頑丈性を検証
 
 </v-clicks>
 
 
 
-
 ---
 transition: slide-up
 level: 2
 ---
 
-# シェリングモデルの一般化：セルオートマトン（Cellular Automaton, CA）
+# まとめ
 
-セル空間と近傍
+- ABMの実装は、エージェントの属性や行動、環境、相互作用、スケジュールの定義といった中心的な構成要素から成り立っている
 
-- セル空間と近傍の構造は多様である
+- ABMを体系的に記述・報告するには、ODDプロトコルに基づくことが求められる
+    - あるモデルを理解する際にも、ODDプロトコルにおいて提示される各項目を確認することが推奨される
 
-<div style="display: flex; justify-content: center;">
-  <img src="./image/neigh.png" width="800" />
-</div>
-
+-  ABMの解析は、多様なシナリオと繰り返し実行による統計的手法を用いて、モデルの妥当性と頑丈性を検証することが一般である
 
 
-
-
----
-transition: slide-up
-level: 2
----
-
-# シェリングモデルの一般化：セルオートマトン（Cellular Automaton, CA）
-
-応用例
-
-- 自然現象や社会現象のモデリングに広く用いられます
-
-    - [Heat Diffusion](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Chemistry%20&%20Physics/Materials%20Science/Heat%20Diffusion.nlogo)
-
-    - [森林火災モデル（Forest Fire Model）](https://ccl.northwestern.edu/netlogo/models/Fire)
-        - セルの状態：木（T）、燃えている（F）、空（E）
-        - 木は隣接する火から燃え移る・燃えたセルは空になる
-
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# シェリングモデルの拡張
-
-空間構造の拡張
-
-- 従来の格子状の空間から、より現実的な空間表現に拡張する
-
-<div grid="~ cols-2 gap-4">
-
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="./image/space1.gif" width="400" />
-  <div style="margin-top: 0.5em;">
-    <a href="https://www.tandfonline.com/doi/full/10.1080/13658810903569572#d1e230" target="_blank">
-      Crooks（2010）
-    </a>
-  </div>
-</div>
-
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="./image/space3.jpg" width="300" />
-  <div style="margin-top: 0.5em;">
-    <a href="https://www.tandfonline.com/doi/full/10.1080/13658810903569572#d1e230" target="_blank">
-      Yin（2009）
-    </a>
-  </div>
-</div>
-
-</div>
-
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# シェリングモデルの拡張
-
-Agent属性と選好の多様化
-
-- 従来の2グループ（例：白人と黒人）から、より多様なグループ構成に拡張する
-
-<div grid="~ cols-2 gap-4">
-
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="./image/group1.jpeg" width="400" />
-
-</div>
-
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="./image/group2.jpeg" width="350" />
-    <div style="margin-top: 2em;">
-    <a href="https://www.pnas.org/doi/full/10.1073/pnas.0708155105" target="_blank">
-      Clark & Fossett (2008)
-    </a>
-  </div>
-
-</div>
-
-</div>
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# シェリングモデルの拡張
-
-近隣関係
-
-
-<div grid="~ cols-2 gap-4" style="align-items: center;">
-
-<div>
-
-- エージェントが近隣と見なす範囲を「視野」という概念として定義し、セグリゲーションに対する影響を検討する
-
-<a href="https://journals.sagepub.com/doi/abs/10.1080/0042098032000146849" target="_blank">Laurie and Jaggi（2003)</a>
-
-</div>
-
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="./image/vision.png" width="300" />
-</div>
-
-</div>
-
-
-- 川や道路などの自然的・人工的な障壁がエージェントの移動や近隣の認識に与える影響をモデル化  
-  <a href="https://www.tandfonline.com/doi/full/10.1080/13658810903569572#d1e230" target="_blank">Crooks (2010)</a>
-
-- 実際の行政区画に基づく近隣を定義  
-  <a href="https://www.tandfonline.com/doi/full/10.1080/13658810903569572#d1e230" target="_blank">Yin (2009)</a>
-
- 
 
 
