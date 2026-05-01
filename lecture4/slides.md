@@ -1,32 +1,8 @@
 ---
-# You can also start simply with 'default'
 theme: neversink
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Slidev
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply unocss classes to the current slide
-class: text-center
-# https://sli.dev/features/drawing
-drawings:
-  persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
-transition: slide-left
-# enable MDC Syntax: https://sli.dev/features/mdc
-mdc: true
-contextMenu: false
-hideNavigation: true
-shortcut:
-  toc: false
 layout: cover
-color: light
-
+color: violet
+transition: slide-left
 ---
 
 # NetLogo入門
@@ -867,74 +843,354 @@ end
 | `patch-at (dx) (dy)` | 対象の turtle から見て相対座標 (dx, dy) の位置にある patch を返す |
 
 
+
+---
+layout: two-cols-title
+columns: is-6
 ---
 
-# インターフェース画面での変数の設定（スライダー）
+::title::
+# El Farolモデルのコード解説
 
-<div class="p-4 border-2 border-dashed border-gray-400 rounded bg-gray-50 text-gray-500 text-sm text-center mb-4">
-  【画像プレースホルダー】スライドB.15 — スライダーの作成方法とダイアログボックスのスクリーンショット
-</div>
+変数の宣言
 
-- 上部の「ボタン」→「スライダー」を選択し，好きな場所でクリックして作成
+::left::
+
+<v-click at="1">
+
+**グローバル変数** `globals`
+
+- `attendance`：現在のバーの出席者数
+- `history`：過去の出席者数のリスト
+- `home-patches` / `bar-patches`：自宅・バーのパッチ集合
+- `crowded-patch`：「CROWDED」ラベルを表示するパッチ
+
+</v-click>
+
+<v-click at="2">
+
+**エージェント固有の変数** `turtles-own`
+
+- `strategies`：各エージェントが持つ戦略のリスト
+- `best-strategy`：現在最も予測精度の高い戦略
+- `attend?`：バーに行くかどうかの意思決定
+- `prediction`：今週の出席者数の予測値
+
+</v-click>
+
+::right::
+
+<<< @/elfarol.bash{|1-7|9-14}{maxHeight:'420px'}
+
+---
+layout: two-cols-title
+columns: is-6
+---
+
+::title::
+# El Farolモデルのコード解説
+
+`setup` 手続き
+
+::left::
+
+<v-click at="1">
+
+**環境の初期化**
+
+- 左下と右上でパッチを色分けし，自宅エリア（緑）とバーエリア（青）を区別する
+
+</v-click>
+
+<v-click at="2">
+
+**出席履歴の初期化**
+
+- エージェントが戦略を評価するには過去データが必要なので，ランダムな履歴を `memory-size * 2` 分用意する
+
+</v-click>
+
+<v-click at="3">
+
+**エージェントの作成**
+
+- `population` スライダーの値だけ turtle を作成する
+- 各エージェントにランダムな戦略を `number-strategies` 個割り当てる
+
+</v-click>
+
+::right::
+
+<<< @/elfarol.bash{|20-26|28-34|43-52}{maxHeight:'420px'}
+
+---
+layout: two-cols-title
+columns: is-6
+---
+
+::title::
+# El Farolモデルのコード解説
+
+`go` 手続き
+
+::left::
+
+<v-click at="1">
+
+**意思決定**
+
+- 各エージェントがベスト戦略を使って出席者数を予測する
+- 予測値が `overcrowding-threshold` 以下なら `attend? = true`
+
+</v-click>
+
+<v-click at="2">
+
+**移動**
+
+- `attend?` が `true` ならバーへ，`false` なら自宅へ移動する
+
+</v-click>
+
+<v-click at="3">
+
+**出席集計と履歴の更新**
+
+- バーにいる turtle を数えて `attendance` を更新する
+- 最新の出席数をリストの先頭に追加し，最も古いものを削除する（`fput` / `but-last`）
+- 各エージェントが戦略の評価を更新する
+
+</v-click>
+
+::right::
+
+<<< @/elfarol.bash{|63-66|68-73|75-86}{maxHeight:'420px'}
+
+---
+layout: two-cols-title
+columns: is-6
+---
+
+::title::
+# El Farolモデルのコード解説
+
+戦略の評価と予測
+
+::left::
+
+<v-click at="1">
+
+**`update-strategies`**
+
+- 全戦略について，過去 `memory-size` 週の予測誤差の合計を計算する
+- 誤差が最小の戦略を `best-strategy` として採用する
+
+</v-click>
+
+<v-click at="2">
+
+**`predict-attendance`**
+
+- 戦略は `memory-size + 1` 個の重みのリスト
+- 予測式：$\hat{p}(t) = 100 \cdot c + \sum_{i=1}^{N} a_i \cdot x(t-i)$
+  - $c$：定数項（リストの先頭）
+  - $a_i$：過去 $i$ 週前の出席への重み
+
+</v-click>
+
+::right::
+
+<<< @/elfarol.bash{|95-111|127-133}{maxHeight:'420px'}
+
+
+---
+
+# インターフェース画面での変数の設定
+
+- 上部の「Add Widgt」→「スライダー」を選択し，好きな場所でクリックして作成
+    - チューザー（chooser）やインプットボックスも同様に作成可能
 - グローバル変数名・最小値・最大値などを入力して設定
 - ソースコードを編集せずに，シミュレーション実行時に変数を変更できる
-- チューザー（chooser）やインプットボックスも同様に作成可能
+
+<Admonition title="練習課題" color="teal-light" width="800px">
+
+<span style="font-size: 1.3em;">Model LibraryからEl Farolモデルを開く</span>
+
+<span style="font-size: 1.3em;">`population`というパラメータで人数を制御するようにコードを修正する</span>
+
+```text
+create-turtles 100 → create-turtles population
+```
+
+<span style="font-size: 1.3em;">全体の人数を制御する`population`というパラメータを制御するスライダーを追加する</span>
+
+</Admonition>
 
 ---
 
-# グラフの描画
+# 可視化の追加
 
-<div class="p-4 border-2 border-dashed border-gray-400 rounded bg-gray-50 text-gray-500 text-sm text-center mb-4">
-  【画像プレースホルダー】スライドB.16 — グラフの作成ダイアログとリアルタイムグラフの例のスクリーンショット
-</div>
+- 「Add Widgt」→「プロット」を選択し，インターフェース画面に配置
+- ダイアログでグラフの名前・軸のラベルを入力
+-  **プロットペン**：何の値をプロットするかのコマンドを記述
 
-**作成の仕方**
-1. 「プロット」を選択し，インターフェース画面に配置
-2. ダイアログでグラフの名前・軸のラベルを入力
-3. **プロットペン**：何の値をプロットするかのコマンドを記述（例：`plot count turtles`）
-4. OK を押す
+<Admonition title="練習課題" color="teal-light" width="800px">
 
-実行すればリアルタイムにグラフが表示される
+<span style="font-size: 1.3em;">出席率（attendance / population × 100）の時間変化を可視化するグラフを追加する</span>
+
+- **Name**：`Attendance Rate`
+- **Y axis label**：`%`・**Y min/max**：`0` / `100`
+- プロットペンの **Update command**：
+
+```text
+plot (attendance / population * 100)
+```
+
+</Admonition>
+
 
 ---
 
 # コマンドセンター
 
-<div class="p-4 border-2 border-dashed border-gray-400 rounded bg-gray-50 text-gray-500 text-sm text-center mb-4">
-  【画像プレースホルダー】スライドB.17 — コマンドセンターのスクリーンショット
-</div>
+
 
 - インターフェース画面の**下部**にある入力欄
 - コマンドを直接入力して，エージェントに命令を送ることができる
 
-```text
-ask patches [set pcolor green]
-```
+| コマンド | 説明 |
+|---|---|
+| `repeat 20 [ go ]` | `go` を20回繰り返して実行する |
+| `show attendance` | 現在の出席者数をコンソールに表示する |
+| `show count turtles-on bar-patches` | バーにいる turtle の数を表示する |
+| `show count turtles with [attend?]` | 出席意図を持つ turtle の数を表示する |
 
-全ての patch を緑色に変更できる（シミュレーション実行中でも可能）
-
-- `observer>` の部分をクリックすれば，`patches` / `turtles` / `links` を選択可能
-- turtle を右クリック → `inspect turtle (番号)` でも個別のコマンドセンターが利用可能
 
 ---
-layout: center
-class: text-center
+
+# モデルの拡張
+
+
+<v-click at="1">
+
+**① `tolerance`：個体差の導入**
+
+- 基本モデルでは全エージェントが同じ `overcrowding-threshold` を使って意思決定する
+- 現実には「少し混んでいても行く」「混む前に避ける」など個人差がある
+- `tolerance-sd` スライダーで個体差の大きさを制御する
+
+</v-click>
+
+<v-click at="2">
+
+**② `crowded-count`：混雑頻度指標の追加**
+
+- バーが混雑状態（`attendance > overcrowding-threshold`）になった tick の累計回数
+- シミュレーション全体を通じてどれだけ混雑が発生したかを把握できる
+
+</v-click>
+
+
+
+
+---
+layout: two-cols-title
+columns: is-6
+---
+
+::title::
+# モデルの拡張
+
+コードの修正①：変数の追加と `setup`
+
+::left::
+
+<v-click at="1">
+
+**変数の追加**
+
+- `globals` に `crowded-count` を追加
+- `turtles-own` に `tolerance` を追加
+
+</v-click>
+
+<v-click at="2">
+
+**`setup` の修正**
+
+- `crowded-count` を 0 に初期化
+- 各エージェントに `tolerance` を設定
+  - `overcrowding-threshold` を中心に標準偏差 `tolerance-sd` の正規分布からサンプリング
+
+</v-click>
+
+::right::
+
+<<< @/elfarol_extend.bash{|1-16|37,55-56}{maxHeight:'450px'}
+
+---
+layout: two-cols-title
+columns: is-6
+---
+
+::title::
+# モデルの拡張
+
+コードの修正②：`go` の修正
+
+::left::
+
+<v-click at="1">
+
+**意思決定の変更**
+
+- `overcrowding-threshold`（全員共通）→ 個体の `tolerance` に変更
+
+</v-click>
+
+<v-click at="2">
+
+**指標の更新**
+
+- 混雑時に `crowded-count` を +1
+
+</v-click>
+
+::right::
+
+<<< @/elfarol_extend.bash{|71|85}{maxHeight:'450px'}
+
+---
+
+#  インターフェースの修正
+
+<v-click at="1">
+
+**スライダーの追加**：`tolerance-sd`
+- min: `0`　max: `30`　default: `10`
+
+</v-click>
+
+<v-click at="2">
+
+**モニターの追加**: 「Add Widget」→「Monitor」
+
+| Reporter | ラベル |
+|---|---|
+| `crowded-count` | Crowded Count |
+
+</v-click>
+
+
 ---
 
 # まとめ
 
-1. ABMのためのソフトウェアツール
-2. NetLogoとは
-3. NetLogoの基本構成（画面・動作の仕組み）
-4. NetLogo世界の基本要素（turtle・patch・link・observer）
-5. 変数の定義と代入
-6. ask 文とエージェント集合
-7. 基本的な構文（if / ifelse / while / repeat / foreach）
-8. procedure の定義
-9. よく使う命令
-10. インターフェースの活用（スライダー・グラフ・コマンドセンター）
-
-
-<style>
-.toc { display: none !important; }
-</style>
+- NetLogoは自然現象や社会現象をシミュレーションするためのプログラム可能なモデリング環境
+    - GUIベースでシミュレーションを操作できる
+    - 直感的なプログラミングが可能
+- 豊富なモデルライブラリ: 経済学、生物学、物理学、社会科学など、様々な分野のサンプルモデル（Models Library）が最初から内蔵されており、すぐに試すことができる
+- NetLogo の欠点
+    - エージェント数を増やすと実行速度が遅くなる．特にワールドのサイズを広げた場合にその影響が顕著となる
+    - 手続き指向言語に共通の欠点として，コードの行数が増えてくると次第に難しい面が出てくる
+    - NetLogo 言語は独自言語であるため他の汎用言語で書かれたシステムとの連携が難しい
