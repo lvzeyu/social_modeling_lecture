@@ -1246,6 +1246,107 @@ level: 2
 - 実際の行政区画に基づく近隣を定義  
   <a href="https://www.tandfonline.com/doi/full/10.1080/13658810903569572#d1e230" target="_blank">Yin (2009)</a>
 
- 
 
+---
+transition: slide-up
+level: 2
+---
+ 
+# シェリングモデルの実装
+
+<<< @/segregation.bash{|1-11|13-35|37-48|50-56|58-64|66-84|86-95}{maxHeight:'420px'}
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# モデルを用いる実験による解析
+
+BehaviorSpaceとは
+
+<v-clicks depth="2">
+
+- **BehaviorSpace** は NetLogo に内蔵された実験ツールで、パラメータを系統的に変化させながらモデルを繰り返し実行できる
+    - 手動でスライダーを動かす必要がなく、パラメータ空間を網羅的に探索できる
+    - 結果はCSVで出力されるため、Rやpythonで分析可能
+
+- 本実験では以下の2つのパラメータを変化させる
+    - `density`：格子上のturtleの占有率（例：10〜90%）
+    - `%-similar-wanted`：満足に必要な同色隣人の割合（例：0〜80%）
+
+- 観察指標
+    - `percent-similar`：シミュレーション終了時の平均同色隣人率（分居の程度）
+    - `percent-unhappy`：不満なturtleの割合（収束の度合い）
+
+</v-clicks>
+
+---
+transition: slide-up
+level: 2
+---
+
+# モデルを用いる実験による解析
+
+BehaviorSpaceの設定手順
+
+<v-clicks depth="2">
+
+1. NetLogo メニューから **Tools → BehaviorSpace** を開く
+2. **「New」** をクリックして実験を作成する
+3. **Vary variables** に変化させるパラメータを記述する
+
+```
+["density" [10 10 90]]
+["%-similar-wanted" [0 10 70]]
+```
+
+- `[開始値 ステップ 終了値]` の形式で指定する
+    - 上記の例では `density` を10〜90（ステップ10）、`%-similar-wanted` を0〜70（ステップ10）で変化させる
+
+4. **Measure runs using these reporters** に記録する指標を記述する
+
+```
+percent-similar
+percent-unhappy
+```
+
+5. **Repetitions**（試行回数）を設定する（例：100回）
+6. **「Run」** をクリック
+
+</v-clicks>
+
+---
+transition: slide-up
+level: 2
+---
+
+# モデルを用いる実験による解析
+
+
+<div grid="~ cols-2 gap-6">
+<div>
+
+<img src="./image/result_overview.png" width="480" />
+
+</div>
+<div>
+
+<v-clicks depth="2">
+
+- **similarity-threshold への考察**
+    - 閾値が高いほど平均類似度が上昇し、居住分離が強まる
+    - 閾値0.3の場合、どのシナリオでも最終的な類似度は 70〜80% に達する：個人は緩い選好しか持たないのに、社会全体では強い居住分離が生まれる
+
+- **density への考察**
+    - density が**低い**ほど類似度が高い
+    - 空きパッチが多いほど同色集団がまとまりやすく、分離が強くなる
+
+
+</v-clicks>
+
+</div>
+</div>
 
