@@ -771,6 +771,143 @@ level: 2
 
 
 
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold modelの実装
+
+<<< @/Granovetter's_threshold_model_of_collective_behaviour.bash{|1-6|8-18|20-31|33-53|83-86}{maxHeight:'420px'}
 
 
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold modelを用いる実験
+
+実験1：平均閾値の影響
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks depth="2">
+
+- **問い**：閾値が高いほど、集合的行動は起きにくくなるか？
+
+- **操作変数**：$\mu$（mean-threshold）を 1〜60 で1刻みに変化
+- **固定変数**：$\sigma = 20$（十分な多様性を確保）
+
+- **理論的予測**
+    - $\mu$ が低い → 多くのエージェントが低い閾値を持つ → 級联が起きやすい
+    - $\mu$ が高い → 低閾値エージェントが減少 → 最初の参加者が現れない
+
+</v-clicks>
+
+</div>
+
+<div>
+
+**BehaviorSpace 設定**
+
+```
+Experiment name : mean-effect
+Repetitions     : 30
+Time limit      : 200 steps
+
+["network"               "fully connected"]
+["threshold-distribution" "normal"]
+["number-of-agents"      100]
+["sd-threshold"          20]
+["mean-threshold"        [1 1 60]]
+
+Reporters:
+  final-proportion
+  ticks
+```
+
+</div>
+</div>
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold modelを用いる実験
+
+解析結果
+
+<div style="display: flex; justify-content: center;">
+  <img src="./results/exp1_mean_effect.png" width="600" />
+</div>
+
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold modelを用いる実験
+
+実験2：多様性（SD）の影響
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+<v-clicks depth="2">
+
+- **問い**：閾値の多様性は集合的行動をどう左右するか？
+
+- **操作変数**：$\sigma$（sd-threshold）を 1〜80 で1刻みに変化
+- **固定変数**：$\mu = 25$
+
+- **理論的予測**
+    - $\sigma$ が小さい → 集団が均質 → 極端な低閾値者がいない
+    - $\sigma$ が臨界値付近 → 適度な多様性 → 低閾値者が存在しCascadeが始まる
+    - $\sigma$ が大きすぎる → 「絶対参加しない人」が増加 → 途中で止まる
+
+</v-clicks>
+
+</div>
+
+<div>
+
+**BehaviorSpace 設定**
+
+```
+Experiment name : diversity-effect
+Repetitions     : 30 
+Time limit      : 200 steps
+
+["network"               "fully connected"]
+["threshold-distribution" "normal"]
+["number-of-agents"      100]
+["mean-threshold"        25]
+["sd-threshold"          [1 1 80]]
+
+Reporters:
+  final-proportion
+  ticks
+```
+
+</div>
+</div>
+
+---
+transition: slide-up
+level: 2
+---
+
+# Threshold modelを用いる実験
+
+解析結果
+
+<div style="display: flex; justify-content: center;">
+  <img src="./results/exp2_diversity_effect.png" width="600" />
+</div>
 
