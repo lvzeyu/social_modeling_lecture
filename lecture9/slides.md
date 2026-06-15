@@ -631,69 +631,7 @@ level: 2
 -->
  
 
----
-transition: slide-up
-level: 2
----
 
-# スモールワールドモデル
-
-BehaviorSpace 実験設定ガイド
-
-<div grid="~ cols-2 gap-8 items-start">
-
-<div>
-
-**Step 1 — 実験を開く**
-```
-NetLogo メニュー
-└── Tools
-    └── BehaviorSpace       ← クリック
-        └── vary-rewiring-N100-fine
-            └── Edit / Run  ← 選択
-```
-
-**Step 2 — パラメータ確認**
-
-| 項目 | 設定値 |
-|------|--------|
-| Repetitions | `10` |
-| `num-nodes` | `100` (fixed) |
-| `rewiring-probability` | `0` → `0.1`, step `0.005` |
-| Metrics | `average-path-length`, `clustering-coefficient` |
-
-</div>
-
-<div>
-
-**Step 3 — 出力形式を選ぶ**
-```
-Run options
-├── Table output  ← 個別ランのCSV（Python可視化用）
-└── Stats output  ← 平均±標準偏差のCSV
-```
-
-**Step 4 — 結果を可視化**
-```bash
-# CSVが生成されたら
-python visualize_rewiring.py --fine
-```
-
-> **実行時間の目安**  
-> N=100, 10 rep × 21 p 値 = 210 runs  
-> 約 **5〜10 分**で完了
-
-</div>
-
-</div>
-
-<!--
-実験の目的：
-- N=31 ではp=0〜0.001 の変化がほとんど見えなかった
-- N=100 に増やすことで p=0.005〜0.05 の小さな変化で
-  平均経路長が急落する様子が明確に観察できる
-- 10回繰り返すことで確率的なばらつきをエラーバーで表示できる
--->
 
 ---
 transition: slide-up
@@ -702,57 +640,7 @@ level: 2
 
 # スモールワールドモデル
 
-BehaviorSpaceによるパラメータスイープ実験
-
-<div grid="~ cols-2 gap-4 items-start">
-
-<div>
-
-<v-clicks>
-
-- BehaviorSpaceを使って、異なる再配線確率$p$に対するネットワーク特性を系統的に比較する
-    - Tools → BehaviorSpace → `vary-rewiring-probability` 実験を選択して実行
-- 実験設定
-    - **変化パラメータ**: `rewiring-probability` を $0$ から $1$ まで $0.025$ 刻みで変化
-    - **各設定の繰り返し数**: 5回（確率的変動を平均化）
-    - **測定指標**: `clustering-coefficient` と `average-path-length`
-    - **実行コマンド**: 各設定で `rewire-all` を1回実行
-
-</v-clicks>
-
-</div>
-
-<div class="flex justify-center">
-  <img src="./image/WS-result.png" alt="BehaviorSpace実験結果" width="400" />
-</div>
-
-</div>
-
-
-
-<!--
-BehaviorSpaceとは、NetLogoに内蔵された実験自動化ツールです。
-スライダーやスイッチの値を自動的に変化させながら、モデルを繰り返し実行し、結果を収集します。
-
-実験の手順：
-1. NetLogoのメニューから「Tools」→「BehaviorSpace」を開く
-2. 「vary-rewiring-probability」実験を選択して「Run」をクリック
-3. 実行後、結果はCSVファイルとして保存される
-4. 表計算ソフトやPythonで可視化・分析を行う
-
-各rewiring-probabilityで5回繰り返す理由：
-- rewire-allはランダムに再配線を行うため、同じpでも結果が異なる
-- 複数回実行して平均を取ることで、確率的なばらつきを除去できる
--->
-
----
-transition: slide-up
-level: 2
----
-
-# スモールワールドモデル
-
-BehaviorSpace実験結果の解釈
+実験結果の解釈
 
 <v-clicks depth="2">
 
@@ -771,18 +659,6 @@ BehaviorSpace実験結果の解釈
 </p>
 
 
-<!--
-BehaviorSpaceの結果をもとにグラフを描くと以下の特徴が見える：
-
-1. クラスタ係数（緑線）：pが増加しても、ある程度まで高い値を保つ
-2. 平均経路長（赤線）：pが少し増えると急激に下がる
-
-これは「スモールワールド領域」が比較的広い範囲に存在することを意味する。
-わずかなランダムなショートカット（再配線）が、局所的な構造（クラスタ性）を維持しながら、
-全体的なアクセス性（短経路性）を大幅に改善できることを示している。
-
-5回の繰り返しによって確率的なばらつきが確認でき、結果の信頼性が保証される。
--->
 
 ---
 transition: slide-up
