@@ -1,4 +1,6 @@
 {
     "slidev.port": 3035,
-    "slidev.preview-sync": false
+    "slidev.preview-sync": false,
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda"
 }
