@@ -60,6 +60,236 @@ transition: slide-up
 level: 2
 ---
 
+# 先週の振り返りと今週の授業内容
+
+<v-clicks depth="2">
+
+- 意見を連続値として扱う意見ダイナミックモデル
+   - Positive Influence
+   - Bounded Confidence
+   - Negative Influence
+- 意見ダイナミックモデルの拡張：複数な意見に関する意見ダイナミックモデル
+- 意見をカテゴリ値として扱う意見ダイナミックモデル
+    - Majority model
+    - Voter Model
+- 意見ダイナミクスの応用
+
+</v-clicks>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# 複数意見のモデリング
+
+- 意見ダイナミクスモデルは、単純な相互作用ルールから合意・分極化・分断が生じることを示してきた
+   - これまでのモデルでは、個人が「1つの争点上の位置」だけで定義されている。
+- 人々は複数の争点について意見を持っており、他者との類似性も複数の意見の総合として判断される場合が多い
+
+- エージェント$i$は、長さ$K$の意見ベクトルによって表される
+$$
+\vec{x_i} = (x_{i1}, x_{i2}, \ldots, x_{iK})
+$$
+
+- ここで、$\vec{x_i}$はエージェント$i$の第$k$番目の意見を表す。
+    - 各意見は、$−1$から$1$の連続値として表される。
+    - すべての意見は互いに独立し、同じ程度に影響を受けやすいと仮定されている
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# 複数意見のモデリング
+
+- エージェント間の類似性を複数の意見差の平均として計算する
+    - 値が小さいほど、二つのエージェントの意見は全体として似ている
+$$
+d(i,j) = \frac{1}{K} \sum_{k=1}^{K} |x_{ik} - x_{jk}|
+$$
+
+- エージェント間の影響の重み $w_{ij}$
+
+$$
+w_{ij} = 1 - D_{ij}, \quad w_{ij} \in [-1, 1]
+$$
+
+- $w_{ij} > 0$ の場合、positive influence で意見をアップデートする
+- $w_{ij} < 0$ の場合、negative influence で意見をアップデートする
+
+$$
+x_{ik} \leftarrow x_{ik}
++ \frac{1}{2} w_{ij}(x_{jk} - x_{ik})(1 - |x_{ik}|)
+$$
+$$
+x_{jk} \leftarrow x_{jk}
++ \frac{1}{2} w_{ij}(x_{ik} - x_{jk})(1 - |x_{jk}|)
+$$
+
+---
+transition: slide-up
+level: 2
+---
+
+# 複数意見のモデリング
+
+意見分布を説明する指標
+
+- **分極化指標**：すべてのエージェントペアについて意見空間上の距離$D_{ij}$を計算し、その分散を求める
+    - エージェントの意見が複数の極端な立場に分かれている場合、エージェント間距離のばらつきが大きくなる
+    - ただし、全員が同じ方向に極端な意見を持つ場合も、エージェント間の距離は小さいため、値は低くなる
+
+- **極端化指標**：集団内のすべての意見のうち、極端な値をとる意見の割合で極端主義の度合いを測る
+    - 意見の絶対値が$0.9$を超える場合、その意見を「極端」とみなす
+$$
+E =
+\frac{
+\# \{ |x_{ik}| > 0.9 \}
+}{
+NK
+}
+$$
+
+---
+transition: slide-up
+level: 2
+---
+
+# 複数意見のモデリングに基づくシミュレーション
+意見数による意見ダイナミック帰結の差異
+
+
+<div grid="~ cols-2 gap-4 items-start">
+
+<div>
+
+<v-clicks depth="2">
+
+- $K$が少ない場合、エージェント間の類似性は少数の争点だけで決まる
+    - 少しの違いが相互作用全体を大きく左右する
+    - 異なる相手との相互作用では negative influence が働きやすくなり、意見が極端化・分極化しやすい
+- $K$が大きくなると、合意に向かいやすくなる
+    - 意見数が多いほど、(中心極限定理により)2人のエージェントの意見差の分散は小さくなり、安定して1未満に収まりやすくなる。
+    - positive influence が働きやすくなり、集団全体が中心へ収束しやすくなる
+
+</v-clicks>
+
+</div>
+
+<div class="flex flex-col items-center">
+  <img src="./image/multi-opinion-result1.png" alt="Positive influenceモデルの結果" width="250" />
+</div>
+
+</div>
+
+---
+transition: slide-up
+level: 2
+---
+
+# 複数意見のモデリングに基づくシミュレーション
+意見数による意見ダイナミック帰結の差異
+
+
+<div grid="~ cols-2 gap-4 items-start">
+
+<div>
+
+
+- 2人の意見が $[−1,1]$ の一様分布からランダムに選ばれるとき、2人の意見差の期待値は
+$$
+E[|X-Y|]=\frac{2}{3}
+$$
+
+- $K$が小さいと、意見差の分布は広く、1を超えるペアも比較的多い。
+- しかし、$K$ が大きくなると、距離の分布は$\frac{2}{3}$付近に集中する。そのため、1を超える距離を持つペアが少なくなる
+- 初期状態では、ランダムに選ばれた多くのペアで positive influence が生じやすい
+
+</div>
+
+<div class="flex flex-col items-center">
+  <img src="./image/opinions_distance.png" alt="Positive influenceモデルの結果" width="450" />
+</div>
+
+</div>
+
+
+---
+transition: slide-up
+level: 2
+---
+
+# 複数意見のモデリングに基づくシミュレーション
+
+空間構造による意見ダイナミック帰結の差異
+
+
+<div grid="~ cols-2 gap-4 items-start">
+
+<div>
+
+<v-clicks depth="2">
+
+- エージェントが上下左右の4近傍とだけ相互作用する空間モデルを考える
+- 空間モデルでは、非空間モデルよりも収束に時間がかかる
+    - 情報や影響は集団全体に一気に広がるのではなく、局所的な相互作用を通じて少しずつ広がる
+- 空間構造がある場合、より多様な意見が長く維持される
+- 空間モデルでも、意見数$K$が増えるにつれて、分極化と極端化の度合いは低下する
+    - ただし、空間構造がある場合、意見数が増えても、多様な意見や一定程度の極端性が残りやすい
+</v-clicks>
+
+</div>
+
+<div class="flex flex-col items-center">
+  <img src="./image/multi-opinion-result2.png" alt="Positive influenceモデルの結果" width="450" />
+</div>
+
+</div>
+
+---
+transition: slide-up
+level: 2
+---
+
+# 複数意見のモデリングに基づくシミュレーション
+
+空間構造による意見ダイナミック帰結の差異
+
+
+<div grid="~ cols-2 gap-4 items-start">
+
+<div>
+
+<v-clicks depth="2">
+
+- 最初の1000ステップの間、エージェントは近隣の4人とだけ相互作用があり、1000の時点で空間制約を取り除く
+- 空間モデルでは、相互作用範囲が限定されているため、全体が一気に一方向へ収束したり、全体的に二極化したりしにくく、多様な意見が維持される。
+- 空間制約が取り除かれると、集団は急速に再編成され、極端主義が最大に近づき、高い分極化状態へ転換する
+- **社会的含意**：インターネットのように全体的なミュニケーションを促進する環境では、分極化や極端化を促進する可能性がある
+</v-clicks>
+
+</div>
+
+<div class="flex flex-col items-center" style="display: grid;">
+  <div v-click.hide="3" style="grid-area: 1 / 1;">
+    <img src="./image/multi-opinion-result3.png" alt="Positive influenceモデルの結果" width="450" />
+  </div>
+  <div v-click="3" style="grid-area: 1 / 1;">
+    <img src="./image/multi-opinion-result4.png" alt="Positive influenceモデルの結果" width="450" />
+  </div>
+</div>
+
+
+</div>
+
+---
+transition: slide-up
+level: 2
+---
+
 # 多数派モデル(Majority model)
 
 
@@ -723,24 +953,5 @@ level: 2
 
 
 
----
-transition: slide-up
-level: 2
----
-# 意見ダイナミクスの応用
-
-シミュレーションのプロセス
-
-- 理論または実世界への観察に基づいてシミュレーションの設定を設計する
-   - Agent属性と行動
-   - 環境の設定
-- 目的に応じて初期条件を設定する
-   - 特定なパラメータの影響を解析する
-   - 実世界の状況を再現する
-- 結果の評価と解釈
-   - 仮説の検証
-   - 感度分析
-- モデルの改善
-   - 解析と検証の結果、または新たな知見に基づいて、モデルの構造、エージェントの行動ルール、環境設定などを修正・追加する
 
 
