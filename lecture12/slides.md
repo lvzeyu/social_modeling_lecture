@@ -213,6 +213,32 @@ level: 2
 
 
 - 2人の意見が $[-1,1]$ の一様分布からランダムに選ばれるとき、2人の意見差の期待値は
+  <details class="expectation-details" @click.stop>
+  <summary>証明</summary>
+  <div
+    class="expectation-backdrop"
+    @click.stop="$event.currentTarget.parentElement.removeAttribute('open')"
+  ></div>
+  <div class="expectation-explanation">
+
+  $X,Y$ が独立に一様分布 $U[-1,1]$ に従うとします。同時密度は正方形
+  $[-1,1]^2$ 上で $\frac14$ なので、対称性を使うと
+
+  $$
+  \begin{aligned}
+  E[|X-Y|]
+  &=\frac14\int_{-1}^{1}\int_{-1}^{1}|x-y|\,dy\,dx \\
+  &=\frac12\int_{-1}^{1}\int_{-1}^{x}(x-y)\,dy\,dx \\
+  &=\frac14\int_{-1}^{1}(x+1)^2\,dx
+  =\frac23.
+  \end{aligned}
+  $$
+
+  直感的には、長さ $L$ の区間から選んだ2点の平均距離は $L/3$ です。
+  区間 $[-1,1]$ の長さは $2$ なので、平均距離は $2/3$ になります。
+
+  </div>
+  </details>
 $$
 E[|X-Y|]=\frac{2}{3}
 $$
@@ -228,6 +254,62 @@ $$
 </div>
 
 </div>
+
+<style>
+li > p:has(+ .expectation-details) {
+  display: inline;
+}
+
+.expectation-details {
+  display: inline-block;
+  margin-left: 0.4rem;
+  vertical-align: baseline;
+}
+
+.expectation-details summary {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid #6d5cae;
+  border-radius: 9999px;
+  color: #4f3b8f;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+}
+
+.expectation-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.expectation-details[open] summary {
+  background: #6d5cae;
+  color: white;
+}
+
+.expectation-backdrop {
+  position: fixed;
+  z-index: 19;
+  inset: 0;
+  background: rgba(22, 16, 40, 0.16);
+}
+
+.expectation-explanation {
+  position: absolute;
+  z-index: 20;
+  top: 7rem;
+  left: 3rem;
+  right: 3rem;
+  padding: 1.1rem 1.4rem;
+  border: 2px solid #6d5cae;
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 12px 32px rgba(35, 25, 70, 0.22);
+  color: #25212f;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+</style>
 
 
 ---
@@ -282,6 +364,7 @@ level: 2
 - 空間モデルでは、相互作用範囲が限定されているため、全体が一気に一方向へ収束したり、全体的に二極化したりしにくく、多様な意見が維持される。
 - 空間制約が取り除かれると、集団は急速に再編成され、極端主義が最大に近づき、高い分極化状態へ転換する
 - **社会的含意**：インターネットのように全体的なコミュニケーションを促進する環境では、分極化や極端化を促進する可能性がある
+
 </v-clicks>
 
 </div>
@@ -351,11 +434,10 @@ level: 2
     - エージェントは局所的（近傍）にしか相互作用しないため、同じ意見が拡大しやすい
 - 多くのネットワーク構造において、多数派ルールに基づく意見ダイナミクスは、単一の意見への合意に至るのではなく、異なる意見が長期的に共存する定常状態に収束する
     - 非局所的リンクの存在 
-        - スケールフリーや小世界ネットワークでは、遠く離れたノード間にもリンクがあるため、局所的な意見が一貫して拡散できなくなる
-        - 意見の「境界」が簡単に乱され、一方向的に収束する過程が阻害される
+        - スケールフリーやsmall worldネットワークでは、遠く離れたノード間にもリンクがあるため、局所的な意見が一貫して拡散できなくなる
     - ノード次数の非均質性
         - 極端に多くのリンクを持つハブノードが存在し、意見拡散に大きな影響力を持つ
-        - 複数のハブが異なる意見を持っているとき、それぞれの周辺で安定した意見ドメインが形成され、意見の統一が阻害される
+        - 複数のハブが異なる意見を持っているとき、それぞれの周辺で安定した意見ドメインが形成される
 </v-clicks>
 
 
@@ -404,8 +486,10 @@ level: 2
     - 多数派の意見の拡大と少数派の消滅
         - ある意見が多数派である場合、その意見を持つエージェントが隣接するエージェントを模倣させる機会が多くなり、多数派の意見はさらに多くのエージェントに伝播し、拡大していく
         - 少数派の意見を持つエージェントは、周囲に多数派の意見を持つエージェントが多い状況に置かれやすく、自身の意見を変える可能性が高い
-- [Demo](https://colab.research.google.com/github/lvzeyu/social_modeling_lecture/blob/main/lecture10/voter_majority_comparision.ipynb)
+- [Demo](https://colab.research.google.com/github/lvzeyu/social_modeling_lecture/blob/main/lecture11/voter_majority_comparision.ipynb)
 </div>
+
+
 
 
 
@@ -455,7 +539,6 @@ Voter Modelの拡張: バイアスや柔軟性の導入
 - $q$人の意見が一致していない場合は、エージェントが特定の意見へのバイアス（偏り）を持つような設定
     - 現実社会におけるメディアの偏向、社会的規範や選好バイアスなどをモデル化する
         - $q$人の意見が一致しなかった場合に、確率$\epsilon$で$+1$の意見が選ばれやすくなるようにする
-        - 意見を変える確率が、$+1$→$-1$ と $-1$→$+1$ で異なる
 - [柔軟性](https://www.mdpi.com/1099-4300/22/1/120):エージェントの独立行動における多様性を記述する
     - 確率$p$で独立した行動を取る際には、意見を変える確率$f$(柔軟性)により、エージェントの「自己への態度」や「内的ノイズ」がモデリングされる　
 
@@ -963,8 +1046,3 @@ level: 2
 - 基礎モデルは、単純なルールで意見形成を記述することが可能だが、現実の社会現象にはそれだけでは捉えきれない複雑性がある
     - モデルに非線形な要素（たとえばバイアス、記憶、柔軟性など）を導入することで、より現実に近いダイナミクスを再現できる
 </v-clicks>
-
-
-
-
-
